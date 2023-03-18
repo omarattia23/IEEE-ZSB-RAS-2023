@@ -10,23 +10,24 @@ struct student_info{
     char name[50];
     int age;
     char address[50];
+    int mark;
 };
 int main(){
     struct student_info students[15]={
-    {0,"Ahmed",21,"zagazig"},
-    {1,"Ali",21,"zagazig"},
-    {2,"Islam",21,"zagazig"},
-    {3,"Atef",21,"zagazig"},
-    {4,"Attia",21,"zagazig"},
-    {5,"Abdelallah",21,"zagazig"},
-    {6,"Abdelhady",21,"zagazig"},
-    {7,"Abdelrahman",21,"zagazig"},
-    {8,"Ammar",21,"zagazig"},
-    {9,"Amr",21,"zagazig"},
-    {10,"Omar",21,"zagazig"},
-    {11,"Karim",21,"zagazig"},
-    {13,"Mohamed",21,"zagazig"},
-    {14,"Mina",21,"zagazig"}
+    {0,"Ahmed",21,"zagazig",70},
+    {1,"Ali",21,"zagazig",75},
+    {2,"Islam",21,"zagazig",72},
+    {3,"Atef",21,"zagazig",80},
+    {4,"Attia",21,"zagazig",77},
+    {5,"Abdelallah",21,"zagazig",89},
+    {6,"Abdelhady",21,"zagazig",77},
+    {7,"Abdelrahman",21,"zagazig",89},
+    {8,"Ammar",21,"zagazig",88},
+    {9,"Amr",21,"zagazig",88},
+    {10,"Omar",21,"zagazig",88},
+    {11,"Karim",21,"zagazig",94},
+    {13,"Mohamed",21,"zagazig",94},
+    {14,"Mina",21,"zagazig",94}
     };
 
     printf("-----------------------------------\n");
@@ -36,6 +37,7 @@ int main(){
         printf("The student name   : %s\n",students[i].name);
         printf("The student age    : %d\n",students[i].age);
         printf("The student address: %s\n",students[i].address);
+        printf("The student mark   : %d\n",students[i].mark);
         printf("-----------------------------------\n");
     }
     return 0;
