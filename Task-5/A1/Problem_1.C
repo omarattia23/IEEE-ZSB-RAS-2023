@@ -46,16 +46,15 @@ int main(){
         ptr1[i] = i;
     }
     printf("Values assigned to ptr1:\n");
-    for (int i = 0; i <n1; i++)
+    for (int i = 0; i <n1; i++)         //the output is 0   1   2   3   4
         printf("%d \t",ptr1[i]);
     printf("\n");
     //--------------------------------------------------------------------
-    for (int i = 0; i <n2; i++){
+    for (int i = 0; i <n2; i++)         //the output is 2       4       6       8
         ptr2[i] = (i + 1) * 2;
-    }
     //--------------------------------------------------------------------
     printf("Values assigned to ptr2:\n");
-    for (int i = 0; i <n2; i++)
+    for (int i = 0; i <n2; i++)         //the output is 10      11      12
         printf("%d \t",ptr2[i]);
     printf("\n");
     //--------------------------------------------------------------------
