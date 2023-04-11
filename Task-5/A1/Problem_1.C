@@ -8,10 +8,6 @@
     memory blocks. ”Don’t forget to free your memory when you
     finish ☺”
 */
-/*-----------------------------Notes----------------------------------------
-malloc is short name for "Memmory Allocation"
-
-*/
 #include <stdio.h>
 #include <stdlib.h>
 int main(){
@@ -50,11 +46,11 @@ int main(){
         printf("%d \t",ptr1[i]);
     printf("\n");
     //--------------------------------------------------------------------
-    for (int i = 0; i <n2; i++)         //the output is 2       4       6       8
+    for (int i = 0; i <n2; i++)         
         ptr2[i] = (i + 1) * 2;
     //--------------------------------------------------------------------
     printf("Values assigned to ptr2:\n");
-    for (int i = 0; i <n2; i++)         //the output is 10      11      12
+    for (int i = 0; i <n2; i++)         //the output is 2       4       6       8
         printf("%d \t",ptr2[i]);
     printf("\n");
     //--------------------------------------------------------------------
@@ -62,7 +58,7 @@ int main(){
         ptr3[i] = i+10;
     }
     printf("Values assigned to ptr3:\n");
-    for (int i = 0; i <n3; i++)
+    for (int i = 0; i <n3; i++)         //the output is 10      11      12
         printf("%d \t",ptr3[i]);
     printf("\n");
     //--------------------------------------------------------------------
