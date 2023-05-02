@@ -27,6 +27,10 @@
 #define DIO_u8_OUTPUT   0
 #define DIO_u8_INPUT    1
 
+/* Macros for Pin Value */
+#define DIO_u8_HIGH     1
+#define DIO_u8_Low      0
+
 u8 DIO_setPinDirectoin(u8 Copy_u8PortID, u8 Copy_u8PinID, u8 Copy_u8PinDirection);
 u8 DIO_setPinvALUE(u8 Copy_u8PortID, u8 Copy_PinId, u8 Copy_u8PinValue);
 u8 DIO_u8GetPinValue(u8 Copy_u8PortID, u8 Copy_PinID, u8 * Copy_pu8ReturnedPinValue);
