@@ -1,0 +1,19 @@
+{
+    "files.associations": {
+        "A1.C": "cpp",
+        "tempCodeRunnerFile.C": "cpp",
+        "A2.C": "cpp",
+        "A3.C": "cpp",
+        "A4.C": "cpp",
+        "P1.C": "cpp",
+        "P2.C": "cpp",
+        "P3.C": "cpp",
+        "Problem_1.C": "cpp",
+        "Problem_2.C": "cpp",
+        "Problem_3.C": "cpp",
+        "DIO_program.C": "cpp",
+        "main.C": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "disabled",
+    "genieai.openai.organization": "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"
+}

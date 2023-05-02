@@ -1,0 +1,10 @@
+avrpaths//systempath/AVRDUDE=
+avrpaths//systempath/AVRGCC=
+avrpaths//systempath/AVRINCLUDE=
+avrpaths//systempath/MAKE=
+avrpaths//systempath/PDFPATH=
+avrpaths/AVRDUDE=D\:\\IEEE\\Embedded\\Tools\\Tools\\IMT_SDK_Win_32\\WinAVR\\bin
+avrpaths/AVRGCC=D\:\\IEEE\\Embedded\\Tools\\Tools\\IMT_SDK_Win_32\\WinAVR\\bin
+avrpaths/AVRINCLUDE=D\:\\IEEE\\Embedded\\Tools\\Tools\\IMT_SDK_Win_32\\WinAVR\\avr\\include
+avrpaths/MAKE=D\:\\IEEE\\Embedded\\Tools\\Tools\\IMT_SDK_Win_32\\WinAVR\\utils\\bin
+eclipse.preferences.version=1
