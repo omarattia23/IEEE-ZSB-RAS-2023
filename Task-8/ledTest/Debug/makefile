@@ -8,8 +8,6 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
--include LED/subdir.mk
--include 2-\ HAL/1-\ LCD/subdir.mk
 -include subdir.mk
 -include objects.mk
 
@@ -36,17 +34,17 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := test000001
+BUILD_ARTIFACT_NAME := ledTest
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 LSS += \
-test000001.lss \
+ledTest.lss \
 
 FLASH_IMAGE += \
-test000001.hex \
+ledTest.hex \
 
 SIZEDUMMY += \
 sizedummy \
@@ -56,37 +54,37 @@ sizedummy \
 all: main-build
 
 # Main-build Target
-main-build: test000001.elf secondary-outputs
+main-build: ledTest.elf secondary-outputs
 
 # Tool invocations
-test000001.elf: $(OBJS) $(USER_OBJS) makefile objects.mk $(OPTIONAL_TOOL_DEPS)
+ledTest.elf: $(OBJS) $(USER_OBJS) makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: AVR C Linker'
-	avr-gcc -Wl,-Map,test000001.map -mmcu=atmega32 -o "test000001.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	avr-gcc -Wl,-Map,ledTest.map -mmcu=atmega32 -o "ledTest.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-test000001.lss: test000001.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
+ledTest.lss: ledTest.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Invoking: AVR Create Extended Listing'
-	-avr-objdump -h -S test000001.elf  >"test000001.lss"
+	-avr-objdump -h -S ledTest.elf  >"ledTest.lss"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-test000001.hex: test000001.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
+ledTest.hex: ledTest.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Create Flash image (ihex format)'
-	-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex test000001.elf  "test000001.hex"
+	-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ledTest.elf  "ledTest.hex"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-sizedummy: test000001.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
+sizedummy: ledTest.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Invoking: Print Size'
-	-avr-size --format=avr --mcu=atmega32 test000001.elf
+	-avr-size --format=avr --mcu=atmega32 ledTest.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(FLASH_IMAGE)$(ELFS)$(OBJS)$(ASM_DEPS)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(LSS)$(C_DEPS) test000001.elf
+	-$(RM) $(FLASH_IMAGE)$(ELFS)$(OBJS)$(ASM_DEPS)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(LSS)$(C_DEPS) ledTest.elf
 	-@echo ' '
 
 secondary-outputs: $(LSS) $(FLASH_IMAGE) $(SIZEDUMMY)

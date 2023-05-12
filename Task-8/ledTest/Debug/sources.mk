@@ -20,6 +20,5 @@ C_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
-2-\ HAL/1-\ LCD \
-LED \
+. \
 
