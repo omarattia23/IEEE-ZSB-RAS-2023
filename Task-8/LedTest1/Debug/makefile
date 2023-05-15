@@ -10,7 +10,6 @@ RM := rm -rf
 -include sources.mk
 -include MCAL/DIO/subdir.mk
 -include APP/subdir.mk
--include .metadata/.plugins/org.eclipse.cdt.make.core/subdir.mk
 -include subdir.mk
 -include objects.mk
 
@@ -81,7 +80,7 @@ LedTest1.hex: LedTest1.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 
 sizedummy: LedTest1.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Invoking: Print Size'
-	-avr-size --format=avr --mcu=atmega32 LedTest1.elf
+	-avr-size --format=berkeley -t LedTest1.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 

@@ -1,25 +1,26 @@
 #include "../MCAL/DIO/DIO_interface.h"
 
-void delay(void) {
-	for (int x = 0; x < 500; x++)
-		for (int y = 0; y < 500; y++)
-			__asm("NOP");
-}
+void delay(void)
+	{
+		for(int x=0;x<500;x++)
+			for(int y=0;y<500;y++)
+				__asm("NOP");
+	}
 int main()
 
 {
 
 	DIO_voidInit();
-	while (1) {
-		/*turn on led*/
-		DIO_voidSetPinValue(DIO_u8_PORTA, DIO_u8_PIN1, DIO_u8_HIGH);
-		delay();
-		/*turn off led*/
-		DIO_voidSetPinValue(DIO_u8_PORTA, DIO_u8_PIN1, DIO_u8_LOW);
+			while(1)
+			{
 
-		delay();
+				DIO_voidSetPinValue(DIO_u8_PORTA,DIO_u8_PIN0,DIO_u8_HIGH);
+				delay();
+				DIO_voidSetPinValue(DIO_u8_PORTB,DIO_u8_PIN1,DIO_u8_LOW);
 
-	}
-	return 0;
+				delay();
+
+			}
+		return 0;
 
 }
