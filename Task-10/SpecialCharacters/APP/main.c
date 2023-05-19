@@ -83,13 +83,13 @@ int main() {
 				&button3_state);
 
 		// Button 1
-		if (button1_state != 1) {
+		if (button1_state) {
 			LCD_voidSendSpecialCharacters(0, button1_special_char, LCD_u8_LINE2,
 					count + 0, 0b01000000);
 		}
 
 		// Button 2
-		if (button2_state == 1) {
+		if (button2_state) {
 			LCD_voidSendSpecialCharacters(1, button2_special_char, LCD_u8_LINE2,
 					count + 2, 0x48);
 					// Add a small delay to avoid unnecessary processing
