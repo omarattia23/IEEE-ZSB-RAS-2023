@@ -2,13 +2,14 @@
 /* HAL */
 #include "../HAL/1-LCD/LCD_interface.h"
 #include "../HAL/2-Keypad/KPD_interface.h"
-#define F_CPU 8000000UL
+#define F_CPU 1000000UL
 int main()
 {
 	u8 Local_u8Key;
 	DIO_voidInit();
 	/* Initialize LCD */
 	LCD_voideInit();
+	KPD_enuInit();
 	while (1)
 	{
 		KPD_u8getKeystate(&Local_u8Key);
@@ -18,7 +19,6 @@ int main()
 		{
 
 			LCD_voidSendChar(Local_u8Key);
-
 		}
 	}
 	return 0;

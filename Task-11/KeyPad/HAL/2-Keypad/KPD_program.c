@@ -6,7 +6,7 @@
 /**********************************************************/
 #include "../../LIB/STD_TYPES.h"
 #include "../../LIB/BIT_MATH.h"
-#define F_CPU 8000000UL
+#define F_CPU 1000000UL
 #include <util/delay.h>
 /***************************************************************************/
 /*MCAL*/
@@ -44,11 +44,11 @@ u8 KPD_u8getKeystate(u8 *copy_pu8Returnedkey)
 
     if (copy_pu8Returnedkey != NULL)
     {
-    	*copy_pu8Returnedkey = KPD_u8_KEY_NOT_PRESSED;
+        *copy_pu8Returnedkey = KPD_u8_KEY_NOT_PRESSED;
         /* Activate each row ==> for loop on the pins of the rows */
         for (Local_u8RowsCounter = 0; Local_u8RowsCounter <= 3; Local_u8RowsCounter++)
         {
-        	DIO_voidSetPinValue(KPD_u8_PORT, KPD_Au8RowsPins[Local_u8RowsCounter], DIO_u8_LOW);
+            DIO_voidSetPinValue(KPD_u8_PORT, KPD_Au8RowsPins[Local_u8RowsCounter], DIO_u8_LOW);
             /* Check which i/p pin has zero */
             for (Local_u8ColumnsCounter = 0; Local_u8ColumnsCounter <= 3; Local_u8ColumnsCounter++)
             {
@@ -81,4 +81,20 @@ u8 KPD_u8getKeystate(u8 *copy_pu8Returnedkey)
         Local_u8ErrorState = STD_TYPES_NOK;
     }
     return Local_u8ErrorState;
+}
+u8 KPD_enuInit(void)
+{
+    DIO_voidSetPinDirection(KPD_u8_PORT, KPD_u8_R1_PIN, DIO_u8_OUTPUT);
+    DIO_voidSetPinDirection(KPD_u8_PORT, KPD_u8_R2_PIN, DIO_u8_OUTPUT);
+    DIO_voidSetPinDirection(KPD_u8_PORT, KPD_u8_R3_PIN, DIO_u8_OUTPUT);
+    DIO_voidSetPinDirection(KPD_u8_PORT, KPD_u8_R4_PIN, DIO_u8_OUTPUT);
+
+    DIO_voidSetPinDirection(KPD_u8_PORT, KPD_u8_C1_PIN, DIO_u8_INPUT);
+    DIO_voidSetPinDirection(KPD_u8_PORT, KPD_u8_C2_PIN, DIO_u8_INPUT);
+    DIO_voidSetPinDirection(KPD_u8_PORT, KPD_u8_C3_PIN, DIO_u8_INPUT);
+    DIO_voidSetPinDirection(KPD_u8_PORT, KPD_u8_C4_PIN, DIO_u8_INPUT);
+
+    DIO_u8SetPortValue(KPD_u8_PORT, DIO_u8_HIGH);
+
+    return STD_TYPES_OK;
 }
