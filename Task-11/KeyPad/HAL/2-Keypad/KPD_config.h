@@ -18,9 +18,9 @@
 #define KPD_u8_C2_PIN DIO_u8_PIN5
 #define KPD_u8_C3_PIN DIO_u8_PIN6
 #define KPD_u8_C4_PIN DIO_u8_PIN7
-#define KPD_KEYS {{'1', '2', '3', '+'}, \
-                  {'4', '5', '6', '-'}, \
-                  {'7', '8', '9', '*'}, \
-                  {'0', '=', '/', '%'}};
+#define KPD_KEYS {{'7', '8', '9', '/'}, \
+                  {'4', '5', '6', 'x'},  \
+                  {'1', '2', '3', '-'},  \
+                  {'0', '0', '=', '+'}};
 
 #endif

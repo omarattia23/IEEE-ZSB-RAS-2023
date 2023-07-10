@@ -34,13 +34,8 @@ const u8 KPD_Au8ColumnsPins[4] = {
 /***************************************************************************/
 u8 KPD_u8getKeystate(u8 *copy_pu8Returnedkey)
 {
-
     u8 Local_u8ErrorState = STD_TYPES_OK;
-
-    u8 Local_u8RowsCounter,
-        Local_u8ColumnsCounter,
-        Local_u8PinValue,
-        Local_u8Flag = 0;
+    u8 Local_u8RowsCounter, Local_u8ColumnsCounter, Local_u8PinValue, Local_u8Flag = 0;
 
     if (copy_pu8Returnedkey != NULL)
     {
@@ -49,27 +44,37 @@ u8 KPD_u8getKeystate(u8 *copy_pu8Returnedkey)
         for (Local_u8RowsCounter = 0; Local_u8RowsCounter <= 3; Local_u8RowsCounter++)
         {
             DIO_voidSetPinValue(KPD_u8_PORT, KPD_Au8RowsPins[Local_u8RowsCounter], DIO_u8_LOW);
+
+            /* Delay to stabilize the row activation */
+            _delay_ms(1);
+
             /* Check which i/p pin has zero */
             for (Local_u8ColumnsCounter = 0; Local_u8ColumnsCounter <= 3; Local_u8ColumnsCounter++)
             {
-                DIO_u8GetPinValue(KPD_u8_PORT, KPD_Au8ColumnsPins[Local_u8ColumnsCounter], &copy_pu8Returnedkey);
-                if (Local_u8PinValue == DIO_u8_LOW) /* Switch is Pressed*/
+                DIO_u8GetPinValue(KPD_u8_PORT, KPD_Au8ColumnsPins[Local_u8ColumnsCounter], &Local_u8PinValue);
+
+                if (Local_u8PinValue == DIO_u8_LOW) /* Switch is Pressed */
                 {
-                    /* Deboucing */
+                    /* Debouncing */
                     _delay_ms(20);
-                    DIO_u8GetPinValue(KPD_u8_PORT, KPD_Au8ColumnsPins[Local_u8ColumnsCounter], &copy_pu8Returnedkey);
-                    /* check if the pin is a still equal LOW */
+
+                    DIO_u8GetPinValue(KPD_u8_PORT, KPD_Au8ColumnsPins[Local_u8ColumnsCounter], &Local_u8PinValue);
+
+                    /* Check if the pin is still equal to LOW */
                     while (Local_u8PinValue == DIO_u8_LOW)
                     {
-                        DIO_u8GetPinValue(KPD_u8_PORT, KPD_Au8ColumnsPins[Local_u8ColumnsCounter], &copy_pu8Returnedkey);
+                        DIO_u8GetPinValue(KPD_u8_PORT, KPD_Au8ColumnsPins[Local_u8ColumnsCounter], &Local_u8PinValue);
                     }
+
                     *copy_pu8Returnedkey = KPD_Au8keys[Local_u8RowsCounter][Local_u8ColumnsCounter];
                     Local_u8Flag = 1;
                     break;
                 }
             }
+
             /* Deactivate Row */
             DIO_voidSetPinValue(KPD_u8_PORT, KPD_Au8RowsPins[Local_u8RowsCounter], DIO_u8_HIGH);
+
             if (Local_u8Flag == 1)
             {
                 break;
@@ -82,6 +87,7 @@ u8 KPD_u8getKeystate(u8 *copy_pu8Returnedkey)
     }
     return Local_u8ErrorState;
 }
+
 u8 KPD_enuInit(void)
 {
     DIO_voidSetPinDirection(KPD_u8_PORT, KPD_u8_R1_PIN, DIO_u8_OUTPUT);
