@@ -20,45 +20,45 @@
 #include "LCD_interface.h"
 #include "LCD_private.h"
 
-
-
-void LCD_voidSendCmnd(u8 Copy_u8Cmnd) {
+void LCD_voidSendCmnd(u8 Copy_u8Cmnd)
+{
 	/* Rs = 0*/
-	DIO_voidSetPinValue(DIO_u8_PORTA, DIO_u8_PIN0, DIO_u8_LOW);
+	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN0, DIO_u8_LOW);
 
 	/*Rw = 0*/
-	DIO_voidSetPinValue(DIO_u8_PORTA, DIO_u8_PIN1, DIO_u8_LOW);
+	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN1, DIO_u8_LOW);
 
 	/*Write Command*/
 	DIO_u8SetPortValue(DIO_u8_PORTD, Copy_u8Cmnd);
 
 	/*E = 1*/
-	DIO_voidSetPinValue(DIO_u8_PORTA, DIO_u8_PIN2, DIO_u8_HIGH);
+	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN2, DIO_u8_HIGH);
 	_delay_us(1);
 
 	/*E = 0*/
-	DIO_voidSetPinValue(DIO_u8_PORTA, DIO_u8_PIN2, DIO_u8_LOW);
+	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN2, DIO_u8_LOW);
 }
 
-void LCD_voidSendChar(u8 Copy_u8Char){
+void LCD_voidSendChar(u8 Copy_u8Char)
+{
 	/* Rs = 1*/
-	DIO_voidSetPinValue(DIO_u8_PORTA, DIO_u8_PIN0, DIO_u8_HIGH);
+	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN0, DIO_u8_HIGH);
 
 	/*Rw = 0*/
-	DIO_voidSetPinValue(DIO_u8_PORTA, DIO_u8_PIN1, DIO_u8_LOW);
+	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN1, DIO_u8_LOW);
 
 	/*Write Command*/
 	DIO_u8SetPortValue(DIO_u8_PORTD, Copy_u8Char);
 
 	/*E = 1*/
-	DIO_voidSetPinValue(DIO_u8_PORTA, DIO_u8_PIN2, DIO_u8_HIGH);
+	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN2, DIO_u8_HIGH);
 	_delay_us(1);
 
 	/*E = 0*/
-	DIO_voidSetPinValue(DIO_u8_PORTA, DIO_u8_PIN2, DIO_u8_LOW);
-
+	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN2, DIO_u8_LOW);
 }
-void LCD_voideInit(void) {
+void LCD_voideInit(void)
+{
 	_delay_ms(35);
 	LCD_voidSendCmnd(0b00111000);
 	_delay_us(40);
@@ -67,13 +67,15 @@ void LCD_voideInit(void) {
 	LCD_voidSendCmnd(0x01);
 	_delay_ms(5);
 	LCD_voidSendCmnd(0b00000110);
-
 }
 
-u8 LCD_u8GoToXY(u8 COPY_u8LineNum, u8 Copy_u8location) {
+u8 LCD_u8GoToXY(u8 COPY_u8LineNum, u8 Copy_u8location)
+{
 	u8 local_u8Errorstate = STD_TYPES_OK;
-	if (COPY_u8LineNum <= 39){
-		switch (COPY_u8LineNum) {
+	if (COPY_u8LineNum <= 39)
+	{
+		switch (COPY_u8LineNum)
+		{
 		case LCD_u8_LINE1:
 			LCD_voidSendCmnd(0x80 + Copy_u8location);
 			break;
@@ -83,9 +85,10 @@ u8 LCD_u8GoToXY(u8 COPY_u8LineNum, u8 Copy_u8location) {
 		default:
 			local_u8Errorstate = STD_TYPES_OK;
 		}
-	} else {
+	}
+	else
+	{
 		local_u8Errorstate = STD_TYPES_OK;
 	}
 	return local_u8Errorstate;
 }
-

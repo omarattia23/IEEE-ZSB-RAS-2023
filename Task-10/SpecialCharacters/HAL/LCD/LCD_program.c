@@ -24,47 +24,47 @@ void LCD_voidSendCmnd(u8 Copy_u8Cmnd)
 {
 #if LCD_u8_MODE == LCD_u8_MODE_8_BIT
 	/* Rs = 0*/
-	DIO_voidSetPinValue(DIO_u8_PORTA, DIO_u8_PIN0, DIO_u8_LOW);
+	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN0, DIO_u8_LOW);
 
 	/*Rw = 0*/
-	DIO_voidSetPinValue(DIO_u8_PORTA, DIO_u8_PIN1, DIO_u8_LOW);
+	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN1, DIO_u8_LOW);
 
 	/*Write Command*/
 	DIO_u8SetPortValue(DIO_u8_PORTD, Copy_u8Cmnd);
 
 	/*E = 1*/
-	DIO_voidSetPinValue(DIO_u8_PORTA, DIO_u8_PIN2, DIO_u8_HIGH);
+	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN2, DIO_u8_HIGH);
 	_delay_us(1);
 
 	/*E = 0*/
-	DIO_voidSetPinValue(DIO_u8_PORTA, DIO_u8_PIN2, DIO_u8_LOW);
+	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN2, DIO_u8_LOW);
 #elif LCD_u8_MODE == LCD_u8_MODE_4_BIT
 	// code to send a command at 4 bits Mode
 
 	/* Rs = 0*/
-	DIO_voidSetPinValue(DIO_u8_PORTA, DIO_u8_PIN0, DIO_u8_LOW);
+	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN0, DIO_u8_LOW);
 
 	/*Rw = 0*/
-	DIO_voidSetPinValue(DIO_u8_PORTA, DIO_u8_PIN1, DIO_u8_LOW);
+	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN1, DIO_u8_LOW);
 
 	/*Write Command*/
 	DIO_u8SetPortValue(DIO_u8_PORTD, Copy_u8Cmnd);
 
 	/*E = 1*/
-	DIO_voidSetPinValue(DIO_u8_PORTA, DIO_u8_PIN2, DIO_u8_HIGH);
+	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN2, DIO_u8_HIGH);
 	_delay_us(1);
 
 	/*E = 0*/
-	DIO_voidSetPinValue(DIO_u8_PORTA, DIO_u8_PIN2, DIO_u8_LOW);
+	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN2, DIO_u8_LOW);
 
 	// Write the rest of the command
-	DIO_u8SetPortValue(DIO_u8_PORTA, Copy_u8Cmnd << 4);
+	DIO_u8SetPortValue(LCD_u8_CONTROL_PORT, Copy_u8Cmnd << 4);
 	/*E = 1*/
-	DIO_voidSetPinValue(DIO_u8_PORTA, DIO_u8_PIN2, DIO_u8_HIGH);
+	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN2, DIO_u8_HIGH);
 	_delay_us(1);
 
 	/*E = 0*/
-	DIO_voidSetPinValue(DIO_u8_PORTA, DIO_u8_PIN2, DIO_u8_LOW);
+	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN2, DIO_u8_LOW);
 #endif
 }
 
@@ -73,45 +73,45 @@ void LCD_voidSendChar(u8 Copy_u8Char)
 
 #if LCD_u8_MODE == LCD_u8_MODE_8_BIT
 	/* Rs = 1*/
-	DIO_voidSetPinValue(DIO_u8_PORTA, DIO_u8_PIN0, DIO_u8_HIGH);
+	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN0, DIO_u8_HIGH);
 
 	/*Rw = 0*/
-	DIO_voidSetPinValue(DIO_u8_PORTA, DIO_u8_PIN1, DIO_u8_LOW);
+	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN1, DIO_u8_LOW);
 
 	/*Write Command*/
 	DIO_u8SetPortValue(DIO_u8_PORTD, Copy_u8Char);
 
 	/*E = 1*/
-	DIO_voidSetPinValue(DIO_u8_PORTA, DIO_u8_PIN2, DIO_u8_HIGH);
+	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN2, DIO_u8_HIGH);
 	_delay_us(1);
 
 	/*E = 0*/
-	DIO_voidSetPinValue(DIO_u8_PORTA, DIO_u8_PIN2, DIO_u8_LOW);
+	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN2, DIO_u8_LOW);
 
 #elif LCD_u8_MODE == LCD_u8_MODE_4_BIT
 	/* Rs = 1*/
-	DIO_voidSetPinValue(DIO_u8_PORTA, DIO_u8_PIN0, DIO_u8_HIGH);
+	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN0, DIO_u8_HIGH);
 
 	/*Rw = 0*/
-	DIO_voidSetPinValue(DIO_u8_PORTA, DIO_u8_PIN1, DIO_u8_LOW);
+	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN1, DIO_u8_LOW);
 
 	/*Write Command*/
 	DIO_u8SetPortValue(DIO_u8_PORTD, Copy_u8Char);
 
 	/*E = 1*/
-	DIO_voidSetPinValue(DIO_u8_PORTA, DIO_u8_PIN2, DIO_u8_HIGH);
+	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN2, DIO_u8_HIGH);
 	_delay_us(1);
 
 	/*E = 0*/
-	DIO_voidSetPinValue(DIO_u8_PORTA, DIO_u8_PIN2, DIO_u8_LOW);
+	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN2, DIO_u8_LOW);
 	// Write the rest of the command
-	DIO_u8SetPortValue(DIO_u8_PORTA, Copy_u8Char << 4);
+	DIO_u8SetPortValue(LCD_u8_CONTROL_PORT, Copy_u8Char << 4);
 	/*E = 1*/
-	DIO_voidSetPinValue(DIO_u8_PORTA, DIO_u8_PIN2, DIO_u8_HIGH);
+	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN2, DIO_u8_HIGH);
 	_delay_us(1);
 
 	/*E = 0*/
-	DIO_voidSetPinValue(DIO_u8_PORTA, DIO_u8_PIN2, DIO_u8_LOW);
+	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN2, DIO_u8_LOW);
 
 #endif
 }
@@ -140,7 +140,6 @@ void LCD_voideInit(void)
 	LCD_voidSendCmnd(0b00000110); // set mood for 8 bits
 
 #endif
-
 }
 
 u8 LCD_u8GoToXY(u8 COPY_u8LineNum, u8 Copy_u8location)
@@ -206,18 +205,20 @@ void LCD_String_Position(char line, char pos, char *str, u8 *count)
 	}
 }
 
-void LCD_voidSendSpecialCharacters(u8 Copy_CharNum, u8 *Copy_u8P_Ptr, u8 Copy_u8LineNum, u8 Copy_u8Location, u8 Copy_u8SpecialCharStartBit){
+void LCD_voidSendSpecialCharacters(u8 Copy_CharNum, u8 *Copy_u8P_Ptr, u8 Copy_u8LineNum, u8 Copy_u8Location, u8 Copy_u8SpecialCharStartBit)
+{
 	LCD_voidSendCmnd(Copy_u8SpecialCharStartBit);
-	for(int i = 0; i < 8; i++){
+	for (int i = 0; i < 8; i++)
+	{
 		LCD_voidSendChar(Copy_u8P_Ptr[i]);
 	}
 	LCD_u8GoToXY(Copy_u8LineNum, Copy_u8Location);
 	LCD_voidSendChar(Copy_CharNum);
 
-	if(Copy_u8Location > 15){
+	if (Copy_u8Location > 15)
+	{
 		LCD_voidClearScreen();
 		LCD_u8GoToXY(0, 0);
 		LCD_voidSendChar(Copy_CharNum);
 	}
 }
-
