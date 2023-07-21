@@ -179,7 +179,7 @@ u8 DIO_voidSetPinValue     (u8 Copy_u8PortId, u8 Copy_PinID, u8 Copy_u8PinValue)
     }
     return local_u8ErrorState;
 }
-u8 DIO_u8GetPinValue       (u8 Copy_u8PortId, u8 Copy_PinID, u8  *Copy_pu8PinValue)
+u8 DIO_u8GetPinValue(u8 Copy_u8PortId, u8 Copy_PinID, u8  *Copy_pu8PinValue)
 {
     u8 Local_u8ErrorState = STD_TYPES_OK;
     u8 Local_u8PinValue;
