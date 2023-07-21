@@ -3,31 +3,31 @@ KeyPad.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         00002720  00000000  00000000  00000074  2**1
+  0 .text         0000285a  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         00000040  00800060  00002720  00002794  2**0
+  1 .data         00000040  00800060  0000285a  000028ce  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .stab         00001fec  00000000  00000000  000027d4  2**2
+  2 .stab         00002178  00000000  00000000  00002910  2**2
                   CONTENTS, READONLY, DEBUGGING
-  3 .stabstr      00000d81  00000000  00000000  000047c0  2**0
+  3 .stabstr      00000da1  00000000  00000000  00004a88  2**0
                   CONTENTS, READONLY, DEBUGGING
-  4 .debug_aranges 00000160  00000000  00000000  00005541  2**0
+  4 .debug_aranges 00000160  00000000  00000000  00005829  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_pubnames 0000018f  00000000  00000000  000056a1  2**0
+  5 .debug_pubnames 0000018f  00000000  00000000  00005989  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00002045  00000000  00000000  00005830  2**0
+  6 .debug_info   00002045  00000000  00000000  00005b18  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00001101  00000000  00000000  00007875  2**0
+  7 .debug_abbrev 00001101  00000000  00000000  00007b5d  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00000f82  00000000  00000000  00008976  2**0
+  8 .debug_line   00000f82  00000000  00000000  00008c5e  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00000180  00000000  00000000  000098f8  2**2
+  9 .debug_frame  00000180  00000000  00000000  00009be0  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    000002c2  00000000  00000000  00009a78  2**0
+ 10 .debug_str    000002c2  00000000  00000000  00009d60  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    0000088e  00000000  00000000  00009d3a  2**0
+ 11 .debug_loc    0000088e  00000000  00000000  0000a022  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000050  00000000  00000000  0000a5c8  2**0
+ 12 .debug_ranges 00000050  00000000  00000000  0000a8b0  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -67,8 +67,8 @@ Disassembly of section .text:
       60:	10 e0       	ldi	r17, 0x00	; 0
       62:	a0 e6       	ldi	r26, 0x60	; 96
       64:	b0 e0       	ldi	r27, 0x00	; 0
-      66:	e0 e2       	ldi	r30, 0x20	; 32
-      68:	f7 e2       	ldi	r31, 0x27	; 39
+      66:	ea e5       	ldi	r30, 0x5A	; 90
+      68:	f8 e2       	ldi	r31, 0x28	; 40
       6a:	02 c0       	rjmp	.+4      	; 0x70 <.do_copy_data_start>
 
 0000006c <.do_copy_data_loop>:
@@ -79,8 +79,8 @@ Disassembly of section .text:
       70:	a0 3a       	cpi	r26, 0xA0	; 160
       72:	b1 07       	cpc	r27, r17
       74:	d9 f7       	brne	.-10     	; 0x6c <.do_copy_data_loop>
-      76:	0e 94 9b 12 	call	0x2536	; 0x2536 <main>
-      7a:	0c 94 8e 13 	jmp	0x271c	; 0x271c <_exit>
+      76:	0e 94 bd 12 	call	0x257a	; 0x257a <main>
+      7a:	0c 94 2b 14 	jmp	0x2856	; 0x2856 <_exit>
 
 0000007e <__bad_interrupt>:
       7e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -132,7 +132,7 @@ Disassembly of section .text:
       dc:	b0 e0       	ldi	r27, 0x00	; 0
       de:	e3 e7       	ldi	r30, 0x73	; 115
       e0:	f0 e0       	ldi	r31, 0x00	; 0
-      e2:	0c 94 4e 13 	jmp	0x269c	; 0x269c <__prologue_saves__>
+      e2:	0c 94 eb 13 	jmp	0x27d6	; 0x27d6 <__prologue_saves__>
       e6:	dc 01       	movw	r26, r24
       e8:	2b 01       	movw	r4, r22
       ea:	fa 01       	movw	r30, r20
@@ -457,14 +457,14 @@ Disassembly of section .text:
      368:	cd b7       	in	r28, 0x3d	; 61
      36a:	de b7       	in	r29, 0x3e	; 62
      36c:	e2 e1       	ldi	r30, 0x12	; 18
-     36e:	0c 94 6a 13 	jmp	0x26d4	; 0x26d4 <__epilogue_restores__>
+     36e:	0c 94 07 14 	jmp	0x280e	; 0x280e <__epilogue_restores__>
 
 00000372 <__subsf3>:
      372:	a0 e2       	ldi	r26, 0x20	; 32
      374:	b0 e0       	ldi	r27, 0x00	; 0
      376:	ef eb       	ldi	r30, 0xBF	; 191
      378:	f1 e0       	ldi	r31, 0x01	; 1
-     37a:	0c 94 5a 13 	jmp	0x26b4	; 0x26b4 <__prologue_saves__+0x18>
+     37a:	0c 94 f7 13 	jmp	0x27ee	; 0x27ee <__prologue_saves__+0x18>
      37e:	69 83       	std	Y+1, r22	; 0x01
      380:	7a 83       	std	Y+2, r23	; 0x02
      382:	8b 83       	std	Y+3, r24	; 0x03
@@ -502,14 +502,14 @@ Disassembly of section .text:
      3c8:	0e 94 a1 04 	call	0x942	; 0x942 <__pack_f>
      3cc:	a0 96       	adiw	r28, 0x20	; 32
      3ce:	e6 e0       	ldi	r30, 0x06	; 6
-     3d0:	0c 94 76 13 	jmp	0x26ec	; 0x26ec <__epilogue_restores__+0x18>
+     3d0:	0c 94 13 14 	jmp	0x2826	; 0x2826 <__epilogue_restores__+0x18>
 
 000003d4 <__addsf3>:
      3d4:	a0 e2       	ldi	r26, 0x20	; 32
      3d6:	b0 e0       	ldi	r27, 0x00	; 0
      3d8:	e0 ef       	ldi	r30, 0xF0	; 240
      3da:	f1 e0       	ldi	r31, 0x01	; 1
-     3dc:	0c 94 5a 13 	jmp	0x26b4	; 0x26b4 <__prologue_saves__+0x18>
+     3dc:	0c 94 f7 13 	jmp	0x27ee	; 0x27ee <__prologue_saves__+0x18>
      3e0:	69 83       	std	Y+1, r22	; 0x01
      3e2:	7a 83       	std	Y+2, r23	; 0x02
      3e4:	8b 83       	std	Y+3, r24	; 0x03
@@ -543,14 +543,14 @@ Disassembly of section .text:
      422:	0e 94 a1 04 	call	0x942	; 0x942 <__pack_f>
      426:	a0 96       	adiw	r28, 0x20	; 32
      428:	e6 e0       	ldi	r30, 0x06	; 6
-     42a:	0c 94 76 13 	jmp	0x26ec	; 0x26ec <__epilogue_restores__+0x18>
+     42a:	0c 94 13 14 	jmp	0x2826	; 0x2826 <__epilogue_restores__+0x18>
 
 0000042e <__mulsf3>:
      42e:	a0 e2       	ldi	r26, 0x20	; 32
      430:	b0 e0       	ldi	r27, 0x00	; 0
      432:	ed e1       	ldi	r30, 0x1D	; 29
      434:	f2 e0       	ldi	r31, 0x02	; 2
-     436:	0c 94 4e 13 	jmp	0x269c	; 0x269c <__prologue_saves__>
+     436:	0c 94 eb 13 	jmp	0x27d6	; 0x27d6 <__prologue_saves__>
      43a:	69 83       	std	Y+1, r22	; 0x01
      43c:	7a 83       	std	Y+2, r23	; 0x02
      43e:	8b 83       	std	Y+3, r24	; 0x03
@@ -790,14 +790,14 @@ Disassembly of section .text:
      616:	0e 94 a1 04 	call	0x942	; 0x942 <__pack_f>
      61a:	a0 96       	adiw	r28, 0x20	; 32
      61c:	e2 e1       	ldi	r30, 0x12	; 18
-     61e:	0c 94 6a 13 	jmp	0x26d4	; 0x26d4 <__epilogue_restores__>
+     61e:	0c 94 07 14 	jmp	0x280e	; 0x280e <__epilogue_restores__>
 
 00000622 <__divsf3>:
      622:	a8 e1       	ldi	r26, 0x18	; 24
      624:	b0 e0       	ldi	r27, 0x00	; 0
      626:	e7 e1       	ldi	r30, 0x17	; 23
      628:	f3 e0       	ldi	r31, 0x03	; 3
-     62a:	0c 94 56 13 	jmp	0x26ac	; 0x26ac <__prologue_saves__+0x10>
+     62a:	0c 94 f3 13 	jmp	0x27e6	; 0x27e6 <__prologue_saves__+0x10>
      62e:	69 83       	std	Y+1, r22	; 0x01
      630:	7a 83       	std	Y+2, r23	; 0x02
      632:	8b 83       	std	Y+3, r24	; 0x03
@@ -959,14 +959,14 @@ Disassembly of section .text:
      76e:	0e 94 a1 04 	call	0x942	; 0x942 <__pack_f>
      772:	68 96       	adiw	r28, 0x18	; 24
      774:	ea e0       	ldi	r30, 0x0A	; 10
-     776:	0c 94 72 13 	jmp	0x26e4	; 0x26e4 <__epilogue_restores__+0x10>
+     776:	0c 94 0f 14 	jmp	0x281e	; 0x281e <__epilogue_restores__+0x10>
 
 0000077a <__gtsf2>:
      77a:	a8 e1       	ldi	r26, 0x18	; 24
      77c:	b0 e0       	ldi	r27, 0x00	; 0
      77e:	e3 ec       	ldi	r30, 0xC3	; 195
      780:	f3 e0       	ldi	r31, 0x03	; 3
-     782:	0c 94 5a 13 	jmp	0x26b4	; 0x26b4 <__prologue_saves__+0x18>
+     782:	0c 94 f7 13 	jmp	0x27ee	; 0x27ee <__prologue_saves__+0x18>
      786:	69 83       	std	Y+1, r22	; 0x01
      788:	7a 83       	std	Y+2, r23	; 0x02
      78a:	8b 83       	std	Y+3, r24	; 0x03
@@ -1004,14 +1004,14 @@ Disassembly of section .text:
      7d0:	8f ef       	ldi	r24, 0xFF	; 255
      7d2:	68 96       	adiw	r28, 0x18	; 24
      7d4:	e6 e0       	ldi	r30, 0x06	; 6
-     7d6:	0c 94 76 13 	jmp	0x26ec	; 0x26ec <__epilogue_restores__+0x18>
+     7d6:	0c 94 13 14 	jmp	0x2826	; 0x2826 <__epilogue_restores__+0x18>
 
 000007da <__gesf2>:
      7da:	a8 e1       	ldi	r26, 0x18	; 24
      7dc:	b0 e0       	ldi	r27, 0x00	; 0
      7de:	e3 ef       	ldi	r30, 0xF3	; 243
      7e0:	f3 e0       	ldi	r31, 0x03	; 3
-     7e2:	0c 94 5a 13 	jmp	0x26b4	; 0x26b4 <__prologue_saves__+0x18>
+     7e2:	0c 94 f7 13 	jmp	0x27ee	; 0x27ee <__prologue_saves__+0x18>
      7e6:	69 83       	std	Y+1, r22	; 0x01
      7e8:	7a 83       	std	Y+2, r23	; 0x02
      7ea:	8b 83       	std	Y+3, r24	; 0x03
@@ -1049,14 +1049,14 @@ Disassembly of section .text:
      830:	8f ef       	ldi	r24, 0xFF	; 255
      832:	68 96       	adiw	r28, 0x18	; 24
      834:	e6 e0       	ldi	r30, 0x06	; 6
-     836:	0c 94 76 13 	jmp	0x26ec	; 0x26ec <__epilogue_restores__+0x18>
+     836:	0c 94 13 14 	jmp	0x2826	; 0x2826 <__epilogue_restores__+0x18>
 
 0000083a <__ltsf2>:
      83a:	a8 e1       	ldi	r26, 0x18	; 24
      83c:	b0 e0       	ldi	r27, 0x00	; 0
      83e:	e3 e2       	ldi	r30, 0x23	; 35
      840:	f4 e0       	ldi	r31, 0x04	; 4
-     842:	0c 94 5a 13 	jmp	0x26b4	; 0x26b4 <__prologue_saves__+0x18>
+     842:	0c 94 f7 13 	jmp	0x27ee	; 0x27ee <__prologue_saves__+0x18>
      846:	69 83       	std	Y+1, r22	; 0x01
      848:	7a 83       	std	Y+2, r23	; 0x02
      84a:	8b 83       	std	Y+3, r24	; 0x03
@@ -1094,14 +1094,14 @@ Disassembly of section .text:
      890:	81 e0       	ldi	r24, 0x01	; 1
      892:	68 96       	adiw	r28, 0x18	; 24
      894:	e6 e0       	ldi	r30, 0x06	; 6
-     896:	0c 94 76 13 	jmp	0x26ec	; 0x26ec <__epilogue_restores__+0x18>
+     896:	0c 94 13 14 	jmp	0x2826	; 0x2826 <__epilogue_restores__+0x18>
 
 0000089a <__fixsfsi>:
      89a:	ac e0       	ldi	r26, 0x0C	; 12
      89c:	b0 e0       	ldi	r27, 0x00	; 0
      89e:	e3 e5       	ldi	r30, 0x53	; 83
      8a0:	f4 e0       	ldi	r31, 0x04	; 4
-     8a2:	0c 94 5e 13 	jmp	0x26bc	; 0x26bc <__prologue_saves__+0x20>
+     8a2:	0c 94 fb 13 	jmp	0x27f6	; 0x27f6 <__prologue_saves__+0x20>
      8a6:	69 83       	std	Y+1, r22	; 0x01
      8a8:	7a 83       	std	Y+2, r23	; 0x02
      8aa:	8b 83       	std	Y+3, r24	; 0x03
@@ -1177,7 +1177,7 @@ Disassembly of section .text:
      938:	ca 01       	movw	r24, r20
      93a:	2c 96       	adiw	r28, 0x0c	; 12
      93c:	e2 e0       	ldi	r30, 0x02	; 2
-     93e:	0c 94 7a 13 	jmp	0x26f4	; 0x26f4 <__epilogue_restores__+0x20>
+     93e:	0c 94 17 14 	jmp	0x282e	; 0x282e <__epilogue_restores__+0x20>
 
 00000942 <__pack_f>:
      942:	df 92       	push	r13
@@ -5236,7 +5236,7 @@ u8 LCD_u8GoToXY(u8 COPY_u8LineNum, u8 Copy_u8location)
     2270:	08 95       	ret
 
 00002272 <LCD_voidClearScreen>:
-void LCD_voidClearScreen(void)
+void LCD_voidClearScreen()
 {
     2272:	df 93       	push	r29
     2274:	cf 93       	push	r28
@@ -5685,338 +5685,537 @@ void LCD_voidSendSpecialCharacters(u8 Copy_CharNum, u8 *Copy_u8P_Ptr, u8 Copy_u8
     2532:	0f 91       	pop	r16
     2534:	08 95       	ret
 
-00002536 <main>:
-#include "../HAL/1-LCD/LCD_interface.h"
-#include "../HAL/2-Keypad/KPD_interface.h"
-#define F_CPU 1000000UL
-/***************************************************************************/
-int main()
+00002536 <LCD_voidClearSecondLine>:
+void LCD_voidClearSecondLine()
 {
     2536:	df 93       	push	r29
     2538:	cf 93       	push	r28
-    253a:	cd b7       	in	r28, 0x3d	; 61
-    253c:	de b7       	in	r29, 0x3e	; 62
-    253e:	68 97       	sbiw	r28, 0x18	; 24
-    2540:	0f b6       	in	r0, 0x3f	; 63
-    2542:	f8 94       	cli
-    2544:	de bf       	out	0x3e, r29	; 62
-    2546:	0f be       	out	0x3f, r0	; 63
-    2548:	cd bf       	out	0x3d, r28	; 61
+    253a:	00 d0       	rcall	.+0      	; 0x253c <LCD_voidClearSecondLine+0x6>
+    253c:	cd b7       	in	r28, 0x3d	; 61
+    253e:	de b7       	in	r29, 0x3e	; 62
+    LCD_u8GoToXY(LCD_u8_LINE2, 0); // Move cursor to the start of the second line
+    2540:	82 e0       	ldi	r24, 0x02	; 2
+    2542:	60 e0       	ldi	r22, 0x00	; 0
+    2544:	0e 94 03 11 	call	0x2206	; 0x2206 <LCD_u8GoToXY>
+    // Send a string of spaces to clear the second line
+    for (int i = 0; i < 16; i++)
+    2548:	1a 82       	std	Y+2, r1	; 0x02
+    254a:	19 82       	std	Y+1, r1	; 0x01
+    254c:	08 c0       	rjmp	.+16     	; 0x255e <LCD_voidClearSecondLine+0x28>
+    {
+        LCD_voidSendChar(' ');
+    254e:	80 e2       	ldi	r24, 0x20	; 32
+    2550:	0e 94 56 0d 	call	0x1aac	; 0x1aac <LCD_voidSendChar>
+}
+void LCD_voidClearSecondLine()
+{
+    LCD_u8GoToXY(LCD_u8_LINE2, 0); // Move cursor to the start of the second line
+    // Send a string of spaces to clear the second line
+    for (int i = 0; i < 16; i++)
+    2554:	89 81       	ldd	r24, Y+1	; 0x01
+    2556:	9a 81       	ldd	r25, Y+2	; 0x02
+    2558:	01 96       	adiw	r24, 0x01	; 1
+    255a:	9a 83       	std	Y+2, r25	; 0x02
+    255c:	89 83       	std	Y+1, r24	; 0x01
+    255e:	89 81       	ldd	r24, Y+1	; 0x01
+    2560:	9a 81       	ldd	r25, Y+2	; 0x02
+    2562:	80 31       	cpi	r24, 0x10	; 16
+    2564:	91 05       	cpc	r25, r1
+    2566:	9c f3       	brlt	.-26     	; 0x254e <LCD_voidClearSecondLine+0x18>
+    {
+        LCD_voidSendChar(' ');
+    }
+	LCD_u8GoToXY(LCD_u8_LINE2, 3); // Move cursor to the start of the second line
+    2568:	82 e0       	ldi	r24, 0x02	; 2
+    256a:	63 e0       	ldi	r22, 0x03	; 3
+    256c:	0e 94 03 11 	call	0x2206	; 0x2206 <LCD_u8GoToXY>
+}
+    2570:	0f 90       	pop	r0
+    2572:	0f 90       	pop	r0
+    2574:	cf 91       	pop	r28
+    2576:	df 91       	pop	r29
+    2578:	08 95       	ret
 
-	/***************************************************************************/
-	u8 Local_u8Key;
-	u8 password[4] = {1,1,1,1};
-    254a:	81 e0       	ldi	r24, 0x01	; 1
-    254c:	8e 87       	std	Y+14, r24	; 0x0e
-    254e:	81 e0       	ldi	r24, 0x01	; 1
-    2550:	8f 87       	std	Y+15, r24	; 0x0f
-    2552:	81 e0       	ldi	r24, 0x01	; 1
-    2554:	88 8b       	std	Y+16, r24	; 0x10
-    2556:	81 e0       	ldi	r24, 0x01	; 1
-    2558:	89 8b       	std	Y+17, r24	; 0x11
-	u8 input[4] = {0}; // Initialize the input array with zeros
-    255a:	1a 8a       	std	Y+18, r1	; 0x12
-    255c:	1b 8a       	std	Y+19, r1	; 0x13
-    255e:	1c 8a       	std	Y+20, r1	; 0x14
-    2560:	1d 8a       	std	Y+21, r1	; 0x15
-	u8 inputIndex = 0; // Initialize the input index to keep track of the current position
-    2562:	1c 86       	std	Y+12, r1	; 0x0c
-	u8 isPasswordCorrect = 0;
-    2564:	1b 86       	std	Y+11, r1	; 0x0b
-	/***************************************************************************/
-	DIO_voidInit();     /* Initialize DIO */
-    2566:	0e 94 47 06 	call	0xc8e	; 0xc8e <DIO_voidInit>
-	LCD_voideInit();    /* Initialize LCD */
-    256a:	0e 94 40 0e 	call	0x1c80	; 0x1c80 <LCD_voideInit>
-	KPD_enuInit();      /* Initialize KPD */
-    256e:	0e 94 38 0c 	call	0x1870	; 0x1870 <KPD_enuInit>
-	/***********************************************************************/
-	const char *sentence = "Password:";
-    2572:	80 e6       	ldi	r24, 0x60	; 96
-    2574:	90 e0       	ldi	r25, 0x00	; 0
-    2576:	9a 87       	std	Y+10, r25	; 0x0a
-    2578:	89 87       	std	Y+9, r24	; 0x09
-		u8 count; // variable to hold the count
+0000257a <main>:
+#define F_CPU 1000000UL
+#include <util/delay.h>
 
-		// Calculate the starting position for the sentence
-		int sentenceLength = strlen(sentence);
-    257a:	89 85       	ldd	r24, Y+9	; 0x09
-    257c:	9a 85       	ldd	r25, Y+10	; 0x0a
-    257e:	0e 94 85 13 	call	0x270a	; 0x270a <strlen>
-    2582:	98 87       	std	Y+8, r25	; 0x08
-    2584:	8f 83       	std	Y+7, r24	; 0x07
-		int startingPosition = (16 - sentenceLength) / 2;
-    2586:	20 e1       	ldi	r18, 0x10	; 16
-    2588:	30 e0       	ldi	r19, 0x00	; 0
-    258a:	8f 81       	ldd	r24, Y+7	; 0x07
-    258c:	98 85       	ldd	r25, Y+8	; 0x08
-    258e:	a9 01       	movw	r20, r18
-    2590:	48 1b       	sub	r20, r24
-    2592:	59 0b       	sbc	r21, r25
-    2594:	ca 01       	movw	r24, r20
-    2596:	98 8f       	std	Y+24, r25	; 0x18
-    2598:	8f 8b       	std	Y+23, r24	; 0x17
-    259a:	8f 89       	ldd	r24, Y+23	; 0x17
-    259c:	98 8d       	ldd	r25, Y+24	; 0x18
-    259e:	99 23       	and	r25, r25
-    25a0:	34 f4       	brge	.+12     	; 0x25ae <main+0x78>
-    25a2:	4f 89       	ldd	r20, Y+23	; 0x17
-    25a4:	58 8d       	ldd	r21, Y+24	; 0x18
-    25a6:	4f 5f       	subi	r20, 0xFF	; 255
-    25a8:	5f 4f       	sbci	r21, 0xFF	; 255
-    25aa:	58 8f       	std	Y+24, r21	; 0x18
-    25ac:	4f 8b       	std	Y+23, r20	; 0x17
-    25ae:	8f 89       	ldd	r24, Y+23	; 0x17
-    25b0:	98 8d       	ldd	r25, Y+24	; 0x18
-    25b2:	95 95       	asr	r25
-    25b4:	87 95       	ror	r24
-    25b6:	9e 83       	std	Y+6, r25	; 0x06
-    25b8:	8d 83       	std	Y+5, r24	; 0x05
+/***************************************************************************/
+int main()
+{
+    257a:	df 93       	push	r29
+    257c:	cf 93       	push	r28
+    257e:	cd b7       	in	r28, 0x3d	; 61
+    2580:	de b7       	in	r29, 0x3e	; 62
+    2582:	a7 97       	sbiw	r28, 0x27	; 39
+    2584:	0f b6       	in	r0, 0x3f	; 63
+    2586:	f8 94       	cli
+    2588:	de bf       	out	0x3e, r29	; 62
+    258a:	0f be       	out	0x3f, r0	; 63
+    258c:	cd bf       	out	0x3d, r28	; 61
+    /***************************************************************************/
+    u8 Local_u8Key;
+    u8 password[4] = {'1', '1', '1', '1'};
+    258e:	81 e3       	ldi	r24, 0x31	; 49
+    2590:	8d 8f       	std	Y+29, r24	; 0x1d
+    2592:	81 e3       	ldi	r24, 0x31	; 49
+    2594:	8e 8f       	std	Y+30, r24	; 0x1e
+    2596:	81 e3       	ldi	r24, 0x31	; 49
+    2598:	8f 8f       	std	Y+31, r24	; 0x1f
+    259a:	81 e3       	ldi	r24, 0x31	; 49
+    259c:	88 a3       	std	Y+32, r24	; 0x20
+    u8 input[4] = {0}; // Initialize the input array with zeros
+    259e:	19 a2       	std	Y+33, r1	; 0x21
+    25a0:	1a a2       	std	Y+34, r1	; 0x22
+    25a2:	1b a2       	std	Y+35, r1	; 0x23
+    25a4:	1c a2       	std	Y+36, r1	; 0x24
+    u8 inputIndex = 0; // Initialize the input index to keep track of the current position
+    25a6:	1b 8e       	std	Y+27, r1	; 0x1b
+    /***************************************************************************/
+    DIO_voidInit();  /* Initialize DIO */
+    25a8:	0e 94 47 06 	call	0xc8e	; 0xc8e <DIO_voidInit>
+    LCD_voideInit(); /* Initialize LCD */
+    25ac:	0e 94 40 0e 	call	0x1c80	; 0x1c80 <LCD_voideInit>
+    KPD_enuInit();   /* Initialize KPD */
+    25b0:	0e 94 38 0c 	call	0x1870	; 0x1870 <KPD_enuInit>
+    /***********************************************************************/
+    const char *sentence = "Password:";
+    25b4:	80 e6       	ldi	r24, 0x60	; 96
+    25b6:	90 e0       	ldi	r25, 0x00	; 0
+    25b8:	9a 8f       	std	Y+26, r25	; 0x1a
+    25ba:	89 8f       	std	Y+25, r24	; 0x19
+    u8 count; // variable to hold the count
 
-		// Display the sentence in the middle of the LCD
-		LCD_String_Position(0, startingPosition, sentence, &count);
-    25ba:	9d 81       	ldd	r25, Y+5	; 0x05
-    25bc:	29 85       	ldd	r18, Y+9	; 0x09
-    25be:	3a 85       	ldd	r19, Y+10	; 0x0a
-    25c0:	fe 01       	movw	r30, r28
-    25c2:	76 96       	adiw	r30, 0x16	; 22
-    25c4:	80 e0       	ldi	r24, 0x00	; 0
-    25c6:	69 2f       	mov	r22, r25
-    25c8:	a9 01       	movw	r20, r18
-    25ca:	9f 01       	movw	r18, r30
-    25cc:	0e 94 ea 11 	call	0x23d4	; 0x23d4 <LCD_String_Position>
-		LCD_u8GoToXY(LCD_u8_LINE2, 3);
-    25d0:	82 e0       	ldi	r24, 0x02	; 2
-    25d2:	63 e0       	ldi	r22, 0x03	; 3
-    25d4:	0e 94 03 11 	call	0x2206	; 0x2206 <LCD_u8GoToXY>
-	/***********************************************************************/
-	while (1)
+    // Calculate the starting position for the sentence
+    int sentenceLength = strlen(sentence);
+    25bc:	89 8d       	ldd	r24, Y+25	; 0x19
+    25be:	9a 8d       	ldd	r25, Y+26	; 0x1a
+    25c0:	0e 94 22 14 	call	0x2844	; 0x2844 <strlen>
+    25c4:	98 8f       	std	Y+24, r25	; 0x18
+    25c6:	8f 8b       	std	Y+23, r24	; 0x17
+    int startingPosition = (16 - sentenceLength) / 2;
+    25c8:	20 e1       	ldi	r18, 0x10	; 16
+    25ca:	30 e0       	ldi	r19, 0x00	; 0
+    25cc:	8f 89       	ldd	r24, Y+23	; 0x17
+    25ce:	98 8d       	ldd	r25, Y+24	; 0x18
+    25d0:	a9 01       	movw	r20, r18
+    25d2:	48 1b       	sub	r20, r24
+    25d4:	59 0b       	sbc	r21, r25
+    25d6:	ca 01       	movw	r24, r20
+    25d8:	9f a3       	std	Y+39, r25	; 0x27
+    25da:	8e a3       	std	Y+38, r24	; 0x26
+    25dc:	8e a1       	ldd	r24, Y+38	; 0x26
+    25de:	9f a1       	ldd	r25, Y+39	; 0x27
+    25e0:	99 23       	and	r25, r25
+    25e2:	34 f4       	brge	.+12     	; 0x25f0 <main+0x76>
+    25e4:	4e a1       	ldd	r20, Y+38	; 0x26
+    25e6:	5f a1       	ldd	r21, Y+39	; 0x27
+    25e8:	4f 5f       	subi	r20, 0xFF	; 255
+    25ea:	5f 4f       	sbci	r21, 0xFF	; 255
+    25ec:	5f a3       	std	Y+39, r21	; 0x27
+    25ee:	4e a3       	std	Y+38, r20	; 0x26
+    25f0:	8e a1       	ldd	r24, Y+38	; 0x26
+    25f2:	9f a1       	ldd	r25, Y+39	; 0x27
+    25f4:	95 95       	asr	r25
+    25f6:	87 95       	ror	r24
+    25f8:	9e 8b       	std	Y+22, r25	; 0x16
+    25fa:	8d 8b       	std	Y+21, r24	; 0x15
+
+    LCD_voidClearScreen();
+    25fc:	0e 94 39 11 	call	0x2272	; 0x2272 <LCD_voidClearScreen>
+
+    // Display the sentence in the middle of the LCD
+    LCD_String_Position(0, startingPosition, sentence, &count);
+    2600:	9d 89       	ldd	r25, Y+21	; 0x15
+    2602:	29 8d       	ldd	r18, Y+25	; 0x19
+    2604:	3a 8d       	ldd	r19, Y+26	; 0x1a
+    2606:	fe 01       	movw	r30, r28
+    2608:	b5 96       	adiw	r30, 0x25	; 37
+    260a:	80 e0       	ldi	r24, 0x00	; 0
+    260c:	69 2f       	mov	r22, r25
+    260e:	a9 01       	movw	r20, r18
+    2610:	9f 01       	movw	r18, r30
+    2612:	0e 94 ea 11 	call	0x23d4	; 0x23d4 <LCD_String_Position>
+    LCD_u8GoToXY(LCD_u8_LINE2, 3);
+    2616:	82 e0       	ldi	r24, 0x02	; 2
+    2618:	63 e0       	ldi	r22, 0x03	; 3
+    261a:	0e 94 03 11 	call	0x2206	; 0x2206 <LCD_u8GoToXY>
+    /***********************************************************************/
+    while (1)
+    {
+        KPD_u8getKeystate(&Local_u8Key);
+    261e:	ce 01       	movw	r24, r28
+    2620:	4c 96       	adiw	r24, 0x1c	; 28
+    2622:	0e 94 b7 0a 	call	0x156e	; 0x156e <KPD_u8getKeystate>
+        /*if there are no switches pressed
+         No displaying on LCD*/
+        if (Local_u8Key != KPD_u8_KEY_NOT_PRESSED)
+    2626:	8c 8d       	ldd	r24, Y+28	; 0x1c
+    2628:	8f 3f       	cpi	r24, 0xFF	; 255
+    262a:	c9 f3       	breq	.-14     	; 0x261e <main+0xa4>
+        {
+            // Store the entered key in the input array
+            input[inputIndex] = Local_u8Key;
+    262c:	8b 8d       	ldd	r24, Y+27	; 0x1b
+    262e:	28 2f       	mov	r18, r24
+    2630:	30 e0       	ldi	r19, 0x00	; 0
+    2632:	4c 8d       	ldd	r20, Y+28	; 0x1c
+    2634:	ce 01       	movw	r24, r28
+    2636:	81 96       	adiw	r24, 0x21	; 33
+    2638:	fc 01       	movw	r30, r24
+    263a:	e2 0f       	add	r30, r18
+    263c:	f3 1f       	adc	r31, r19
+    263e:	40 83       	st	Z, r20
+            inputIndex++;
+    2640:	8b 8d       	ldd	r24, Y+27	; 0x1b
+    2642:	8f 5f       	subi	r24, 0xFF	; 255
+    2644:	8b 8f       	std	Y+27, r24	; 0x1b
+
+            // Display the entered key on the LCD
+            LCD_voidSendChar('*');
+    2646:	8a e2       	ldi	r24, 0x2A	; 42
+    2648:	0e 94 56 0d 	call	0x1aac	; 0x1aac <LCD_voidSendChar>
+
+            // Check if the input is complete
+            if (inputIndex == 4)
+    264c:	8b 8d       	ldd	r24, Y+27	; 0x1b
+    264e:	84 30       	cpi	r24, 0x04	; 4
+    2650:	31 f7       	brne	.-52     	; 0x261e <main+0xa4>
+            {
+                int isPasswordCorrect = 1;
+    2652:	81 e0       	ldi	r24, 0x01	; 1
+    2654:	90 e0       	ldi	r25, 0x00	; 0
+    2656:	9c 8b       	std	Y+20, r25	; 0x14
+    2658:	8b 8b       	std	Y+19, r24	; 0x13
+
+                for (int i = 0; i < 4; i++)
+    265a:	1a 8a       	std	Y+18, r1	; 0x12
+    265c:	19 8a       	std	Y+17, r1	; 0x11
+    265e:	1a c0       	rjmp	.+52     	; 0x2694 <main+0x11a>
+                {
+                    if (input[i] != password[i])
+    2660:	29 89       	ldd	r18, Y+17	; 0x11
+    2662:	3a 89       	ldd	r19, Y+18	; 0x12
+    2664:	ce 01       	movw	r24, r28
+    2666:	81 96       	adiw	r24, 0x21	; 33
+    2668:	fc 01       	movw	r30, r24
+    266a:	e2 0f       	add	r30, r18
+    266c:	f3 1f       	adc	r31, r19
+    266e:	40 81       	ld	r20, Z
+    2670:	29 89       	ldd	r18, Y+17	; 0x11
+    2672:	3a 89       	ldd	r19, Y+18	; 0x12
+    2674:	ce 01       	movw	r24, r28
+    2676:	4d 96       	adiw	r24, 0x1d	; 29
+    2678:	fc 01       	movw	r30, r24
+    267a:	e2 0f       	add	r30, r18
+    267c:	f3 1f       	adc	r31, r19
+    267e:	80 81       	ld	r24, Z
+    2680:	48 17       	cp	r20, r24
+    2682:	19 f0       	breq	.+6      	; 0x268a <main+0x110>
+                    {
+                        isPasswordCorrect = 0;
+    2684:	1c 8a       	std	Y+20, r1	; 0x14
+    2686:	1b 8a       	std	Y+19, r1	; 0x13
+    2688:	0a c0       	rjmp	.+20     	; 0x269e <main+0x124>
+            // Check if the input is complete
+            if (inputIndex == 4)
+            {
+                int isPasswordCorrect = 1;
+
+                for (int i = 0; i < 4; i++)
+    268a:	89 89       	ldd	r24, Y+17	; 0x11
+    268c:	9a 89       	ldd	r25, Y+18	; 0x12
+    268e:	01 96       	adiw	r24, 0x01	; 1
+    2690:	9a 8b       	std	Y+18, r25	; 0x12
+    2692:	89 8b       	std	Y+17, r24	; 0x11
+    2694:	89 89       	ldd	r24, Y+17	; 0x11
+    2696:	9a 89       	ldd	r25, Y+18	; 0x12
+    2698:	84 30       	cpi	r24, 0x04	; 4
+    269a:	91 05       	cpc	r25, r1
+    269c:	0c f3       	brlt	.-62     	; 0x2660 <main+0xe6>
+                        isPasswordCorrect = 0;
+                        break;
+                    }
+                }
+
+                LCD_u8GoToXY(LCD_u8_LINE2, 3);
+    269e:	82 e0       	ldi	r24, 0x02	; 2
+    26a0:	63 e0       	ldi	r22, 0x03	; 3
+    26a2:	0e 94 03 11 	call	0x2206	; 0x2206 <LCD_u8GoToXY>
+                // Check if the password is correct
+                if (isPasswordCorrect)
+    26a6:	8b 89       	ldd	r24, Y+19	; 0x13
+    26a8:	9c 89       	ldd	r25, Y+20	; 0x14
+    26aa:	00 97       	sbiw	r24, 0x00	; 0
+    26ac:	29 f0       	breq	.+10     	; 0x26b8 <main+0x13e>
+                {
+                    LCD_voidSendString("Welcome");
+    26ae:	8a e6       	ldi	r24, 0x6A	; 106
+    26b0:	90 e0       	ldi	r25, 0x00	; 0
+    26b2:	0e 94 c1 11 	call	0x2382	; 0x2382 <LCD_voidSendString>
+    26b6:	04 c0       	rjmp	.+8      	; 0x26c0 <main+0x146>
+                }
+                else
+                {
+                    // Display "Access Denied" message
+                    LCD_voidSendString("Access Denied");
+    26b8:	82 e7       	ldi	r24, 0x72	; 114
+    26ba:	90 e0       	ldi	r25, 0x00	; 0
+    26bc:	0e 94 c1 11 	call	0x2382	; 0x2382 <LCD_voidSendString>
+    26c0:	80 e0       	ldi	r24, 0x00	; 0
+    26c2:	90 e0       	ldi	r25, 0x00	; 0
+    26c4:	aa ef       	ldi	r26, 0xFA	; 250
+    26c6:	b4 e4       	ldi	r27, 0x44	; 68
+    26c8:	8b 87       	std	Y+11, r24	; 0x0b
+    26ca:	9c 87       	std	Y+12, r25	; 0x0c
+    26cc:	ad 87       	std	Y+13, r26	; 0x0d
+    26ce:	be 87       	std	Y+14, r27	; 0x0e
+ */
+void
+_delay_ms(double __ms)
+{
+	uint16_t __ticks;
+	double __tmp = ((F_CPU) / 4e3) * __ms;
+    26d0:	6b 85       	ldd	r22, Y+11	; 0x0b
+    26d2:	7c 85       	ldd	r23, Y+12	; 0x0c
+    26d4:	8d 85       	ldd	r24, Y+13	; 0x0d
+    26d6:	9e 85       	ldd	r25, Y+14	; 0x0e
+    26d8:	20 e0       	ldi	r18, 0x00	; 0
+    26da:	30 e0       	ldi	r19, 0x00	; 0
+    26dc:	4a e7       	ldi	r20, 0x7A	; 122
+    26de:	53 e4       	ldi	r21, 0x43	; 67
+    26e0:	0e 94 17 02 	call	0x42e	; 0x42e <__mulsf3>
+    26e4:	dc 01       	movw	r26, r24
+    26e6:	cb 01       	movw	r24, r22
+    26e8:	8f 83       	std	Y+7, r24	; 0x07
+    26ea:	98 87       	std	Y+8, r25	; 0x08
+    26ec:	a9 87       	std	Y+9, r26	; 0x09
+    26ee:	ba 87       	std	Y+10, r27	; 0x0a
+	if (__tmp < 1.0)
+    26f0:	6f 81       	ldd	r22, Y+7	; 0x07
+    26f2:	78 85       	ldd	r23, Y+8	; 0x08
+    26f4:	89 85       	ldd	r24, Y+9	; 0x09
+    26f6:	9a 85       	ldd	r25, Y+10	; 0x0a
+    26f8:	20 e0       	ldi	r18, 0x00	; 0
+    26fa:	30 e0       	ldi	r19, 0x00	; 0
+    26fc:	40 e8       	ldi	r20, 0x80	; 128
+    26fe:	5f e3       	ldi	r21, 0x3F	; 63
+    2700:	0e 94 1d 04 	call	0x83a	; 0x83a <__ltsf2>
+    2704:	88 23       	and	r24, r24
+    2706:	2c f4       	brge	.+10     	; 0x2712 <main+0x198>
+		__ticks = 1;
+    2708:	81 e0       	ldi	r24, 0x01	; 1
+    270a:	90 e0       	ldi	r25, 0x00	; 0
+    270c:	9e 83       	std	Y+6, r25	; 0x06
+    270e:	8d 83       	std	Y+5, r24	; 0x05
+    2710:	3f c0       	rjmp	.+126    	; 0x2790 <main+0x216>
+	else if (__tmp > 65535)
+    2712:	6f 81       	ldd	r22, Y+7	; 0x07
+    2714:	78 85       	ldd	r23, Y+8	; 0x08
+    2716:	89 85       	ldd	r24, Y+9	; 0x09
+    2718:	9a 85       	ldd	r25, Y+10	; 0x0a
+    271a:	20 e0       	ldi	r18, 0x00	; 0
+    271c:	3f ef       	ldi	r19, 0xFF	; 255
+    271e:	4f e7       	ldi	r20, 0x7F	; 127
+    2720:	57 e4       	ldi	r21, 0x47	; 71
+    2722:	0e 94 bd 03 	call	0x77a	; 0x77a <__gtsf2>
+    2726:	18 16       	cp	r1, r24
+    2728:	4c f5       	brge	.+82     	; 0x277c <main+0x202>
 	{
-		KPD_u8getKeystate(&Local_u8Key);
-    25d8:	ce 01       	movw	r24, r28
-    25da:	0d 96       	adiw	r24, 0x0d	; 13
-    25dc:	0e 94 b7 0a 	call	0x156e	; 0x156e <KPD_u8getKeystate>
-		/*if there are no switches pressed
-		 No displaying on LCD*/
-		if (Local_u8Key != KPD_u8_KEY_NOT_PRESSED)
-    25e0:	8d 85       	ldd	r24, Y+13	; 0x0d
-    25e2:	8f 3f       	cpi	r24, 0xFF	; 255
-    25e4:	c9 f3       	breq	.-14     	; 0x25d8 <main+0xa2>
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+    272a:	6b 85       	ldd	r22, Y+11	; 0x0b
+    272c:	7c 85       	ldd	r23, Y+12	; 0x0c
+    272e:	8d 85       	ldd	r24, Y+13	; 0x0d
+    2730:	9e 85       	ldd	r25, Y+14	; 0x0e
+    2732:	20 e0       	ldi	r18, 0x00	; 0
+    2734:	30 e0       	ldi	r19, 0x00	; 0
+    2736:	40 e2       	ldi	r20, 0x20	; 32
+    2738:	51 e4       	ldi	r21, 0x41	; 65
+    273a:	0e 94 17 02 	call	0x42e	; 0x42e <__mulsf3>
+    273e:	dc 01       	movw	r26, r24
+    2740:	cb 01       	movw	r24, r22
+    2742:	bc 01       	movw	r22, r24
+    2744:	cd 01       	movw	r24, r26
+    2746:	0e 94 41 00 	call	0x82	; 0x82 <__fixunssfsi>
+    274a:	dc 01       	movw	r26, r24
+    274c:	cb 01       	movw	r24, r22
+    274e:	9e 83       	std	Y+6, r25	; 0x06
+    2750:	8d 83       	std	Y+5, r24	; 0x05
+    2752:	0f c0       	rjmp	.+30     	; 0x2772 <main+0x1f8>
+    2754:	89 e1       	ldi	r24, 0x19	; 25
+    2756:	90 e0       	ldi	r25, 0x00	; 0
+    2758:	9c 83       	std	Y+4, r25	; 0x04
+    275a:	8b 83       	std	Y+3, r24	; 0x03
+    275c:	8b 81       	ldd	r24, Y+3	; 0x03
+    275e:	9c 81       	ldd	r25, Y+4	; 0x04
+    2760:	01 97       	sbiw	r24, 0x01	; 1
+    2762:	f1 f7       	brne	.-4      	; 0x2760 <main+0x1e6>
+    2764:	9c 83       	std	Y+4, r25	; 0x04
+    2766:	8b 83       	std	Y+3, r24	; 0x03
+		while(__ticks)
 		{
-			// Store the entered key in the input array
-			input[inputIndex] = Local_u8Key;
-    25e6:	8c 85       	ldd	r24, Y+12	; 0x0c
-    25e8:	28 2f       	mov	r18, r24
-    25ea:	30 e0       	ldi	r19, 0x00	; 0
-    25ec:	4d 85       	ldd	r20, Y+13	; 0x0d
-    25ee:	ce 01       	movw	r24, r28
-    25f0:	42 96       	adiw	r24, 0x12	; 18
-    25f2:	fc 01       	movw	r30, r24
-    25f4:	e2 0f       	add	r30, r18
-    25f6:	f3 1f       	adc	r31, r19
-    25f8:	40 83       	st	Z, r20
-			inputIndex++;
-    25fa:	8c 85       	ldd	r24, Y+12	; 0x0c
-    25fc:	8f 5f       	subi	r24, 0xFF	; 255
-    25fe:	8c 87       	std	Y+12, r24	; 0x0c
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+    2768:	8d 81       	ldd	r24, Y+5	; 0x05
+    276a:	9e 81       	ldd	r25, Y+6	; 0x06
+    276c:	01 97       	sbiw	r24, 0x01	; 1
+    276e:	9e 83       	std	Y+6, r25	; 0x06
+    2770:	8d 83       	std	Y+5, r24	; 0x05
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+    2772:	8d 81       	ldd	r24, Y+5	; 0x05
+    2774:	9e 81       	ldd	r25, Y+6	; 0x06
+    2776:	00 97       	sbiw	r24, 0x00	; 0
+    2778:	69 f7       	brne	.-38     	; 0x2754 <main+0x1da>
+    277a:	14 c0       	rjmp	.+40     	; 0x27a4 <main+0x22a>
+			__ticks --;
+		}
+		return;
+	}
+	else
+		__ticks = (uint16_t)__tmp;
+    277c:	6f 81       	ldd	r22, Y+7	; 0x07
+    277e:	78 85       	ldd	r23, Y+8	; 0x08
+    2780:	89 85       	ldd	r24, Y+9	; 0x09
+    2782:	9a 85       	ldd	r25, Y+10	; 0x0a
+    2784:	0e 94 41 00 	call	0x82	; 0x82 <__fixunssfsi>
+    2788:	dc 01       	movw	r26, r24
+    278a:	cb 01       	movw	r24, r22
+    278c:	9e 83       	std	Y+6, r25	; 0x06
+    278e:	8d 83       	std	Y+5, r24	; 0x05
+    2790:	8d 81       	ldd	r24, Y+5	; 0x05
+    2792:	9e 81       	ldd	r25, Y+6	; 0x06
+    2794:	9a 83       	std	Y+2, r25	; 0x02
+    2796:	89 83       	std	Y+1, r24	; 0x01
+    2798:	89 81       	ldd	r24, Y+1	; 0x01
+    279a:	9a 81       	ldd	r25, Y+2	; 0x02
+    279c:	01 97       	sbiw	r24, 0x01	; 1
+    279e:	f1 f7       	brne	.-4      	; 0x279c <main+0x222>
+    27a0:	9a 83       	std	Y+2, r25	; 0x02
+    27a2:	89 83       	std	Y+1, r24	; 0x01
+                }
+                // Delay to display the result for some time
+                _delay_ms(2000); // 2-second delay
+                // Clear the second line
+                LCD_voidClearSecondLine();
+    27a4:	0e 94 9b 12 	call	0x2536	; 0x2536 <LCD_voidClearSecondLine>
 
-			// Display the entered key on the LCD
-			LCD_voidSendChar(Local_u8Key);
-    2600:	8d 85       	ldd	r24, Y+13	; 0x0d
-    2602:	0e 94 56 0d 	call	0x1aac	; 0x1aac <LCD_voidSendChar>
+                // Reset the input array and index
+                for (int i = 0; i < 4; i++)
+    27a8:	18 8a       	std	Y+16, r1	; 0x10
+    27aa:	1f 86       	std	Y+15, r1	; 0x0f
+    27ac:	0d c0       	rjmp	.+26     	; 0x27c8 <main+0x24e>
+                {
+                    input[i] = 0;
+    27ae:	2f 85       	ldd	r18, Y+15	; 0x0f
+    27b0:	38 89       	ldd	r19, Y+16	; 0x10
+    27b2:	ce 01       	movw	r24, r28
+    27b4:	81 96       	adiw	r24, 0x21	; 33
+    27b6:	fc 01       	movw	r30, r24
+    27b8:	e2 0f       	add	r30, r18
+    27ba:	f3 1f       	adc	r31, r19
+    27bc:	10 82       	st	Z, r1
+                _delay_ms(2000); // 2-second delay
+                // Clear the second line
+                LCD_voidClearSecondLine();
 
-			// Check if the input is complete
-			if (inputIndex == 4)
-    2606:	8c 85       	ldd	r24, Y+12	; 0x0c
-    2608:	84 30       	cpi	r24, 0x04	; 4
-    260a:	31 f7       	brne	.-52     	; 0x25d8 <main+0xa2>
-			{
+                // Reset the input array and index
+                for (int i = 0; i < 4; i++)
+    27be:	8f 85       	ldd	r24, Y+15	; 0x0f
+    27c0:	98 89       	ldd	r25, Y+16	; 0x10
+    27c2:	01 96       	adiw	r24, 0x01	; 1
+    27c4:	98 8b       	std	Y+16, r25	; 0x10
+    27c6:	8f 87       	std	Y+15, r24	; 0x0f
+    27c8:	8f 85       	ldd	r24, Y+15	; 0x0f
+    27ca:	98 89       	ldd	r25, Y+16	; 0x10
+    27cc:	84 30       	cpi	r24, 0x04	; 4
+    27ce:	91 05       	cpc	r25, r1
+    27d0:	74 f3       	brlt	.-36     	; 0x27ae <main+0x234>
+                {
+                    input[i] = 0;
+                }
+                inputIndex = 0;
+    27d2:	1b 8e       	std	Y+27, r1	; 0x1b
+    27d4:	24 cf       	rjmp	.-440    	; 0x261e <main+0xa4>
 
-				for (int i = 0; i < 4; i++)
-    260c:	1c 82       	std	Y+4, r1	; 0x04
-    260e:	1b 82       	std	Y+3, r1	; 0x03
-    2610:	19 c0       	rjmp	.+50     	; 0x2644 <main+0x10e>
-				{
-					if (input[i] != password[i])
-    2612:	2b 81       	ldd	r18, Y+3	; 0x03
-    2614:	3c 81       	ldd	r19, Y+4	; 0x04
-    2616:	ce 01       	movw	r24, r28
-    2618:	42 96       	adiw	r24, 0x12	; 18
-    261a:	fc 01       	movw	r30, r24
-    261c:	e2 0f       	add	r30, r18
-    261e:	f3 1f       	adc	r31, r19
-    2620:	40 81       	ld	r20, Z
-    2622:	2b 81       	ldd	r18, Y+3	; 0x03
-    2624:	3c 81       	ldd	r19, Y+4	; 0x04
-    2626:	ce 01       	movw	r24, r28
-    2628:	0e 96       	adiw	r24, 0x0e	; 14
-    262a:	fc 01       	movw	r30, r24
-    262c:	e2 0f       	add	r30, r18
-    262e:	f3 1f       	adc	r31, r19
-    2630:	80 81       	ld	r24, Z
-    2632:	48 17       	cp	r20, r24
-    2634:	11 f0       	breq	.+4      	; 0x263a <main+0x104>
-					{
-						isPasswordCorrect = 1;
-    2636:	81 e0       	ldi	r24, 0x01	; 1
-    2638:	8b 87       	std	Y+11, r24	; 0x0b
+000027d6 <__prologue_saves__>:
+    27d6:	2f 92       	push	r2
+    27d8:	3f 92       	push	r3
+    27da:	4f 92       	push	r4
+    27dc:	5f 92       	push	r5
+    27de:	6f 92       	push	r6
+    27e0:	7f 92       	push	r7
+    27e2:	8f 92       	push	r8
+    27e4:	9f 92       	push	r9
+    27e6:	af 92       	push	r10
+    27e8:	bf 92       	push	r11
+    27ea:	cf 92       	push	r12
+    27ec:	df 92       	push	r13
+    27ee:	ef 92       	push	r14
+    27f0:	ff 92       	push	r15
+    27f2:	0f 93       	push	r16
+    27f4:	1f 93       	push	r17
+    27f6:	cf 93       	push	r28
+    27f8:	df 93       	push	r29
+    27fa:	cd b7       	in	r28, 0x3d	; 61
+    27fc:	de b7       	in	r29, 0x3e	; 62
+    27fe:	ca 1b       	sub	r28, r26
+    2800:	db 0b       	sbc	r29, r27
+    2802:	0f b6       	in	r0, 0x3f	; 63
+    2804:	f8 94       	cli
+    2806:	de bf       	out	0x3e, r29	; 62
+    2808:	0f be       	out	0x3f, r0	; 63
+    280a:	cd bf       	out	0x3d, r28	; 61
+    280c:	09 94       	ijmp
 
-			// Check if the input is complete
-			if (inputIndex == 4)
-			{
+0000280e <__epilogue_restores__>:
+    280e:	2a 88       	ldd	r2, Y+18	; 0x12
+    2810:	39 88       	ldd	r3, Y+17	; 0x11
+    2812:	48 88       	ldd	r4, Y+16	; 0x10
+    2814:	5f 84       	ldd	r5, Y+15	; 0x0f
+    2816:	6e 84       	ldd	r6, Y+14	; 0x0e
+    2818:	7d 84       	ldd	r7, Y+13	; 0x0d
+    281a:	8c 84       	ldd	r8, Y+12	; 0x0c
+    281c:	9b 84       	ldd	r9, Y+11	; 0x0b
+    281e:	aa 84       	ldd	r10, Y+10	; 0x0a
+    2820:	b9 84       	ldd	r11, Y+9	; 0x09
+    2822:	c8 84       	ldd	r12, Y+8	; 0x08
+    2824:	df 80       	ldd	r13, Y+7	; 0x07
+    2826:	ee 80       	ldd	r14, Y+6	; 0x06
+    2828:	fd 80       	ldd	r15, Y+5	; 0x05
+    282a:	0c 81       	ldd	r16, Y+4	; 0x04
+    282c:	1b 81       	ldd	r17, Y+3	; 0x03
+    282e:	aa 81       	ldd	r26, Y+2	; 0x02
+    2830:	b9 81       	ldd	r27, Y+1	; 0x01
+    2832:	ce 0f       	add	r28, r30
+    2834:	d1 1d       	adc	r29, r1
+    2836:	0f b6       	in	r0, 0x3f	; 63
+    2838:	f8 94       	cli
+    283a:	de bf       	out	0x3e, r29	; 62
+    283c:	0f be       	out	0x3f, r0	; 63
+    283e:	cd bf       	out	0x3d, r28	; 61
+    2840:	ed 01       	movw	r28, r26
+    2842:	08 95       	ret
 
-				for (int i = 0; i < 4; i++)
-    263a:	8b 81       	ldd	r24, Y+3	; 0x03
-    263c:	9c 81       	ldd	r25, Y+4	; 0x04
-    263e:	01 96       	adiw	r24, 0x01	; 1
-    2640:	9c 83       	std	Y+4, r25	; 0x04
-    2642:	8b 83       	std	Y+3, r24	; 0x03
-    2644:	8b 81       	ldd	r24, Y+3	; 0x03
-    2646:	9c 81       	ldd	r25, Y+4	; 0x04
-    2648:	84 30       	cpi	r24, 0x04	; 4
-    264a:	91 05       	cpc	r25, r1
-    264c:	14 f3       	brlt	.-60     	; 0x2612 <main+0xdc>
-					}
-				}
+00002844 <strlen>:
+    2844:	fc 01       	movw	r30, r24
+    2846:	01 90       	ld	r0, Z+
+    2848:	00 20       	and	r0, r0
+    284a:	e9 f7       	brne	.-6      	; 0x2846 <strlen+0x2>
+    284c:	80 95       	com	r24
+    284e:	90 95       	com	r25
+    2850:	8e 0f       	add	r24, r30
+    2852:	9f 1f       	adc	r25, r31
+    2854:	08 95       	ret
 
+00002856 <_exit>:
+    2856:	f8 94       	cli
 
-
-				LCD_u8GoToXY(LCD_u8_LINE2, 3);
-    264e:	82 e0       	ldi	r24, 0x02	; 2
-    2650:	63 e0       	ldi	r22, 0x03	; 3
-    2652:	0e 94 03 11 	call	0x2206	; 0x2206 <LCD_u8GoToXY>
-				// Check if the password is correct
-				if (isPasswordCorrect)
-    2656:	8b 85       	ldd	r24, Y+11	; 0x0b
-    2658:	88 23       	and	r24, r24
-    265a:	29 f0       	breq	.+10     	; 0x2666 <main+0x130>
-				{
-					LCD_voidSendString("Welcome");
-    265c:	8a e6       	ldi	r24, 0x6A	; 106
-    265e:	90 e0       	ldi	r25, 0x00	; 0
-    2660:	0e 94 c1 11 	call	0x2382	; 0x2382 <LCD_voidSendString>
-    2664:	04 c0       	rjmp	.+8      	; 0x266e <main+0x138>
-
-				}
-				else
-				{
-					// Display "Access Denied" message
-					LCD_voidSendString("Access Denied");
-    2666:	82 e7       	ldi	r24, 0x72	; 114
-    2668:	90 e0       	ldi	r25, 0x00	; 0
-    266a:	0e 94 c1 11 	call	0x2382	; 0x2382 <LCD_voidSendString>
-				}
-
-				// Reset the input array and index
-				for (int i = 0; i < 4; i++)
-    266e:	1a 82       	std	Y+2, r1	; 0x02
-    2670:	19 82       	std	Y+1, r1	; 0x01
-    2672:	0d c0       	rjmp	.+26     	; 0x268e <main+0x158>
-				{
-					input[i] = 0;
-    2674:	29 81       	ldd	r18, Y+1	; 0x01
-    2676:	3a 81       	ldd	r19, Y+2	; 0x02
-    2678:	ce 01       	movw	r24, r28
-    267a:	42 96       	adiw	r24, 0x12	; 18
-    267c:	fc 01       	movw	r30, r24
-    267e:	e2 0f       	add	r30, r18
-    2680:	f3 1f       	adc	r31, r19
-    2682:	10 82       	st	Z, r1
-					// Display "Access Denied" message
-					LCD_voidSendString("Access Denied");
-				}
-
-				// Reset the input array and index
-				for (int i = 0; i < 4; i++)
-    2684:	89 81       	ldd	r24, Y+1	; 0x01
-    2686:	9a 81       	ldd	r25, Y+2	; 0x02
-    2688:	01 96       	adiw	r24, 0x01	; 1
-    268a:	9a 83       	std	Y+2, r25	; 0x02
-    268c:	89 83       	std	Y+1, r24	; 0x01
-    268e:	89 81       	ldd	r24, Y+1	; 0x01
-    2690:	9a 81       	ldd	r25, Y+2	; 0x02
-    2692:	84 30       	cpi	r24, 0x04	; 4
-    2694:	91 05       	cpc	r25, r1
-    2696:	74 f3       	brlt	.-36     	; 0x2674 <main+0x13e>
-				{
-					input[i] = 0;
-				}
-				inputIndex = 0;
-    2698:	1c 86       	std	Y+12, r1	; 0x0c
-    269a:	9e cf       	rjmp	.-196    	; 0x25d8 <main+0xa2>
-
-0000269c <__prologue_saves__>:
-    269c:	2f 92       	push	r2
-    269e:	3f 92       	push	r3
-    26a0:	4f 92       	push	r4
-    26a2:	5f 92       	push	r5
-    26a4:	6f 92       	push	r6
-    26a6:	7f 92       	push	r7
-    26a8:	8f 92       	push	r8
-    26aa:	9f 92       	push	r9
-    26ac:	af 92       	push	r10
-    26ae:	bf 92       	push	r11
-    26b0:	cf 92       	push	r12
-    26b2:	df 92       	push	r13
-    26b4:	ef 92       	push	r14
-    26b6:	ff 92       	push	r15
-    26b8:	0f 93       	push	r16
-    26ba:	1f 93       	push	r17
-    26bc:	cf 93       	push	r28
-    26be:	df 93       	push	r29
-    26c0:	cd b7       	in	r28, 0x3d	; 61
-    26c2:	de b7       	in	r29, 0x3e	; 62
-    26c4:	ca 1b       	sub	r28, r26
-    26c6:	db 0b       	sbc	r29, r27
-    26c8:	0f b6       	in	r0, 0x3f	; 63
-    26ca:	f8 94       	cli
-    26cc:	de bf       	out	0x3e, r29	; 62
-    26ce:	0f be       	out	0x3f, r0	; 63
-    26d0:	cd bf       	out	0x3d, r28	; 61
-    26d2:	09 94       	ijmp
-
-000026d4 <__epilogue_restores__>:
-    26d4:	2a 88       	ldd	r2, Y+18	; 0x12
-    26d6:	39 88       	ldd	r3, Y+17	; 0x11
-    26d8:	48 88       	ldd	r4, Y+16	; 0x10
-    26da:	5f 84       	ldd	r5, Y+15	; 0x0f
-    26dc:	6e 84       	ldd	r6, Y+14	; 0x0e
-    26de:	7d 84       	ldd	r7, Y+13	; 0x0d
-    26e0:	8c 84       	ldd	r8, Y+12	; 0x0c
-    26e2:	9b 84       	ldd	r9, Y+11	; 0x0b
-    26e4:	aa 84       	ldd	r10, Y+10	; 0x0a
-    26e6:	b9 84       	ldd	r11, Y+9	; 0x09
-    26e8:	c8 84       	ldd	r12, Y+8	; 0x08
-    26ea:	df 80       	ldd	r13, Y+7	; 0x07
-    26ec:	ee 80       	ldd	r14, Y+6	; 0x06
-    26ee:	fd 80       	ldd	r15, Y+5	; 0x05
-    26f0:	0c 81       	ldd	r16, Y+4	; 0x04
-    26f2:	1b 81       	ldd	r17, Y+3	; 0x03
-    26f4:	aa 81       	ldd	r26, Y+2	; 0x02
-    26f6:	b9 81       	ldd	r27, Y+1	; 0x01
-    26f8:	ce 0f       	add	r28, r30
-    26fa:	d1 1d       	adc	r29, r1
-    26fc:	0f b6       	in	r0, 0x3f	; 63
-    26fe:	f8 94       	cli
-    2700:	de bf       	out	0x3e, r29	; 62
-    2702:	0f be       	out	0x3f, r0	; 63
-    2704:	cd bf       	out	0x3d, r28	; 61
-    2706:	ed 01       	movw	r28, r26
-    2708:	08 95       	ret
-
-0000270a <strlen>:
-    270a:	fc 01       	movw	r30, r24
-    270c:	01 90       	ld	r0, Z+
-    270e:	00 20       	and	r0, r0
-    2710:	e9 f7       	brne	.-6      	; 0x270c <strlen+0x2>
-    2712:	80 95       	com	r24
-    2714:	90 95       	com	r25
-    2716:	8e 0f       	add	r24, r30
-    2718:	9f 1f       	adc	r25, r31
-    271a:	08 95       	ret
-
-0000271c <_exit>:
-    271c:	f8 94       	cli
-
-0000271e <__stop_program>:
-    271e:	ff cf       	rjmp	.-2      	; 0x271e <__stop_program>
+00002858 <__stop_program>:
+    2858:	ff cf       	rjmp	.-2      	; 0x2858 <__stop_program>

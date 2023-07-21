@@ -166,7 +166,7 @@ u8 LCD_u8GoToXY(u8 COPY_u8LineNum, u8 Copy_u8location)
 	}
 	return local_u8Errorstate;
 }
-void LCD_voidClearScreen(void)
+void LCD_voidClearScreen()
 {
 	LCD_voidSendChar(0x01);
 	_delay_ms(2);
@@ -219,5 +219,15 @@ void LCD_voidSendSpecialCharacters(u8 Copy_CharNum, u8 *Copy_u8P_Ptr, u8 Copy_u8
 		LCD_u8GoToXY(0, 0);
 		LCD_voidSendChar(Copy_CharNum);
 	}
+}
+void LCD_voidClearSecondLine()
+{
+    LCD_u8GoToXY(LCD_u8_LINE2, 0); // Move cursor to the start of the second line
+    // Send a string of spaces to clear the second line
+    for (int i = 0; i < 16; i++)
+    {
+        LCD_voidSendChar(' ');
+    }
+	LCD_u8GoToXY(LCD_u8_LINE2, 3); // Move cursor to the start of the second line
 }
 
