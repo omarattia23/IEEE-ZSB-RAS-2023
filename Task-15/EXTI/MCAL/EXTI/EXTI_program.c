@@ -55,6 +55,7 @@ u8 EXTI_voidEnable(u8 Copy_u8EXTIIndex, u8 Copy_u8EdgeIndex)
             break;
         default:
             Local_u8ErrorState = STD_TYPES_NOK;
+            break;
         }
         break;
     /*****************************************************************/
@@ -87,24 +88,26 @@ u8 EXTI_voidEnable(u8 Copy_u8EXTIIndex, u8 Copy_u8EdgeIndex)
             break;
         default:
             Local_u8ErrorState = STD_TYPES_NOK;
+            break;
         }
         break;
     /*****************************************************************/
     case EXTI_u8_IN2:
+        /* Enable EXTI2 */
+        SET_BIT(EXTI_u8_GICR, EXTI_u8_PIN2);
         switch (Copy_u8EdgeIndex)
         {
         case EXTI_u8_RAISING_EDGE:
             SET_BIT(EXTI_u8_MCUCSR, 6);
-            /* Enable EXTI2 */
-            SET_BIT(EXTI_u8_GICR, EXTI_u8_PIN2);
             break;
         case EXTI_u8_FLOATING_EDGE:
             CLR_BIT(EXTI_u8_MCUCSR, 6);
-            /* Enable EXTI2 */
-            SET_BIT(EXTI_u8_GICR, EXTI_u8_PIN2);
+            // /* Enable EXTI2 */
+            // SET_BIT(EXTI_u8_GICR, EXTI_u8_PIN2);
             break;
         default:
             Local_u8ErrorState = STD_TYPES_NOK;
+            break;
         }
         break;
     }
@@ -126,6 +129,7 @@ u8 EXTI_voidDisable(u8 Copy_u8EXTIIndex)
         break;
     default:
         Local_u8ErrorState = STD_TYPES_NOK;
+        break;
     }
 
     return Local_u8ErrorState;
@@ -180,6 +184,6 @@ void __vector__2(void) // ISR(EXTI1)
 void __vector__3(void) __attribute__((signal));
 void __vector__3(void) // ISR(EXTI2)
 {
-    if (EXTI_pfEXTI[EXTI_u8_IN2 != NULL]) // to make sure that pointer is got a new address, and avoid a garbage value.
-        EXTI_pfEXTI[2]();
+    // if (EXTI_pfEXTI[EXTI_u8_IN2 != NULL]) // to make sure that pointer is got a new address, and avoid a garbage value.
+    EXTI_pfEXTI[2]();
 }

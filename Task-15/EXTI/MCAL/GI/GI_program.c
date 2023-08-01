@@ -11,6 +11,7 @@
 #include "GI_config.h"
 #include "GI_private.h"
 #include "GI_interface.h"
+
 void GI_voidEnable(void)
 {
     SET_BIT(SREG, control_EXTI_Bit);

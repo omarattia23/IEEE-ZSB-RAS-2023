@@ -107,8 +107,8 @@ void stepperMotor()
 /* Toggle Application */
 void Toggle_App(void)
 {
-    DIO_voidSetPinDirection(DIO_u8_PORTB, DIO_u8_PIN3, DIO_u8_OUTPUT);
-    DIO_voidSetPinValue(DIO_u8_PORTB, DIO_u8_PIN3, DIO_u8_HIGH);
+    DIO_voidSetPinDirection(DIO_u8_PORTA, DIO_u8_PIN3, DIO_u8_OUTPUT);
+    DIO_voidSetPinValue(DIO_u8_PORTA, DIO_u8_PIN3, DIO_u8_HIGH);
     u8 Local_u8Key;
     u8 password[4] = {'1', '2', '3', '4'};
     u8 input[4] = {0}; // Initialize the input array with zeros
