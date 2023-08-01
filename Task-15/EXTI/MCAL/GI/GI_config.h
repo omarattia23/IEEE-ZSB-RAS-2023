@@ -4,6 +4,6 @@
 /**************** SWC     : GI       ******************/
 /**************** Version : 1.0            *****************/
 /**********************************************************/
-#ifndef GI_config.h
-#define GI_config.h
+#ifndef GI_config_h
+#define GI_config_h
 #endif

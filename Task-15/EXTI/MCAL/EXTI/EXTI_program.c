@@ -150,9 +150,36 @@ u8 EXTI_voidDisable(u8 Copy_u8EXTIIndex)
 //     }
 // }
 /***************************************************************************/
+/* Global Pointer to a function */
+static void (*EXTI_pfEXTI[3])(void) = {NULL};
+
+u8 EXTI_u8Set_CallBack(void (*lpf)(void), u8 Copy_u8EXTI_Index) // *lpf is the local pointer to the function
+{
+    u8 Local_u8ErrorState = STD_TYPES_OK;
+    if ((Copy_u8EXTI_Index <= EXTI_u8_IN2) && (lpf != NULL))
+        EXTI_pfEXTI[Copy_u8EXTI_Index] = lpf;
+    else
+        Local_u8ErrorState = STD_TYPES_NOK;
+    return Local_u8ErrorState;
+}
 /* Prototype fo ISR of EXTI0 */
 void __vector__1(void) __attribute__((signal));
-void __vector__1(void)
+void __vector__1(void) // ISR(EXTI0)
 {
-    Tog_App();
+    if (EXTI_pfEXTI[EXTI_u8_IN0 != NULL]) // to make sure that pointer is got a new address, and avoid a garbage value.
+        EXTI_pfEXTI[0]();
+}
+/* Prototype fo ISR of EXTI1 */
+void __vector__2(void) __attribute__((signal));
+void __vector__2(void) // ISR(EXTI1)
+{
+    if (EXTI_pfEXTI[EXTI_u8_IN1 != NULL]) // to make sure that pointer is got a new address, and avoid a garbage value.
+        EXTI_pfEXTI[1]();
+}
+/* Prototype fo ISR of EXTI2 */
+void __vector__3(void) __attribute__((signal));
+void __vector__3(void) // ISR(EXTI2)
+{
+    if (EXTI_pfEXTI[EXTI_u8_IN2 != NULL]) // to make sure that pointer is got a new address, and avoid a garbage value.
+        EXTI_pfEXTI[2]();
 }

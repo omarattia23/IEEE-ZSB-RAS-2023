@@ -4,8 +4,9 @@
 /**************** SWC     : GI       ******************/
 /**************** Version : 1.0            *****************/
 /**********************************************************/
-#ifndef GI_interface.h
-#define GI_interface.h
+#ifndef GI_interface_h
+#define GI_interface_h
+
 void GI_voidEnable(void);
 void GI_voidDisable(void);
 

@@ -4,6 +4,7 @@
 /* MCAL */
 #include "../MCAL/DIO/DIO_interface.h"
 #include "../MCAL/EXTI/EXTI_interface.h"
+#include "../MCAL/GI/GI_interface.h"
 /* HAL */
 #include "../HAL/1-LCD/LCD_interface.h"
 #include "../HAL/2-Keypad/KPD_interface.h"
@@ -102,24 +103,20 @@ void stepperMotor()
         }
     }
 }
+
 /* Toggle Application */
-void Tog_App(void)
+void Toggle_App(void)
 {
-    
-}
-/***************************************************************************/
-int main()
-{
-    /***************************************************************************/
+    DIO_voidSetPinDirection(DIO_u8_PORTB, DIO_u8_PIN3, DIO_u8_OUTPUT);
+    DIO_voidSetPinValue(DIO_u8_PORTB, DIO_u8_PIN3, DIO_u8_HIGH);
     u8 Local_u8Key;
     u8 password[4] = {'1', '2', '3', '4'};
     u8 input[4] = {0}; // Initialize the input array with zeros
     u8 inputIndex = 0; // Initialize the input index to keep track of the current position
     /***************************************************************************/
-    DIO_voidInit();         /* Initialize DIO */
-    LCD_voideInit();        /* Initialize LCD */
-    KPD_enuInit();          /* Initialize KPD */
-    EXTI_voidEXTI0Enable(); /* Enable EXTI0 */
+    DIO_voidInit();  /* Initialize DIO */
+    LCD_voideInit(); /* Initialize LCD */
+    KPD_enuInit();   /* Initialize KPD */
 
     /***********************************************************************/
     const char *sentence = "Pass word:";
@@ -184,6 +181,7 @@ int main()
                                 LCD_voidClearScreen(); // clear the screen
                                 LCD_voidSendString("Exit the system");
                                 return 0;
+                                break;
                             }
                         }
                     }
@@ -202,6 +200,13 @@ int main()
             }
         }
     }
-
+}
+/***************************************************************************/
+int main()
+{
+    /***************************************************************************/
+    GI_voidEnable(); /* Enable Global interruptions */
+    EXTI_voidEnable(EXTI_u8_IN2, EXTI_u8_RAISING_EDGE);
+    EXTI_u8Set_CallBack(&Toggle_App, EXTI_u8_IN2);
     return 0;
 }

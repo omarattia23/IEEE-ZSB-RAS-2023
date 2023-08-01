@@ -11,11 +11,11 @@
 #include "GI_config.h"
 #include "GI_private.h"
 #include "GI_interface.h"
-#define SREG *((volatile u8 *)0x5f)
 void GI_voidEnable(void)
 {
-    SET_BIT(SREG, 7);
+    SET_BIT(SREG, control_EXTI_Bit);
 }
-void GI_voidDisable(void){
-    CLR_BIT(SREG, 7);
+void GI_voidDisable(void)
+{
+    CLR_BIT(SREG, control_EXTI_Bit);
 }

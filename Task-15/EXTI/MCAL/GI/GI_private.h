@@ -4,7 +4,8 @@
 /**************** SWC     : GI       ******************/
 /**************** Version : 1.0            *****************/
 /**********************************************************/
-#ifndef GI_private.h
-#define GI_private.h
-
+#ifndef GI_private_h
+#define GI_private_h
+#define SREG *((volatile u8 *)0x5f)
+#define control_EXTI_Bit 5
 #endif

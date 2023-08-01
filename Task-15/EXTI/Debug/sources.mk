@@ -27,4 +27,6 @@ HAL/2-Keypad \
 HAL/3-Motor \
 HAL/4-stepper_motor \
 MCAL/DIO \
+MCAL/EXTI \
+MCAL/GI \
 

@@ -8,6 +8,8 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include MCAL/GI/subdir.mk
+-include MCAL/EXTI/subdir.mk
 -include MCAL/DIO/subdir.mk
 -include HAL/4-stepper_motor/subdir.mk
 -include HAL/3-Motor/subdir.mk
@@ -40,20 +42,20 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := Motor
+BUILD_ARTIFACT_NAME := EXTI
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 LSS += \
-Motor.lss \
+EXTI.lss \
 
 FLASH_IMAGE += \
-Motor.hex \
+EXTI.hex \
 
 EEPROM_IMAGE += \
-Motor.eep \
+EXTI.eep \
 
 SIZEDUMMY += \
 sizedummy \
@@ -63,43 +65,43 @@ sizedummy \
 all: main-build
 
 # Main-build Target
-main-build: Motor.elf secondary-outputs
+main-build: EXTI.elf secondary-outputs
 
 # Tool invocations
-Motor.elf: $(OBJS) $(USER_OBJS) makefile objects.mk $(OPTIONAL_TOOL_DEPS)
+EXTI.elf: $(OBJS) $(USER_OBJS) makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: AVR C Linker'
-	avr-gcc -Wl,-Map,Motor.map -mmcu=atmega16 -o "Motor.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	avr-gcc -Wl,-Map,EXTI.map -mmcu=atmega32 -o "EXTI.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-Motor.lss: Motor.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
+EXTI.lss: EXTI.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Invoking: AVR Create Extended Listing'
-	-avr-objdump -h -S Motor.elf  >"Motor.lss"
+	-avr-objdump -h -S EXTI.elf  >"EXTI.lss"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-Motor.hex: Motor.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
+EXTI.hex: EXTI.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Create Flash image (ihex format)'
-	-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Motor.elf  "Motor.hex"
+	-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex EXTI.elf  "EXTI.hex"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-Motor.eep: Motor.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
+EXTI.eep: EXTI.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Create eeprom image (ihex format)'
-	-avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Motor.elf  "Motor.eep"
+	-avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex EXTI.elf  "EXTI.eep"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-sizedummy: Motor.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
+sizedummy: EXTI.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Invoking: Print Size'
-	-avr-size --format=avr --mcu=atmega16 Motor.elf
+	-avr-size --format=avr --mcu=atmega32 EXTI.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(FLASH_IMAGE)$(ELFS)$(OBJS)$(ASM_DEPS)$(EEPROM_IMAGE)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(LSS)$(C_DEPS) Motor.elf
+	-$(RM) $(FLASH_IMAGE)$(ELFS)$(OBJS)$(ASM_DEPS)$(EEPROM_IMAGE)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(LSS)$(C_DEPS) EXTI.elf
 	-@echo ' '
 
 secondary-outputs: $(LSS) $(FLASH_IMAGE) $(EEPROM_IMAGE) $(SIZEDUMMY)
