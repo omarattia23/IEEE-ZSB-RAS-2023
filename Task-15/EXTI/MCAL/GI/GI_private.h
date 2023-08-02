@@ -6,6 +6,6 @@
 /**********************************************************/
 #ifndef GI_private_h
 #define GI_private_h
-#define SREG *((volatile u8 *)0x5f)
-#define control_EXTI_Bit 7
+#define SREG *((volatile u8 *)0x5F)
+#define GI_Bit 7
 #endif

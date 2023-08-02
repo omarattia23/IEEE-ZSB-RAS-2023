@@ -14,9 +14,9 @@
 
 void GI_voidEnable(void)
 {
-    SET_BIT(SREG, control_EXTI_Bit);
+    SET_BIT(SREG, GI_Bit);
 }
 void GI_voidDisable(void)
 {
-    CLR_BIT(SREG, control_EXTI_Bit);
+    CLR_BIT(SREG, GI_Bit);
 }

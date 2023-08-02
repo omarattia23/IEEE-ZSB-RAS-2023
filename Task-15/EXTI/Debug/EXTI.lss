@@ -3,33 +3,33 @@ EXTI.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         0000356e  00000000  00000000  00000094  2**1
+  0 .text         00003552  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         000000be  00800060  0000356e  00003602  2**0
+  1 .data         000000be  00800060  00003552  000035e6  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .bss          00000009  0080011e  0080011e  000036c0  2**0
+  2 .bss          00000009  0080011e  0080011e  000036a4  2**0
                   ALLOC
-  3 .stab         000035a0  00000000  00000000  000036c0  2**2
+  3 .stab         00003570  00000000  00000000  000036a4  2**2
                   CONTENTS, READONLY, DEBUGGING
-  4 .stabstr      0000118c  00000000  00000000  00006c60  2**0
+  4 .stabstr      0000118c  00000000  00000000  00006c14  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_aranges 00000160  00000000  00000000  00007dec  2**0
+  5 .debug_aranges 00000160  00000000  00000000  00007da0  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_pubnames 0000018f  00000000  00000000  00007f4c  2**0
+  6 .debug_pubnames 0000018f  00000000  00000000  00007f00  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_info   00002045  00000000  00000000  000080db  2**0
+  7 .debug_info   00002045  00000000  00000000  0000808f  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_abbrev 00001101  00000000  00000000  0000a120  2**0
+  8 .debug_abbrev 00001101  00000000  00000000  0000a0d4  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_line   00000f82  00000000  00000000  0000b221  2**0
+  9 .debug_line   00000f82  00000000  00000000  0000b1d5  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_frame  00000180  00000000  00000000  0000c1a4  2**2
+ 10 .debug_frame  00000180  00000000  00000000  0000c158  2**2
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_str    000002c2  00000000  00000000  0000c324  2**0
+ 11 .debug_str    000002c2  00000000  00000000  0000c2d8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_loc    0000088e  00000000  00000000  0000c5e6  2**0
+ 12 .debug_loc    0000088e  00000000  00000000  0000c59a  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_ranges 00000050  00000000  00000000  0000ce74  2**0
+ 13 .debug_ranges 00000050  00000000  00000000  0000ce28  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -69,7 +69,7 @@ Disassembly of section .text:
       60:	11 e0       	ldi	r17, 0x01	; 1
       62:	a0 e6       	ldi	r26, 0x60	; 96
       64:	b0 e0       	ldi	r27, 0x00	; 0
-      66:	ee e6       	ldi	r30, 0x6E	; 110
+      66:	e2 e5       	ldi	r30, 0x52	; 82
       68:	f5 e3       	ldi	r31, 0x35	; 53
       6a:	02 c0       	rjmp	.+4      	; 0x70 <.do_copy_data_start>
 
@@ -95,8 +95,8 @@ Disassembly of section .text:
       80:	a7 32       	cpi	r26, 0x27	; 39
       82:	b1 07       	cpc	r27, r17
       84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
-      86:	0e 94 4d 1a 	call	0x349a	; 0x349a <main>
-      8a:	0c 94 b5 1a 	jmp	0x356a	; 0x356a <_exit>
+      86:	0e 94 4c 1a 	call	0x3498	; 0x3498 <main>
+      8a:	0c 94 a7 1a 	jmp	0x354e	; 0x354e <_exit>
 
 0000008e <__bad_interrupt>:
       8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -148,7 +148,7 @@ Disassembly of section .text:
       ec:	b0 e0       	ldi	r27, 0x00	; 0
       ee:	eb e7       	ldi	r30, 0x7B	; 123
       f0:	f0 e0       	ldi	r31, 0x00	; 0
-      f2:	0c 94 75 1a 	jmp	0x34ea	; 0x34ea <__prologue_saves__>
+      f2:	0c 94 67 1a 	jmp	0x34ce	; 0x34ce <__prologue_saves__>
       f6:	dc 01       	movw	r26, r24
       f8:	2b 01       	movw	r4, r22
       fa:	fa 01       	movw	r30, r20
@@ -473,14 +473,14 @@ Disassembly of section .text:
      378:	cd b7       	in	r28, 0x3d	; 61
      37a:	de b7       	in	r29, 0x3e	; 62
      37c:	e2 e1       	ldi	r30, 0x12	; 18
-     37e:	0c 94 91 1a 	jmp	0x3522	; 0x3522 <__epilogue_restores__>
+     37e:	0c 94 83 1a 	jmp	0x3506	; 0x3506 <__epilogue_restores__>
 
 00000382 <__subsf3>:
      382:	a0 e2       	ldi	r26, 0x20	; 32
      384:	b0 e0       	ldi	r27, 0x00	; 0
      386:	e7 ec       	ldi	r30, 0xC7	; 199
      388:	f1 e0       	ldi	r31, 0x01	; 1
-     38a:	0c 94 81 1a 	jmp	0x3502	; 0x3502 <__prologue_saves__+0x18>
+     38a:	0c 94 73 1a 	jmp	0x34e6	; 0x34e6 <__prologue_saves__+0x18>
      38e:	69 83       	std	Y+1, r22	; 0x01
      390:	7a 83       	std	Y+2, r23	; 0x02
      392:	8b 83       	std	Y+3, r24	; 0x03
@@ -518,14 +518,14 @@ Disassembly of section .text:
      3d8:	0e 94 a9 04 	call	0x952	; 0x952 <__pack_f>
      3dc:	a0 96       	adiw	r28, 0x20	; 32
      3de:	e6 e0       	ldi	r30, 0x06	; 6
-     3e0:	0c 94 9d 1a 	jmp	0x353a	; 0x353a <__epilogue_restores__+0x18>
+     3e0:	0c 94 8f 1a 	jmp	0x351e	; 0x351e <__epilogue_restores__+0x18>
 
 000003e4 <__addsf3>:
      3e4:	a0 e2       	ldi	r26, 0x20	; 32
      3e6:	b0 e0       	ldi	r27, 0x00	; 0
      3e8:	e8 ef       	ldi	r30, 0xF8	; 248
      3ea:	f1 e0       	ldi	r31, 0x01	; 1
-     3ec:	0c 94 81 1a 	jmp	0x3502	; 0x3502 <__prologue_saves__+0x18>
+     3ec:	0c 94 73 1a 	jmp	0x34e6	; 0x34e6 <__prologue_saves__+0x18>
      3f0:	69 83       	std	Y+1, r22	; 0x01
      3f2:	7a 83       	std	Y+2, r23	; 0x02
      3f4:	8b 83       	std	Y+3, r24	; 0x03
@@ -559,14 +559,14 @@ Disassembly of section .text:
      432:	0e 94 a9 04 	call	0x952	; 0x952 <__pack_f>
      436:	a0 96       	adiw	r28, 0x20	; 32
      438:	e6 e0       	ldi	r30, 0x06	; 6
-     43a:	0c 94 9d 1a 	jmp	0x353a	; 0x353a <__epilogue_restores__+0x18>
+     43a:	0c 94 8f 1a 	jmp	0x351e	; 0x351e <__epilogue_restores__+0x18>
 
 0000043e <__mulsf3>:
      43e:	a0 e2       	ldi	r26, 0x20	; 32
      440:	b0 e0       	ldi	r27, 0x00	; 0
      442:	e5 e2       	ldi	r30, 0x25	; 37
      444:	f2 e0       	ldi	r31, 0x02	; 2
-     446:	0c 94 75 1a 	jmp	0x34ea	; 0x34ea <__prologue_saves__>
+     446:	0c 94 67 1a 	jmp	0x34ce	; 0x34ce <__prologue_saves__>
      44a:	69 83       	std	Y+1, r22	; 0x01
      44c:	7a 83       	std	Y+2, r23	; 0x02
      44e:	8b 83       	std	Y+3, r24	; 0x03
@@ -806,14 +806,14 @@ Disassembly of section .text:
      626:	0e 94 a9 04 	call	0x952	; 0x952 <__pack_f>
      62a:	a0 96       	adiw	r28, 0x20	; 32
      62c:	e2 e1       	ldi	r30, 0x12	; 18
-     62e:	0c 94 91 1a 	jmp	0x3522	; 0x3522 <__epilogue_restores__>
+     62e:	0c 94 83 1a 	jmp	0x3506	; 0x3506 <__epilogue_restores__>
 
 00000632 <__divsf3>:
      632:	a8 e1       	ldi	r26, 0x18	; 24
      634:	b0 e0       	ldi	r27, 0x00	; 0
      636:	ef e1       	ldi	r30, 0x1F	; 31
      638:	f3 e0       	ldi	r31, 0x03	; 3
-     63a:	0c 94 7d 1a 	jmp	0x34fa	; 0x34fa <__prologue_saves__+0x10>
+     63a:	0c 94 6f 1a 	jmp	0x34de	; 0x34de <__prologue_saves__+0x10>
      63e:	69 83       	std	Y+1, r22	; 0x01
      640:	7a 83       	std	Y+2, r23	; 0x02
      642:	8b 83       	std	Y+3, r24	; 0x03
@@ -975,14 +975,14 @@ Disassembly of section .text:
      77e:	0e 94 a9 04 	call	0x952	; 0x952 <__pack_f>
      782:	68 96       	adiw	r28, 0x18	; 24
      784:	ea e0       	ldi	r30, 0x0A	; 10
-     786:	0c 94 99 1a 	jmp	0x3532	; 0x3532 <__epilogue_restores__+0x10>
+     786:	0c 94 8b 1a 	jmp	0x3516	; 0x3516 <__epilogue_restores__+0x10>
 
 0000078a <__gtsf2>:
      78a:	a8 e1       	ldi	r26, 0x18	; 24
      78c:	b0 e0       	ldi	r27, 0x00	; 0
      78e:	eb ec       	ldi	r30, 0xCB	; 203
      790:	f3 e0       	ldi	r31, 0x03	; 3
-     792:	0c 94 81 1a 	jmp	0x3502	; 0x3502 <__prologue_saves__+0x18>
+     792:	0c 94 73 1a 	jmp	0x34e6	; 0x34e6 <__prologue_saves__+0x18>
      796:	69 83       	std	Y+1, r22	; 0x01
      798:	7a 83       	std	Y+2, r23	; 0x02
      79a:	8b 83       	std	Y+3, r24	; 0x03
@@ -1020,14 +1020,14 @@ Disassembly of section .text:
      7e0:	8f ef       	ldi	r24, 0xFF	; 255
      7e2:	68 96       	adiw	r28, 0x18	; 24
      7e4:	e6 e0       	ldi	r30, 0x06	; 6
-     7e6:	0c 94 9d 1a 	jmp	0x353a	; 0x353a <__epilogue_restores__+0x18>
+     7e6:	0c 94 8f 1a 	jmp	0x351e	; 0x351e <__epilogue_restores__+0x18>
 
 000007ea <__gesf2>:
      7ea:	a8 e1       	ldi	r26, 0x18	; 24
      7ec:	b0 e0       	ldi	r27, 0x00	; 0
      7ee:	eb ef       	ldi	r30, 0xFB	; 251
      7f0:	f3 e0       	ldi	r31, 0x03	; 3
-     7f2:	0c 94 81 1a 	jmp	0x3502	; 0x3502 <__prologue_saves__+0x18>
+     7f2:	0c 94 73 1a 	jmp	0x34e6	; 0x34e6 <__prologue_saves__+0x18>
      7f6:	69 83       	std	Y+1, r22	; 0x01
      7f8:	7a 83       	std	Y+2, r23	; 0x02
      7fa:	8b 83       	std	Y+3, r24	; 0x03
@@ -1065,14 +1065,14 @@ Disassembly of section .text:
      840:	8f ef       	ldi	r24, 0xFF	; 255
      842:	68 96       	adiw	r28, 0x18	; 24
      844:	e6 e0       	ldi	r30, 0x06	; 6
-     846:	0c 94 9d 1a 	jmp	0x353a	; 0x353a <__epilogue_restores__+0x18>
+     846:	0c 94 8f 1a 	jmp	0x351e	; 0x351e <__epilogue_restores__+0x18>
 
 0000084a <__ltsf2>:
      84a:	a8 e1       	ldi	r26, 0x18	; 24
      84c:	b0 e0       	ldi	r27, 0x00	; 0
      84e:	eb e2       	ldi	r30, 0x2B	; 43
      850:	f4 e0       	ldi	r31, 0x04	; 4
-     852:	0c 94 81 1a 	jmp	0x3502	; 0x3502 <__prologue_saves__+0x18>
+     852:	0c 94 73 1a 	jmp	0x34e6	; 0x34e6 <__prologue_saves__+0x18>
      856:	69 83       	std	Y+1, r22	; 0x01
      858:	7a 83       	std	Y+2, r23	; 0x02
      85a:	8b 83       	std	Y+3, r24	; 0x03
@@ -1110,14 +1110,14 @@ Disassembly of section .text:
      8a0:	81 e0       	ldi	r24, 0x01	; 1
      8a2:	68 96       	adiw	r28, 0x18	; 24
      8a4:	e6 e0       	ldi	r30, 0x06	; 6
-     8a6:	0c 94 9d 1a 	jmp	0x353a	; 0x353a <__epilogue_restores__+0x18>
+     8a6:	0c 94 8f 1a 	jmp	0x351e	; 0x351e <__epilogue_restores__+0x18>
 
 000008aa <__fixsfsi>:
      8aa:	ac e0       	ldi	r26, 0x0C	; 12
      8ac:	b0 e0       	ldi	r27, 0x00	; 0
      8ae:	eb e5       	ldi	r30, 0x5B	; 91
      8b0:	f4 e0       	ldi	r31, 0x04	; 4
-     8b2:	0c 94 85 1a 	jmp	0x350a	; 0x350a <__prologue_saves__+0x20>
+     8b2:	0c 94 77 1a 	jmp	0x34ee	; 0x34ee <__prologue_saves__+0x20>
      8b6:	69 83       	std	Y+1, r22	; 0x01
      8b8:	7a 83       	std	Y+2, r23	; 0x02
      8ba:	8b 83       	std	Y+3, r24	; 0x03
@@ -1193,7 +1193,7 @@ Disassembly of section .text:
      948:	ca 01       	movw	r24, r20
      94a:	2c 96       	adiw	r28, 0x0c	; 12
      94c:	e2 e0       	ldi	r30, 0x02	; 2
-     94e:	0c 94 a1 1a 	jmp	0x3542	; 0x3542 <__epilogue_restores__+0x20>
+     94e:	0c 94 93 1a 	jmp	0x3526	; 0x3526 <__epilogue_restores__+0x20>
 
 00000952 <__pack_f>:
      952:	df 92       	push	r13
@@ -1634,7 +1634,7 @@ void GI_voidEnable(void)
      ca0:	cf 93       	push	r28
      ca2:	cd b7       	in	r28, 0x3d	; 61
      ca4:	de b7       	in	r29, 0x3e	; 62
-    SET_BIT(SREG, control_EXTI_Bit);
+    SET_BIT(SREG, GI_Bit);
      ca6:	af e5       	ldi	r26, 0x5F	; 95
      ca8:	b0 e0       	ldi	r27, 0x00	; 0
      caa:	ef e5       	ldi	r30, 0x5F	; 95
@@ -1654,7 +1654,7 @@ void GI_voidDisable(void)
      cbc:	cf 93       	push	r28
      cbe:	cd b7       	in	r28, 0x3d	; 61
      cc0:	de b7       	in	r29, 0x3e	; 62
-    CLR_BIT(SREG, control_EXTI_Bit);
+    CLR_BIT(SREG, GI_Bit);
      cc2:	af e5       	ldi	r26, 0x5F	; 95
      cc4:	b0 e0       	ldi	r27, 0x00	; 0
      cc6:	ef e5       	ldi	r30, 0x5F	; 95
@@ -3922,23 +3922,23 @@ void StepperMotor_move(u8 direction, u16 angle)
     1a50:	6c a3       	std	Y+36, r22	; 0x24
     // Set direction pins as OUTPUT
     DIO_voidSetPinDirection(stepper_motor_port, stepper_motor_blue, DIO_u8_OUTPUT);
-    1a52:	82 e0       	ldi	r24, 0x02	; 2
-    1a54:	63 e0       	ldi	r22, 0x03	; 3
+    1a52:	83 e0       	ldi	r24, 0x03	; 3
+    1a54:	64 e0       	ldi	r22, 0x04	; 4
     1a56:	41 e0       	ldi	r20, 0x01	; 1
     1a58:	0e 94 cf 08 	call	0x119e	; 0x119e <DIO_voidSetPinDirection>
     DIO_voidSetPinDirection(stepper_motor_port, stepper_motor_pink, DIO_u8_OUTPUT);
-    1a5c:	82 e0       	ldi	r24, 0x02	; 2
-    1a5e:	64 e0       	ldi	r22, 0x04	; 4
+    1a5c:	83 e0       	ldi	r24, 0x03	; 3
+    1a5e:	65 e0       	ldi	r22, 0x05	; 5
     1a60:	41 e0       	ldi	r20, 0x01	; 1
     1a62:	0e 94 cf 08 	call	0x119e	; 0x119e <DIO_voidSetPinDirection>
     DIO_voidSetPinDirection(stepper_motor_port, stepper_motor_yellow, DIO_u8_OUTPUT);
-    1a66:	82 e0       	ldi	r24, 0x02	; 2
-    1a68:	65 e0       	ldi	r22, 0x05	; 5
+    1a66:	83 e0       	ldi	r24, 0x03	; 3
+    1a68:	66 e0       	ldi	r22, 0x06	; 6
     1a6a:	41 e0       	ldi	r20, 0x01	; 1
     1a6c:	0e 94 cf 08 	call	0x119e	; 0x119e <DIO_voidSetPinDirection>
     DIO_voidSetPinDirection(stepper_motor_port, stepper_motor_orange, DIO_u8_OUTPUT);
-    1a70:	82 e0       	ldi	r24, 0x02	; 2
-    1a72:	66 e0       	ldi	r22, 0x06	; 6
+    1a70:	83 e0       	ldi	r24, 0x03	; 3
+    1a72:	67 e0       	ldi	r22, 0x07	; 7
     1a74:	41 e0       	ldi	r20, 0x01	; 1
     1a76:	0e 94 cf 08 	call	0x119e	; 0x119e <DIO_voidSetPinDirection>
 
@@ -3954,7 +3954,7 @@ void StepperMotor_move(u8 direction, u16 angle)
     1a88:	20 ea       	ldi	r18, 0xA0	; 160
     1a8a:	35 e0       	ldi	r19, 0x05	; 5
     1a8c:	b9 01       	movw	r22, r18
-    1a8e:	0e 94 61 1a 	call	0x34c2	; 0x34c2 <__udivmodhi4>
+    1a8e:	0e 94 53 1a 	call	0x34a6	; 0x34a6 <__udivmodhi4>
     1a92:	cb 01       	movw	r24, r22
     1a94:	9a a3       	std	Y+34, r25	; 0x22
     1a96:	89 a3       	std	Y+33, r24	; 0x21
@@ -3972,86 +3972,86 @@ void StepperMotor_move(u8 direction, u16 angle)
         {
             // Define the step sequence for clockwise rotation
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_blue, DIO_u8_HIGH);
-    1aa6:	82 e0       	ldi	r24, 0x02	; 2
-    1aa8:	63 e0       	ldi	r22, 0x03	; 3
+    1aa6:	83 e0       	ldi	r24, 0x03	; 3
+    1aa8:	64 e0       	ldi	r22, 0x04	; 4
     1aaa:	41 e0       	ldi	r20, 0x01	; 1
     1aac:	0e 94 f9 09 	call	0x13f2	; 0x13f2 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_pink, DIO_u8_LOW);
-    1ab0:	82 e0       	ldi	r24, 0x02	; 2
-    1ab2:	64 e0       	ldi	r22, 0x04	; 4
+    1ab0:	83 e0       	ldi	r24, 0x03	; 3
+    1ab2:	65 e0       	ldi	r22, 0x05	; 5
     1ab4:	40 e0       	ldi	r20, 0x00	; 0
     1ab6:	0e 94 f9 09 	call	0x13f2	; 0x13f2 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_yellow, DIO_u8_LOW);
-    1aba:	82 e0       	ldi	r24, 0x02	; 2
-    1abc:	65 e0       	ldi	r22, 0x05	; 5
+    1aba:	83 e0       	ldi	r24, 0x03	; 3
+    1abc:	66 e0       	ldi	r22, 0x06	; 6
     1abe:	40 e0       	ldi	r20, 0x00	; 0
     1ac0:	0e 94 f9 09 	call	0x13f2	; 0x13f2 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_orange, DIO_u8_LOW);
-    1ac4:	82 e0       	ldi	r24, 0x02	; 2
-    1ac6:	66 e0       	ldi	r22, 0x06	; 6
+    1ac4:	83 e0       	ldi	r24, 0x03	; 3
+    1ac6:	67 e0       	ldi	r22, 0x07	; 7
     1ac8:	40 e0       	ldi	r20, 0x00	; 0
     1aca:	0e 94 f9 09 	call	0x13f2	; 0x13f2 <DIO_voidSetPinValue>
             // Define the step sequence for clockwise rotation
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_blue, DIO_u8_LOW);
-    1ace:	82 e0       	ldi	r24, 0x02	; 2
-    1ad0:	63 e0       	ldi	r22, 0x03	; 3
+    1ace:	83 e0       	ldi	r24, 0x03	; 3
+    1ad0:	64 e0       	ldi	r22, 0x04	; 4
     1ad2:	40 e0       	ldi	r20, 0x00	; 0
     1ad4:	0e 94 f9 09 	call	0x13f2	; 0x13f2 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_pink, DIO_u8_HIGH);
-    1ad8:	82 e0       	ldi	r24, 0x02	; 2
-    1ada:	64 e0       	ldi	r22, 0x04	; 4
+    1ad8:	83 e0       	ldi	r24, 0x03	; 3
+    1ada:	65 e0       	ldi	r22, 0x05	; 5
     1adc:	41 e0       	ldi	r20, 0x01	; 1
     1ade:	0e 94 f9 09 	call	0x13f2	; 0x13f2 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_yellow, DIO_u8_LOW);
-    1ae2:	82 e0       	ldi	r24, 0x02	; 2
-    1ae4:	65 e0       	ldi	r22, 0x05	; 5
+    1ae2:	83 e0       	ldi	r24, 0x03	; 3
+    1ae4:	66 e0       	ldi	r22, 0x06	; 6
     1ae6:	40 e0       	ldi	r20, 0x00	; 0
     1ae8:	0e 94 f9 09 	call	0x13f2	; 0x13f2 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_orange, DIO_u8_LOW);
-    1aec:	82 e0       	ldi	r24, 0x02	; 2
-    1aee:	66 e0       	ldi	r22, 0x06	; 6
+    1aec:	83 e0       	ldi	r24, 0x03	; 3
+    1aee:	67 e0       	ldi	r22, 0x07	; 7
     1af0:	40 e0       	ldi	r20, 0x00	; 0
     1af2:	0e 94 f9 09 	call	0x13f2	; 0x13f2 <DIO_voidSetPinValue>
             // Define the step sequence for clockwise rotation
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_blue, DIO_u8_LOW);
-    1af6:	82 e0       	ldi	r24, 0x02	; 2
-    1af8:	63 e0       	ldi	r22, 0x03	; 3
+    1af6:	83 e0       	ldi	r24, 0x03	; 3
+    1af8:	64 e0       	ldi	r22, 0x04	; 4
     1afa:	40 e0       	ldi	r20, 0x00	; 0
     1afc:	0e 94 f9 09 	call	0x13f2	; 0x13f2 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_pink, DIO_u8_LOW);
-    1b00:	82 e0       	ldi	r24, 0x02	; 2
-    1b02:	64 e0       	ldi	r22, 0x04	; 4
+    1b00:	83 e0       	ldi	r24, 0x03	; 3
+    1b02:	65 e0       	ldi	r22, 0x05	; 5
     1b04:	40 e0       	ldi	r20, 0x00	; 0
     1b06:	0e 94 f9 09 	call	0x13f2	; 0x13f2 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_yellow, DIO_u8_HIGH);
-    1b0a:	82 e0       	ldi	r24, 0x02	; 2
-    1b0c:	65 e0       	ldi	r22, 0x05	; 5
+    1b0a:	83 e0       	ldi	r24, 0x03	; 3
+    1b0c:	66 e0       	ldi	r22, 0x06	; 6
     1b0e:	41 e0       	ldi	r20, 0x01	; 1
     1b10:	0e 94 f9 09 	call	0x13f2	; 0x13f2 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_orange, DIO_u8_LOW);
-    1b14:	82 e0       	ldi	r24, 0x02	; 2
-    1b16:	66 e0       	ldi	r22, 0x06	; 6
+    1b14:	83 e0       	ldi	r24, 0x03	; 3
+    1b16:	67 e0       	ldi	r22, 0x07	; 7
     1b18:	40 e0       	ldi	r20, 0x00	; 0
     1b1a:	0e 94 f9 09 	call	0x13f2	; 0x13f2 <DIO_voidSetPinValue>
             // Define the step sequence for clockwise rotation
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_blue, DIO_u8_LOW);
-    1b1e:	82 e0       	ldi	r24, 0x02	; 2
-    1b20:	63 e0       	ldi	r22, 0x03	; 3
+    1b1e:	83 e0       	ldi	r24, 0x03	; 3
+    1b20:	64 e0       	ldi	r22, 0x04	; 4
     1b22:	40 e0       	ldi	r20, 0x00	; 0
     1b24:	0e 94 f9 09 	call	0x13f2	; 0x13f2 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_pink, DIO_u8_LOW);
-    1b28:	82 e0       	ldi	r24, 0x02	; 2
-    1b2a:	64 e0       	ldi	r22, 0x04	; 4
+    1b28:	83 e0       	ldi	r24, 0x03	; 3
+    1b2a:	65 e0       	ldi	r22, 0x05	; 5
     1b2c:	40 e0       	ldi	r20, 0x00	; 0
     1b2e:	0e 94 f9 09 	call	0x13f2	; 0x13f2 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_yellow, DIO_u8_LOW);
-    1b32:	82 e0       	ldi	r24, 0x02	; 2
-    1b34:	65 e0       	ldi	r22, 0x05	; 5
+    1b32:	83 e0       	ldi	r24, 0x03	; 3
+    1b34:	66 e0       	ldi	r22, 0x06	; 6
     1b36:	40 e0       	ldi	r20, 0x00	; 0
     1b38:	0e 94 f9 09 	call	0x13f2	; 0x13f2 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_orange, DIO_u8_HIGH);
-    1b3c:	82 e0       	ldi	r24, 0x02	; 2
-    1b3e:	66 e0       	ldi	r22, 0x06	; 6
+    1b3c:	83 e0       	ldi	r24, 0x03	; 3
+    1b3e:	67 e0       	ldi	r22, 0x07	; 7
     1b40:	41 e0       	ldi	r20, 0x01	; 1
     1b42:	0e 94 f9 09 	call	0x13f2	; 0x13f2 <DIO_voidSetPinValue>
     1b46:	80 e0       	ldi	r24, 0x00	; 0
@@ -4235,86 +4235,86 @@ _delay_loop_2(uint16_t __count)
         {
             // Define the step sequence for counterclockwise rotation
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_blue, DIO_u8_LOW);
-    1c54:	82 e0       	ldi	r24, 0x02	; 2
-    1c56:	63 e0       	ldi	r22, 0x03	; 3
+    1c54:	83 e0       	ldi	r24, 0x03	; 3
+    1c56:	64 e0       	ldi	r22, 0x04	; 4
     1c58:	40 e0       	ldi	r20, 0x00	; 0
     1c5a:	0e 94 f9 09 	call	0x13f2	; 0x13f2 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_pink, DIO_u8_LOW);
-    1c5e:	82 e0       	ldi	r24, 0x02	; 2
-    1c60:	64 e0       	ldi	r22, 0x04	; 4
+    1c5e:	83 e0       	ldi	r24, 0x03	; 3
+    1c60:	65 e0       	ldi	r22, 0x05	; 5
     1c62:	40 e0       	ldi	r20, 0x00	; 0
     1c64:	0e 94 f9 09 	call	0x13f2	; 0x13f2 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_yellow, DIO_u8_LOW);
-    1c68:	82 e0       	ldi	r24, 0x02	; 2
-    1c6a:	65 e0       	ldi	r22, 0x05	; 5
+    1c68:	83 e0       	ldi	r24, 0x03	; 3
+    1c6a:	66 e0       	ldi	r22, 0x06	; 6
     1c6c:	40 e0       	ldi	r20, 0x00	; 0
     1c6e:	0e 94 f9 09 	call	0x13f2	; 0x13f2 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_orange, DIO_u8_HIGH);
-    1c72:	82 e0       	ldi	r24, 0x02	; 2
-    1c74:	66 e0       	ldi	r22, 0x06	; 6
+    1c72:	83 e0       	ldi	r24, 0x03	; 3
+    1c74:	67 e0       	ldi	r22, 0x07	; 7
     1c76:	41 e0       	ldi	r20, 0x01	; 1
     1c78:	0e 94 f9 09 	call	0x13f2	; 0x13f2 <DIO_voidSetPinValue>
             // Define the step sequence for counterclockwise rotation
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_blue, DIO_u8_LOW);
-    1c7c:	82 e0       	ldi	r24, 0x02	; 2
-    1c7e:	63 e0       	ldi	r22, 0x03	; 3
+    1c7c:	83 e0       	ldi	r24, 0x03	; 3
+    1c7e:	64 e0       	ldi	r22, 0x04	; 4
     1c80:	40 e0       	ldi	r20, 0x00	; 0
     1c82:	0e 94 f9 09 	call	0x13f2	; 0x13f2 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_pink, DIO_u8_LOW);
-    1c86:	82 e0       	ldi	r24, 0x02	; 2
-    1c88:	64 e0       	ldi	r22, 0x04	; 4
+    1c86:	83 e0       	ldi	r24, 0x03	; 3
+    1c88:	65 e0       	ldi	r22, 0x05	; 5
     1c8a:	40 e0       	ldi	r20, 0x00	; 0
     1c8c:	0e 94 f9 09 	call	0x13f2	; 0x13f2 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_yellow, DIO_u8_HIGH);
-    1c90:	82 e0       	ldi	r24, 0x02	; 2
-    1c92:	65 e0       	ldi	r22, 0x05	; 5
+    1c90:	83 e0       	ldi	r24, 0x03	; 3
+    1c92:	66 e0       	ldi	r22, 0x06	; 6
     1c94:	41 e0       	ldi	r20, 0x01	; 1
     1c96:	0e 94 f9 09 	call	0x13f2	; 0x13f2 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_orange, DIO_u8_LOW);
-    1c9a:	82 e0       	ldi	r24, 0x02	; 2
-    1c9c:	66 e0       	ldi	r22, 0x06	; 6
+    1c9a:	83 e0       	ldi	r24, 0x03	; 3
+    1c9c:	67 e0       	ldi	r22, 0x07	; 7
     1c9e:	40 e0       	ldi	r20, 0x00	; 0
     1ca0:	0e 94 f9 09 	call	0x13f2	; 0x13f2 <DIO_voidSetPinValue>
             // Define the step sequence for counterclockwise rotation
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_blue, DIO_u8_LOW);
-    1ca4:	82 e0       	ldi	r24, 0x02	; 2
-    1ca6:	63 e0       	ldi	r22, 0x03	; 3
+    1ca4:	83 e0       	ldi	r24, 0x03	; 3
+    1ca6:	64 e0       	ldi	r22, 0x04	; 4
     1ca8:	40 e0       	ldi	r20, 0x00	; 0
     1caa:	0e 94 f9 09 	call	0x13f2	; 0x13f2 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_pink, DIO_u8_HIGH);
-    1cae:	82 e0       	ldi	r24, 0x02	; 2
-    1cb0:	64 e0       	ldi	r22, 0x04	; 4
+    1cae:	83 e0       	ldi	r24, 0x03	; 3
+    1cb0:	65 e0       	ldi	r22, 0x05	; 5
     1cb2:	41 e0       	ldi	r20, 0x01	; 1
     1cb4:	0e 94 f9 09 	call	0x13f2	; 0x13f2 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_yellow, DIO_u8_LOW);
-    1cb8:	82 e0       	ldi	r24, 0x02	; 2
-    1cba:	65 e0       	ldi	r22, 0x05	; 5
+    1cb8:	83 e0       	ldi	r24, 0x03	; 3
+    1cba:	66 e0       	ldi	r22, 0x06	; 6
     1cbc:	40 e0       	ldi	r20, 0x00	; 0
     1cbe:	0e 94 f9 09 	call	0x13f2	; 0x13f2 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_orange, DIO_u8_LOW);
-    1cc2:	82 e0       	ldi	r24, 0x02	; 2
-    1cc4:	66 e0       	ldi	r22, 0x06	; 6
+    1cc2:	83 e0       	ldi	r24, 0x03	; 3
+    1cc4:	67 e0       	ldi	r22, 0x07	; 7
     1cc6:	40 e0       	ldi	r20, 0x00	; 0
     1cc8:	0e 94 f9 09 	call	0x13f2	; 0x13f2 <DIO_voidSetPinValue>
             // Define the step sequence for counterclockwise rotation
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_blue, DIO_u8_HIGH);
-    1ccc:	82 e0       	ldi	r24, 0x02	; 2
-    1cce:	63 e0       	ldi	r22, 0x03	; 3
+    1ccc:	83 e0       	ldi	r24, 0x03	; 3
+    1cce:	64 e0       	ldi	r22, 0x04	; 4
     1cd0:	41 e0       	ldi	r20, 0x01	; 1
     1cd2:	0e 94 f9 09 	call	0x13f2	; 0x13f2 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_pink, DIO_u8_LOW);
-    1cd6:	82 e0       	ldi	r24, 0x02	; 2
-    1cd8:	64 e0       	ldi	r22, 0x04	; 4
+    1cd6:	83 e0       	ldi	r24, 0x03	; 3
+    1cd8:	65 e0       	ldi	r22, 0x05	; 5
     1cda:	40 e0       	ldi	r20, 0x00	; 0
     1cdc:	0e 94 f9 09 	call	0x13f2	; 0x13f2 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_yellow, DIO_u8_LOW);
-    1ce0:	82 e0       	ldi	r24, 0x02	; 2
-    1ce2:	65 e0       	ldi	r22, 0x05	; 5
+    1ce0:	83 e0       	ldi	r24, 0x03	; 3
+    1ce2:	66 e0       	ldi	r22, 0x06	; 6
     1ce4:	40 e0       	ldi	r20, 0x00	; 0
     1ce6:	0e 94 f9 09 	call	0x13f2	; 0x13f2 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_orange, DIO_u8_LOW);
-    1cea:	82 e0       	ldi	r24, 0x02	; 2
-    1cec:	66 e0       	ldi	r22, 0x06	; 6
+    1cea:	83 e0       	ldi	r24, 0x03	; 3
+    1cec:	67 e0       	ldi	r22, 0x07	; 7
     1cee:	40 e0       	ldi	r20, 0x00	; 0
     1cf0:	0e 94 f9 09 	call	0x13f2	; 0x13f2 <DIO_voidSetPinValue>
     1cf4:	80 e0       	ldi	r24, 0x00	; 0
@@ -4502,25 +4502,25 @@ void motor_rotate_cw()
     1e0a:	de b7       	in	r29, 0x3e	; 62
     // Set the directions
     DIO_voidSetPinDirection(motor_port, motor_u8_pin1, DIO_u8_OUTPUT);
-    1e0c:	81 e0       	ldi	r24, 0x01	; 1
-    1e0e:	60 e0       	ldi	r22, 0x00	; 0
+    1e0c:	82 e0       	ldi	r24, 0x02	; 2
+    1e0e:	63 e0       	ldi	r22, 0x03	; 3
     1e10:	41 e0       	ldi	r20, 0x01	; 1
     1e12:	0e 94 cf 08 	call	0x119e	; 0x119e <DIO_voidSetPinDirection>
     DIO_voidSetPinDirection(motor_port, motor_u8_pin2, DIO_u8_OUTPUT);
-    1e16:	81 e0       	ldi	r24, 0x01	; 1
-    1e18:	61 e0       	ldi	r22, 0x01	; 1
+    1e16:	82 e0       	ldi	r24, 0x02	; 2
+    1e18:	64 e0       	ldi	r22, 0x04	; 4
     1e1a:	41 e0       	ldi	r20, 0x01	; 1
     1e1c:	0e 94 cf 08 	call	0x119e	; 0x119e <DIO_voidSetPinDirection>
 
     // Set one pin high and the other low to rotate the motor clockwise (CW)
     DIO_voidSetPinValue(motor_port, motor_u8_pin1, DIO_u8_HIGH);
-    1e20:	81 e0       	ldi	r24, 0x01	; 1
-    1e22:	60 e0       	ldi	r22, 0x00	; 0
+    1e20:	82 e0       	ldi	r24, 0x02	; 2
+    1e22:	63 e0       	ldi	r22, 0x03	; 3
     1e24:	41 e0       	ldi	r20, 0x01	; 1
     1e26:	0e 94 f9 09 	call	0x13f2	; 0x13f2 <DIO_voidSetPinValue>
     DIO_voidSetPinValue(motor_port, motor_u8_pin2, DIO_u8_LOW);
-    1e2a:	81 e0       	ldi	r24, 0x01	; 1
-    1e2c:	61 e0       	ldi	r22, 0x01	; 1
+    1e2a:	82 e0       	ldi	r24, 0x02	; 2
+    1e2c:	64 e0       	ldi	r22, 0x04	; 4
     1e2e:	40 e0       	ldi	r20, 0x00	; 0
     1e30:	0e 94 f9 09 	call	0x13f2	; 0x13f2 <DIO_voidSetPinValue>
 }
@@ -4538,25 +4538,25 @@ void motor_rotate_ccw()
     1e40:	de b7       	in	r29, 0x3e	; 62
     // Set the directions
     DIO_voidSetPinDirection(motor_port, motor_u8_pin1, DIO_u8_OUTPUT);
-    1e42:	81 e0       	ldi	r24, 0x01	; 1
-    1e44:	60 e0       	ldi	r22, 0x00	; 0
+    1e42:	82 e0       	ldi	r24, 0x02	; 2
+    1e44:	63 e0       	ldi	r22, 0x03	; 3
     1e46:	41 e0       	ldi	r20, 0x01	; 1
     1e48:	0e 94 cf 08 	call	0x119e	; 0x119e <DIO_voidSetPinDirection>
     DIO_voidSetPinDirection(motor_port, motor_u8_pin2, DIO_u8_OUTPUT);
-    1e4c:	81 e0       	ldi	r24, 0x01	; 1
-    1e4e:	61 e0       	ldi	r22, 0x01	; 1
+    1e4c:	82 e0       	ldi	r24, 0x02	; 2
+    1e4e:	64 e0       	ldi	r22, 0x04	; 4
     1e50:	41 e0       	ldi	r20, 0x01	; 1
     1e52:	0e 94 cf 08 	call	0x119e	; 0x119e <DIO_voidSetPinDirection>
 
     // Set one pin high and the other low to rotate the motor counterclockwise (CCW)
     DIO_voidSetPinValue(motor_port, motor_u8_pin1, DIO_u8_LOW);
-    1e56:	81 e0       	ldi	r24, 0x01	; 1
-    1e58:	60 e0       	ldi	r22, 0x00	; 0
+    1e56:	82 e0       	ldi	r24, 0x02	; 2
+    1e58:	63 e0       	ldi	r22, 0x03	; 3
     1e5a:	40 e0       	ldi	r20, 0x00	; 0
     1e5c:	0e 94 f9 09 	call	0x13f2	; 0x13f2 <DIO_voidSetPinValue>
     DIO_voidSetPinValue(motor_port, motor_u8_pin2, DIO_u8_HIGH);
-    1e60:	81 e0       	ldi	r24, 0x01	; 1
-    1e62:	61 e0       	ldi	r22, 0x01	; 1
+    1e60:	82 e0       	ldi	r24, 0x02	; 2
+    1e62:	64 e0       	ldi	r22, 0x04	; 4
     1e64:	41 e0       	ldi	r20, 0x01	; 1
     1e66:	0e 94 f9 09 	call	0x13f2	; 0x13f2 <DIO_voidSetPinValue>
 }
@@ -4571,13 +4571,13 @@ void stopDCmotor(){
     1e74:	cd b7       	in	r28, 0x3d	; 61
     1e76:	de b7       	in	r29, 0x3e	; 62
 	DIO_voidSetPinValue(motor_port, motor_u8_pin1, DIO_u8_LOW);
-    1e78:	81 e0       	ldi	r24, 0x01	; 1
-    1e7a:	60 e0       	ldi	r22, 0x00	; 0
+    1e78:	82 e0       	ldi	r24, 0x02	; 2
+    1e7a:	63 e0       	ldi	r22, 0x03	; 3
     1e7c:	40 e0       	ldi	r20, 0x00	; 0
     1e7e:	0e 94 f9 09 	call	0x13f2	; 0x13f2 <DIO_voidSetPinValue>
 	DIO_voidSetPinValue(motor_port, motor_u8_pin2, DIO_u8_LOW);
-    1e82:	81 e0       	ldi	r24, 0x01	; 1
-    1e84:	61 e0       	ldi	r22, 0x01	; 1
+    1e82:	82 e0       	ldi	r24, 0x02	; 2
+    1e84:	64 e0       	ldi	r22, 0x04	; 4
     1e86:	40 e0       	ldi	r20, 0x00	; 0
     1e88:	0e 94 f9 09 	call	0x13f2	; 0x13f2 <DIO_voidSetPinValue>
 }
@@ -5186,8 +5186,8 @@ void LCD_voidSendCmnd(u8 Copy_u8Cmnd)
     2222:	0e 94 f9 09 	call	0x13f2	; 0x13f2 <DIO_voidSetPinValue>
 
 	/*Write Command*/
-	DIO_u8SetPortValue(DIO_u8_PORTD, Copy_u8Cmnd);
-    2226:	83 e0       	ldi	r24, 0x03	; 3
+	DIO_u8SetPortValue(LCD_u8_DATA_PORT, Copy_u8Cmnd);
+    2226:	81 e0       	ldi	r24, 0x01	; 1
     2228:	69 8d       	ldd	r22, Y+25	; 0x19
     222a:	0e 94 7c 0c 	call	0x18f8	; 0x18f8 <DIO_u8SetPortValue>
 
@@ -5484,8 +5484,8 @@ void LCD_voidSendChar(u8 Copy_u8Char)
     23f6:	0e 94 f9 09 	call	0x13f2	; 0x13f2 <DIO_voidSetPinValue>
 
 	/*Write Command*/
-	DIO_u8SetPortValue(DIO_u8_PORTD, Copy_u8Char);
-    23fa:	83 e0       	ldi	r24, 0x03	; 3
+	DIO_u8SetPortValue(LCD_u8_DATA_PORT, Copy_u8Char);
+    23fa:	81 e0       	ldi	r24, 0x01	; 1
     23fc:	69 8d       	ldd	r22, Y+25	; 0x19
     23fe:	0e 94 7c 0c 	call	0x18f8	; 0x18f8 <DIO_u8SetPortValue>
 
@@ -7493,7 +7493,7 @@ void wrongpassword()
     int deined_pos = (16 - strlen(denied)) / 2;
     3042:	89 89       	ldd	r24, Y+17	; 0x11
     3044:	9a 89       	ldd	r25, Y+18	; 0x12
-    3046:	0e 94 ac 1a 	call	0x3558	; 0x3558 <strlen>
+    3046:	0e 94 9e 1a 	call	0x353c	; 0x353c <strlen>
     304a:	9c 01       	movw	r18, r24
     304c:	80 e1       	ldi	r24, 0x10	; 16
     304e:	90 e0       	ldi	r25, 0x00	; 0
@@ -7946,7 +7946,7 @@ void Toggle_App(void)
     int sentenceLength = strlen(sentence);
     32fe:	8b 85       	ldd	r24, Y+11	; 0x0b
     3300:	9c 85       	ldd	r25, Y+12	; 0x0c
-    3302:	0e 94 ac 1a 	call	0x3558	; 0x3558 <strlen>
+    3302:	0e 94 9e 1a 	call	0x353c	; 0x353c <strlen>
     3306:	9a 87       	std	Y+10, r25	; 0x0a
     3308:	89 87       	std	Y+9, r24	; 0x09
     int startingPosition = (16 - sentenceLength) / 2;
@@ -7993,7 +7993,7 @@ void Toggle_App(void)
     3352:	81 e0       	ldi	r24, 0x01	; 1
     3354:	66 e0       	ldi	r22, 0x06	; 6
     3356:	0e 94 95 15 	call	0x2b2a	; 0x2b2a <LCD_u8GoToXY>
-    335a:	91 c0       	rjmp	.+290    	; 0x347e <Toggle_App+0x1da>
+    335a:	90 c0       	rjmp	.+288    	; 0x347c <Toggle_App+0x1d8>
 
     /***********************************************************************/
     while (flag < 3)
@@ -8008,7 +8008,7 @@ void Toggle_App(void)
     3364:	8e 85       	ldd	r24, Y+14	; 0x0e
     3366:	8f 3f       	cpi	r24, 0xFF	; 255
     3368:	09 f4       	brne	.+2      	; 0x336c <Toggle_App+0xc8>
-    336a:	89 c0       	rjmp	.+274    	; 0x347e <Toggle_App+0x1da>
+    336a:	88 c0       	rjmp	.+272    	; 0x347c <Toggle_App+0x1d8>
         {
             // Store the entered key in the input array
             input[inputIndex] = Local_u8Key;
@@ -8035,7 +8035,7 @@ void Toggle_App(void)
     338c:	8d 85       	ldd	r24, Y+13	; 0x0d
     338e:	84 30       	cpi	r24, 0x04	; 4
     3390:	09 f0       	breq	.+2      	; 0x3394 <Toggle_App+0xf0>
-    3392:	75 c0       	rjmp	.+234    	; 0x347e <Toggle_App+0x1da>
+    3392:	74 c0       	rjmp	.+232    	; 0x347c <Toggle_App+0x1d8>
             {
                 int isPasswordCorrect = 1;
     3394:	81 e0       	ldi	r24, 0x01	; 1
@@ -8097,7 +8097,7 @@ void Toggle_App(void)
     33e0:	8d 81       	ldd	r24, Y+5	; 0x05
     33e2:	9e 81       	ldd	r25, Y+6	; 0x06
     33e4:	00 97       	sbiw	r24, 0x00	; 0
-    33e6:	99 f1       	breq	.+102    	; 0x344e <Toggle_App+0x1aa>
+    33e6:	91 f1       	breq	.+100    	; 0x344c <Toggle_App+0x1a8>
                 {
                     flag = 3;
     33e8:	83 e0       	ldi	r24, 0x03	; 3
@@ -8105,7 +8105,7 @@ void Toggle_App(void)
 
                     correctpassword();
     33ee:	0e 94 7a 17 	call	0x2ef4	; 0x2ef4 <correctpassword>
-    33f2:	28 c0       	rjmp	.+80     	; 0x3444 <Toggle_App+0x1a0>
+    33f2:	27 c0       	rjmp	.+78     	; 0x3442 <Toggle_App+0x19e>
                     while (flag1)
                     {
                         KPD_u8getKeystate(&Local_u8Key);
@@ -8115,7 +8115,7 @@ void Toggle_App(void)
                         if (Local_u8Key != KPD_u8_KEY_NOT_PRESSED)
     33fc:	8e 85       	ldd	r24, Y+14	; 0x0e
     33fe:	8f 3f       	cpi	r24, 0xFF	; 255
-    3400:	09 f1       	breq	.+66     	; 0x3444 <Toggle_App+0x1a0>
+    3400:	01 f1       	breq	.+64     	; 0x3442 <Toggle_App+0x19e>
                         {
                             switch (Local_u8Key)
     3402:	8e 85       	ldd	r24, Y+14	; 0x0e
@@ -8137,17 +8137,17 @@ void Toggle_App(void)
     3422:	58 8d       	ldd	r21, Y+24	; 0x18
     3424:	41 33       	cpi	r20, 0x31	; 49
     3426:	51 05       	cpc	r21, r1
-    3428:	69 f4       	brne	.+26     	; 0x3444 <Toggle_App+0x1a0>
+    3428:	61 f4       	brne	.+24     	; 0x3442 <Toggle_App+0x19e>
                             {
                             case '1': // DC motor choise
                                 DCMotor();
     342a:	0e 94 c8 18 	call	0x3190	; 0x3190 <DCMotor>
-    342e:	0a c0       	rjmp	.+20     	; 0x3444 <Toggle_App+0x1a0>
+    342e:	09 c0       	rjmp	.+18     	; 0x3442 <Toggle_App+0x19e>
                                 break;
                             case '2': // stepper motor
                                 stepperMotor();
     3430:	0e 94 0e 19 	call	0x321c	; 0x321c <stepperMotor>
-    3434:	07 c0       	rjmp	.+14     	; 0x3444 <Toggle_App+0x1a0>
+    3434:	06 c0       	rjmp	.+12     	; 0x3442 <Toggle_App+0x19e>
                                 break;
                             case '3':                  // stepper motor
                                 LCD_voidClearScreen(); // clear the screen
@@ -8156,214 +8156,202 @@ void Toggle_App(void)
     343a:	8d ee       	ldi	r24, 0xED	; 237
     343c:	90 e0       	ldi	r25, 0x00	; 0
     343e:	0e 94 55 16 	call	0x2caa	; 0x2caa <LCD_voidSendString>
-    3442:	22 c0       	rjmp	.+68     	; 0x3488 <Toggle_App+0x1e4>
                 if (isPasswordCorrect)
                 {
                     flag = 3;
 
                     correctpassword();
                     while (flag1)
-    3444:	80 91 05 01 	lds	r24, 0x0105
-    3448:	88 23       	and	r24, r24
-    344a:	a1 f6       	brne	.-88     	; 0x33f4 <Toggle_App+0x150>
-    344c:	02 c0       	rjmp	.+4      	; 0x3452 <Toggle_App+0x1ae>
+    3442:	80 91 05 01 	lds	r24, 0x0105
+    3446:	88 23       	and	r24, r24
+    3448:	a9 f6       	brne	.-86     	; 0x33f4 <Toggle_App+0x150>
+    344a:	02 c0       	rjmp	.+4      	; 0x3450 <Toggle_App+0x1ac>
                         }
                     }
                 }
                 else
                 {
                     wrongpassword();
-    344e:	0e 94 11 18 	call	0x3022	; 0x3022 <wrongpassword>
+    344c:	0e 94 11 18 	call	0x3022	; 0x3022 <wrongpassword>
                 }
 
                 // Reset the input array and index
                 for (int i = 0; i < 4; i++)
-    3452:	1a 82       	std	Y+2, r1	; 0x02
-    3454:	19 82       	std	Y+1, r1	; 0x01
-    3456:	0d c0       	rjmp	.+26     	; 0x3472 <Toggle_App+0x1ce>
+    3450:	1a 82       	std	Y+2, r1	; 0x02
+    3452:	19 82       	std	Y+1, r1	; 0x01
+    3454:	0d c0       	rjmp	.+26     	; 0x3470 <Toggle_App+0x1cc>
                 {
                     input[i] = 0;
-    3458:	29 81       	ldd	r18, Y+1	; 0x01
-    345a:	3a 81       	ldd	r19, Y+2	; 0x02
-    345c:	ce 01       	movw	r24, r28
-    345e:	43 96       	adiw	r24, 0x13	; 19
-    3460:	fc 01       	movw	r30, r24
-    3462:	e2 0f       	add	r30, r18
-    3464:	f3 1f       	adc	r31, r19
-    3466:	10 82       	st	Z, r1
+    3456:	29 81       	ldd	r18, Y+1	; 0x01
+    3458:	3a 81       	ldd	r19, Y+2	; 0x02
+    345a:	ce 01       	movw	r24, r28
+    345c:	43 96       	adiw	r24, 0x13	; 19
+    345e:	fc 01       	movw	r30, r24
+    3460:	e2 0f       	add	r30, r18
+    3462:	f3 1f       	adc	r31, r19
+    3464:	10 82       	st	Z, r1
                 {
                     wrongpassword();
                 }
 
                 // Reset the input array and index
                 for (int i = 0; i < 4; i++)
-    3468:	89 81       	ldd	r24, Y+1	; 0x01
-    346a:	9a 81       	ldd	r25, Y+2	; 0x02
-    346c:	01 96       	adiw	r24, 0x01	; 1
-    346e:	9a 83       	std	Y+2, r25	; 0x02
-    3470:	89 83       	std	Y+1, r24	; 0x01
-    3472:	89 81       	ldd	r24, Y+1	; 0x01
-    3474:	9a 81       	ldd	r25, Y+2	; 0x02
-    3476:	84 30       	cpi	r24, 0x04	; 4
-    3478:	91 05       	cpc	r25, r1
-    347a:	74 f3       	brlt	.-36     	; 0x3458 <Toggle_App+0x1b4>
+    3466:	89 81       	ldd	r24, Y+1	; 0x01
+    3468:	9a 81       	ldd	r25, Y+2	; 0x02
+    346a:	01 96       	adiw	r24, 0x01	; 1
+    346c:	9a 83       	std	Y+2, r25	; 0x02
+    346e:	89 83       	std	Y+1, r24	; 0x01
+    3470:	89 81       	ldd	r24, Y+1	; 0x01
+    3472:	9a 81       	ldd	r25, Y+2	; 0x02
+    3474:	84 30       	cpi	r24, 0x04	; 4
+    3476:	91 05       	cpc	r25, r1
+    3478:	74 f3       	brlt	.-36     	; 0x3456 <Toggle_App+0x1b2>
                 {
                     input[i] = 0;
                 }
                 inputIndex = 0;
-    347c:	1d 86       	std	Y+13, r1	; 0x0d
+    347a:	1d 86       	std	Y+13, r1	; 0x0d
     // Clear the second line
     LCD_voidClearSecondLine();
     LCD_u8GoToXY(LCD_u8_LINE2, 6);
 
     /***********************************************************************/
     while (flag < 3)
-    347e:	80 91 24 01 	lds	r24, 0x0124
-    3482:	83 30       	cpi	r24, 0x03	; 3
-    3484:	08 f4       	brcc	.+2      	; 0x3488 <Toggle_App+0x1e4>
-    3486:	6a cf       	rjmp	.-300    	; 0x335c <Toggle_App+0xb8>
+    347c:	80 91 24 01 	lds	r24, 0x0124
+    3480:	83 30       	cpi	r24, 0x03	; 3
+    3482:	08 f4       	brcc	.+2      	; 0x3486 <Toggle_App+0x1e2>
+    3484:	6b cf       	rjmp	.-298    	; 0x335c <Toggle_App+0xb8>
                 }
                 inputIndex = 0;
             }
         }
     }
 }
-    3488:	6a 96       	adiw	r28, 0x1a	; 26
-    348a:	0f b6       	in	r0, 0x3f	; 63
-    348c:	f8 94       	cli
-    348e:	de bf       	out	0x3e, r29	; 62
-    3490:	0f be       	out	0x3f, r0	; 63
-    3492:	cd bf       	out	0x3d, r28	; 61
-    3494:	cf 91       	pop	r28
-    3496:	df 91       	pop	r29
-    3498:	08 95       	ret
+    3486:	6a 96       	adiw	r28, 0x1a	; 26
+    3488:	0f b6       	in	r0, 0x3f	; 63
+    348a:	f8 94       	cli
+    348c:	de bf       	out	0x3e, r29	; 62
+    348e:	0f be       	out	0x3f, r0	; 63
+    3490:	cd bf       	out	0x3d, r28	; 61
+    3492:	cf 91       	pop	r28
+    3494:	df 91       	pop	r29
+    3496:	08 95       	ret
 
-0000349a <main>:
+00003498 <main>:
 /***************************************************************************/
 int main()
 {
-    349a:	df 93       	push	r29
-    349c:	cf 93       	push	r28
-    349e:	cd b7       	in	r28, 0x3d	; 61
-    34a0:	de b7       	in	r29, 0x3e	; 62
+    3498:	df 93       	push	r29
+    349a:	cf 93       	push	r28
+    349c:	cd b7       	in	r28, 0x3d	; 61
+    349e:	de b7       	in	r29, 0x3e	; 62
     /***************************************************************************/
-    GI_voidEnable(); /* Enable Global interruptions */
-    34a2:	0e 94 4f 06 	call	0xc9e	; 0xc9e <GI_voidEnable>
-    EXTI_voidEnable(EXTI_u8_IN2, EXTI_u8_RAISING_EDGE);
-    34a6:	82 e0       	ldi	r24, 0x02	; 2
-    34a8:	60 e0       	ldi	r22, 0x00	; 0
-    34aa:	0e 94 6b 06 	call	0xcd6	; 0xcd6 <EXTI_voidEnable>
-    EXTI_u8Set_CallBack(&Toggle_App, EXTI_u8_IN2);
-    34ae:	82 e5       	ldi	r24, 0x52	; 82
-    34b0:	99 e1       	ldi	r25, 0x19	; 25
-    34b2:	62 e0       	ldi	r22, 0x02	; 2
-    34b4:	0e 94 f1 07 	call	0xfe2	; 0xfe2 <EXTI_u8Set_CallBack>
-    return 0;
-    34b8:	80 e0       	ldi	r24, 0x00	; 0
-    34ba:	90 e0       	ldi	r25, 0x00	; 0
-}
-    34bc:	cf 91       	pop	r28
-    34be:	df 91       	pop	r29
-    34c0:	08 95       	ret
+    // GI_voidEnable(); /* Enable Global interruptions */
+    // DIO_voidSetPinDirection(DIO_u8_PORTB,DIO_u8_PIN2,DIO_u8_INPUT);
+    // EXTI_voidEnable(EXTI_u8_IN0, EXTI_u8_RAISING_EDGE);
+    // EXTI_u8Set_CallBack(&Toggle_App, EXTI_u8_IN0);
+    Toggle_App();
+    34a0:	0e 94 52 19 	call	0x32a4	; 0x32a4 <Toggle_App>
+    34a4:	ff cf       	rjmp	.-2      	; 0x34a4 <main+0xc>
 
-000034c2 <__udivmodhi4>:
-    34c2:	aa 1b       	sub	r26, r26
-    34c4:	bb 1b       	sub	r27, r27
-    34c6:	51 e1       	ldi	r21, 0x11	; 17
-    34c8:	07 c0       	rjmp	.+14     	; 0x34d8 <__udivmodhi4_ep>
+000034a6 <__udivmodhi4>:
+    34a6:	aa 1b       	sub	r26, r26
+    34a8:	bb 1b       	sub	r27, r27
+    34aa:	51 e1       	ldi	r21, 0x11	; 17
+    34ac:	07 c0       	rjmp	.+14     	; 0x34bc <__udivmodhi4_ep>
 
-000034ca <__udivmodhi4_loop>:
-    34ca:	aa 1f       	adc	r26, r26
-    34cc:	bb 1f       	adc	r27, r27
-    34ce:	a6 17       	cp	r26, r22
-    34d0:	b7 07       	cpc	r27, r23
-    34d2:	10 f0       	brcs	.+4      	; 0x34d8 <__udivmodhi4_ep>
-    34d4:	a6 1b       	sub	r26, r22
-    34d6:	b7 0b       	sbc	r27, r23
+000034ae <__udivmodhi4_loop>:
+    34ae:	aa 1f       	adc	r26, r26
+    34b0:	bb 1f       	adc	r27, r27
+    34b2:	a6 17       	cp	r26, r22
+    34b4:	b7 07       	cpc	r27, r23
+    34b6:	10 f0       	brcs	.+4      	; 0x34bc <__udivmodhi4_ep>
+    34b8:	a6 1b       	sub	r26, r22
+    34ba:	b7 0b       	sbc	r27, r23
 
-000034d8 <__udivmodhi4_ep>:
-    34d8:	88 1f       	adc	r24, r24
-    34da:	99 1f       	adc	r25, r25
-    34dc:	5a 95       	dec	r21
-    34de:	a9 f7       	brne	.-22     	; 0x34ca <__udivmodhi4_loop>
-    34e0:	80 95       	com	r24
-    34e2:	90 95       	com	r25
-    34e4:	bc 01       	movw	r22, r24
-    34e6:	cd 01       	movw	r24, r26
-    34e8:	08 95       	ret
+000034bc <__udivmodhi4_ep>:
+    34bc:	88 1f       	adc	r24, r24
+    34be:	99 1f       	adc	r25, r25
+    34c0:	5a 95       	dec	r21
+    34c2:	a9 f7       	brne	.-22     	; 0x34ae <__udivmodhi4_loop>
+    34c4:	80 95       	com	r24
+    34c6:	90 95       	com	r25
+    34c8:	bc 01       	movw	r22, r24
+    34ca:	cd 01       	movw	r24, r26
+    34cc:	08 95       	ret
 
-000034ea <__prologue_saves__>:
-    34ea:	2f 92       	push	r2
-    34ec:	3f 92       	push	r3
-    34ee:	4f 92       	push	r4
-    34f0:	5f 92       	push	r5
-    34f2:	6f 92       	push	r6
-    34f4:	7f 92       	push	r7
-    34f6:	8f 92       	push	r8
-    34f8:	9f 92       	push	r9
-    34fa:	af 92       	push	r10
-    34fc:	bf 92       	push	r11
-    34fe:	cf 92       	push	r12
-    3500:	df 92       	push	r13
-    3502:	ef 92       	push	r14
-    3504:	ff 92       	push	r15
-    3506:	0f 93       	push	r16
-    3508:	1f 93       	push	r17
-    350a:	cf 93       	push	r28
-    350c:	df 93       	push	r29
-    350e:	cd b7       	in	r28, 0x3d	; 61
-    3510:	de b7       	in	r29, 0x3e	; 62
-    3512:	ca 1b       	sub	r28, r26
-    3514:	db 0b       	sbc	r29, r27
-    3516:	0f b6       	in	r0, 0x3f	; 63
-    3518:	f8 94       	cli
-    351a:	de bf       	out	0x3e, r29	; 62
-    351c:	0f be       	out	0x3f, r0	; 63
-    351e:	cd bf       	out	0x3d, r28	; 61
-    3520:	09 94       	ijmp
+000034ce <__prologue_saves__>:
+    34ce:	2f 92       	push	r2
+    34d0:	3f 92       	push	r3
+    34d2:	4f 92       	push	r4
+    34d4:	5f 92       	push	r5
+    34d6:	6f 92       	push	r6
+    34d8:	7f 92       	push	r7
+    34da:	8f 92       	push	r8
+    34dc:	9f 92       	push	r9
+    34de:	af 92       	push	r10
+    34e0:	bf 92       	push	r11
+    34e2:	cf 92       	push	r12
+    34e4:	df 92       	push	r13
+    34e6:	ef 92       	push	r14
+    34e8:	ff 92       	push	r15
+    34ea:	0f 93       	push	r16
+    34ec:	1f 93       	push	r17
+    34ee:	cf 93       	push	r28
+    34f0:	df 93       	push	r29
+    34f2:	cd b7       	in	r28, 0x3d	; 61
+    34f4:	de b7       	in	r29, 0x3e	; 62
+    34f6:	ca 1b       	sub	r28, r26
+    34f8:	db 0b       	sbc	r29, r27
+    34fa:	0f b6       	in	r0, 0x3f	; 63
+    34fc:	f8 94       	cli
+    34fe:	de bf       	out	0x3e, r29	; 62
+    3500:	0f be       	out	0x3f, r0	; 63
+    3502:	cd bf       	out	0x3d, r28	; 61
+    3504:	09 94       	ijmp
 
-00003522 <__epilogue_restores__>:
-    3522:	2a 88       	ldd	r2, Y+18	; 0x12
-    3524:	39 88       	ldd	r3, Y+17	; 0x11
-    3526:	48 88       	ldd	r4, Y+16	; 0x10
-    3528:	5f 84       	ldd	r5, Y+15	; 0x0f
-    352a:	6e 84       	ldd	r6, Y+14	; 0x0e
-    352c:	7d 84       	ldd	r7, Y+13	; 0x0d
-    352e:	8c 84       	ldd	r8, Y+12	; 0x0c
-    3530:	9b 84       	ldd	r9, Y+11	; 0x0b
-    3532:	aa 84       	ldd	r10, Y+10	; 0x0a
-    3534:	b9 84       	ldd	r11, Y+9	; 0x09
-    3536:	c8 84       	ldd	r12, Y+8	; 0x08
-    3538:	df 80       	ldd	r13, Y+7	; 0x07
-    353a:	ee 80       	ldd	r14, Y+6	; 0x06
-    353c:	fd 80       	ldd	r15, Y+5	; 0x05
-    353e:	0c 81       	ldd	r16, Y+4	; 0x04
-    3540:	1b 81       	ldd	r17, Y+3	; 0x03
-    3542:	aa 81       	ldd	r26, Y+2	; 0x02
-    3544:	b9 81       	ldd	r27, Y+1	; 0x01
-    3546:	ce 0f       	add	r28, r30
-    3548:	d1 1d       	adc	r29, r1
-    354a:	0f b6       	in	r0, 0x3f	; 63
-    354c:	f8 94       	cli
-    354e:	de bf       	out	0x3e, r29	; 62
-    3550:	0f be       	out	0x3f, r0	; 63
-    3552:	cd bf       	out	0x3d, r28	; 61
-    3554:	ed 01       	movw	r28, r26
-    3556:	08 95       	ret
+00003506 <__epilogue_restores__>:
+    3506:	2a 88       	ldd	r2, Y+18	; 0x12
+    3508:	39 88       	ldd	r3, Y+17	; 0x11
+    350a:	48 88       	ldd	r4, Y+16	; 0x10
+    350c:	5f 84       	ldd	r5, Y+15	; 0x0f
+    350e:	6e 84       	ldd	r6, Y+14	; 0x0e
+    3510:	7d 84       	ldd	r7, Y+13	; 0x0d
+    3512:	8c 84       	ldd	r8, Y+12	; 0x0c
+    3514:	9b 84       	ldd	r9, Y+11	; 0x0b
+    3516:	aa 84       	ldd	r10, Y+10	; 0x0a
+    3518:	b9 84       	ldd	r11, Y+9	; 0x09
+    351a:	c8 84       	ldd	r12, Y+8	; 0x08
+    351c:	df 80       	ldd	r13, Y+7	; 0x07
+    351e:	ee 80       	ldd	r14, Y+6	; 0x06
+    3520:	fd 80       	ldd	r15, Y+5	; 0x05
+    3522:	0c 81       	ldd	r16, Y+4	; 0x04
+    3524:	1b 81       	ldd	r17, Y+3	; 0x03
+    3526:	aa 81       	ldd	r26, Y+2	; 0x02
+    3528:	b9 81       	ldd	r27, Y+1	; 0x01
+    352a:	ce 0f       	add	r28, r30
+    352c:	d1 1d       	adc	r29, r1
+    352e:	0f b6       	in	r0, 0x3f	; 63
+    3530:	f8 94       	cli
+    3532:	de bf       	out	0x3e, r29	; 62
+    3534:	0f be       	out	0x3f, r0	; 63
+    3536:	cd bf       	out	0x3d, r28	; 61
+    3538:	ed 01       	movw	r28, r26
+    353a:	08 95       	ret
 
-00003558 <strlen>:
-    3558:	fc 01       	movw	r30, r24
-    355a:	01 90       	ld	r0, Z+
-    355c:	00 20       	and	r0, r0
-    355e:	e9 f7       	brne	.-6      	; 0x355a <strlen+0x2>
-    3560:	80 95       	com	r24
-    3562:	90 95       	com	r25
-    3564:	8e 0f       	add	r24, r30
-    3566:	9f 1f       	adc	r25, r31
-    3568:	08 95       	ret
+0000353c <strlen>:
+    353c:	fc 01       	movw	r30, r24
+    353e:	01 90       	ld	r0, Z+
+    3540:	00 20       	and	r0, r0
+    3542:	e9 f7       	brne	.-6      	; 0x353e <strlen+0x2>
+    3544:	80 95       	com	r24
+    3546:	90 95       	com	r25
+    3548:	8e 0f       	add	r24, r30
+    354a:	9f 1f       	adc	r25, r31
+    354c:	08 95       	ret
 
-0000356a <_exit>:
-    356a:	f8 94       	cli
+0000354e <_exit>:
+    354e:	f8 94       	cli
 
-0000356c <__stop_program>:
-    356c:	ff cf       	rjmp	.-2      	; 0x356c <__stop_program>
+00003550 <__stop_program>:
+    3550:	ff cf       	rjmp	.-2      	; 0x3550 <__stop_program>

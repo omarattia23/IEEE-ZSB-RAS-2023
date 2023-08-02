@@ -180,7 +180,6 @@ void Toggle_App(void)
                             case '3':                  // stepper motor
                                 LCD_voidClearScreen(); // clear the screen
                                 LCD_voidSendString("Exit the system");
-                                return 0;
                                 break;
                             }
                         }
@@ -205,8 +204,11 @@ void Toggle_App(void)
 int main()
 {
     /***************************************************************************/
-    GI_voidEnable(); /* Enable Global interruptions */
-    EXTI_voidEnable(EXTI_u8_IN2, EXTI_u8_RAISING_EDGE);
-    EXTI_u8Set_CallBack(&Toggle_App, EXTI_u8_IN2);
+    // GI_voidEnable(); /* Enable Global interruptions */
+    // DIO_voidSetPinDirection(DIO_u8_PORTB,DIO_u8_PIN2,DIO_u8_INPUT);
+    // EXTI_voidEnable(EXTI_u8_IN0, EXTI_u8_RAISING_EDGE);
+    // EXTI_u8Set_CallBack(&Toggle_App, EXTI_u8_IN0);
+    Toggle_App();
+    while(1);
     return 0;
 }
