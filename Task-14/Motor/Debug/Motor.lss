@@ -3149,23 +3149,23 @@ void StepperMotor_move(u8 direction, u16 angle)
     1596:	6c a3       	std	Y+36, r22	; 0x24
     // Set direction pins as OUTPUT
     DIO_voidSetPinDirection(stepper_motor_port, stepper_motor_blue, DIO_u8_OUTPUT);
-    1598:	82 e0       	ldi	r24, 0x02	; 2
-    159a:	63 e0       	ldi	r22, 0x03	; 3
+    1598:	83 e0       	ldi	r24, 0x03	; 3
+    159a:	64 e0       	ldi	r22, 0x04	; 4
     159c:	41 e0       	ldi	r20, 0x01	; 1
     159e:	0e 94 72 06 	call	0xce4	; 0xce4 <DIO_voidSetPinDirection>
     DIO_voidSetPinDirection(stepper_motor_port, stepper_motor_pink, DIO_u8_OUTPUT);
-    15a2:	82 e0       	ldi	r24, 0x02	; 2
-    15a4:	64 e0       	ldi	r22, 0x04	; 4
+    15a2:	83 e0       	ldi	r24, 0x03	; 3
+    15a4:	65 e0       	ldi	r22, 0x05	; 5
     15a6:	41 e0       	ldi	r20, 0x01	; 1
     15a8:	0e 94 72 06 	call	0xce4	; 0xce4 <DIO_voidSetPinDirection>
     DIO_voidSetPinDirection(stepper_motor_port, stepper_motor_yellow, DIO_u8_OUTPUT);
-    15ac:	82 e0       	ldi	r24, 0x02	; 2
-    15ae:	65 e0       	ldi	r22, 0x05	; 5
+    15ac:	83 e0       	ldi	r24, 0x03	; 3
+    15ae:	66 e0       	ldi	r22, 0x06	; 6
     15b0:	41 e0       	ldi	r20, 0x01	; 1
     15b2:	0e 94 72 06 	call	0xce4	; 0xce4 <DIO_voidSetPinDirection>
     DIO_voidSetPinDirection(stepper_motor_port, stepper_motor_orange, DIO_u8_OUTPUT);
-    15b6:	82 e0       	ldi	r24, 0x02	; 2
-    15b8:	66 e0       	ldi	r22, 0x06	; 6
+    15b6:	83 e0       	ldi	r24, 0x03	; 3
+    15b8:	67 e0       	ldi	r22, 0x07	; 7
     15ba:	41 e0       	ldi	r20, 0x01	; 1
     15bc:	0e 94 72 06 	call	0xce4	; 0xce4 <DIO_voidSetPinDirection>
 
@@ -3199,86 +3199,86 @@ void StepperMotor_move(u8 direction, u16 angle)
         {
             // Define the step sequence for clockwise rotation
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_blue, DIO_u8_HIGH);
-    15ec:	82 e0       	ldi	r24, 0x02	; 2
-    15ee:	63 e0       	ldi	r22, 0x03	; 3
+    15ec:	83 e0       	ldi	r24, 0x03	; 3
+    15ee:	64 e0       	ldi	r22, 0x04	; 4
     15f0:	41 e0       	ldi	r20, 0x01	; 1
     15f2:	0e 94 9c 07 	call	0xf38	; 0xf38 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_pink, DIO_u8_LOW);
-    15f6:	82 e0       	ldi	r24, 0x02	; 2
-    15f8:	64 e0       	ldi	r22, 0x04	; 4
+    15f6:	83 e0       	ldi	r24, 0x03	; 3
+    15f8:	65 e0       	ldi	r22, 0x05	; 5
     15fa:	40 e0       	ldi	r20, 0x00	; 0
     15fc:	0e 94 9c 07 	call	0xf38	; 0xf38 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_yellow, DIO_u8_LOW);
-    1600:	82 e0       	ldi	r24, 0x02	; 2
-    1602:	65 e0       	ldi	r22, 0x05	; 5
+    1600:	83 e0       	ldi	r24, 0x03	; 3
+    1602:	66 e0       	ldi	r22, 0x06	; 6
     1604:	40 e0       	ldi	r20, 0x00	; 0
     1606:	0e 94 9c 07 	call	0xf38	; 0xf38 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_orange, DIO_u8_LOW);
-    160a:	82 e0       	ldi	r24, 0x02	; 2
-    160c:	66 e0       	ldi	r22, 0x06	; 6
+    160a:	83 e0       	ldi	r24, 0x03	; 3
+    160c:	67 e0       	ldi	r22, 0x07	; 7
     160e:	40 e0       	ldi	r20, 0x00	; 0
     1610:	0e 94 9c 07 	call	0xf38	; 0xf38 <DIO_voidSetPinValue>
             // Define the step sequence for clockwise rotation
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_blue, DIO_u8_LOW);
-    1614:	82 e0       	ldi	r24, 0x02	; 2
-    1616:	63 e0       	ldi	r22, 0x03	; 3
+    1614:	83 e0       	ldi	r24, 0x03	; 3
+    1616:	64 e0       	ldi	r22, 0x04	; 4
     1618:	40 e0       	ldi	r20, 0x00	; 0
     161a:	0e 94 9c 07 	call	0xf38	; 0xf38 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_pink, DIO_u8_HIGH);
-    161e:	82 e0       	ldi	r24, 0x02	; 2
-    1620:	64 e0       	ldi	r22, 0x04	; 4
+    161e:	83 e0       	ldi	r24, 0x03	; 3
+    1620:	65 e0       	ldi	r22, 0x05	; 5
     1622:	41 e0       	ldi	r20, 0x01	; 1
     1624:	0e 94 9c 07 	call	0xf38	; 0xf38 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_yellow, DIO_u8_LOW);
-    1628:	82 e0       	ldi	r24, 0x02	; 2
-    162a:	65 e0       	ldi	r22, 0x05	; 5
+    1628:	83 e0       	ldi	r24, 0x03	; 3
+    162a:	66 e0       	ldi	r22, 0x06	; 6
     162c:	40 e0       	ldi	r20, 0x00	; 0
     162e:	0e 94 9c 07 	call	0xf38	; 0xf38 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_orange, DIO_u8_LOW);
-    1632:	82 e0       	ldi	r24, 0x02	; 2
-    1634:	66 e0       	ldi	r22, 0x06	; 6
+    1632:	83 e0       	ldi	r24, 0x03	; 3
+    1634:	67 e0       	ldi	r22, 0x07	; 7
     1636:	40 e0       	ldi	r20, 0x00	; 0
     1638:	0e 94 9c 07 	call	0xf38	; 0xf38 <DIO_voidSetPinValue>
             // Define the step sequence for clockwise rotation
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_blue, DIO_u8_LOW);
-    163c:	82 e0       	ldi	r24, 0x02	; 2
-    163e:	63 e0       	ldi	r22, 0x03	; 3
+    163c:	83 e0       	ldi	r24, 0x03	; 3
+    163e:	64 e0       	ldi	r22, 0x04	; 4
     1640:	40 e0       	ldi	r20, 0x00	; 0
     1642:	0e 94 9c 07 	call	0xf38	; 0xf38 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_pink, DIO_u8_LOW);
-    1646:	82 e0       	ldi	r24, 0x02	; 2
-    1648:	64 e0       	ldi	r22, 0x04	; 4
+    1646:	83 e0       	ldi	r24, 0x03	; 3
+    1648:	65 e0       	ldi	r22, 0x05	; 5
     164a:	40 e0       	ldi	r20, 0x00	; 0
     164c:	0e 94 9c 07 	call	0xf38	; 0xf38 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_yellow, DIO_u8_HIGH);
-    1650:	82 e0       	ldi	r24, 0x02	; 2
-    1652:	65 e0       	ldi	r22, 0x05	; 5
+    1650:	83 e0       	ldi	r24, 0x03	; 3
+    1652:	66 e0       	ldi	r22, 0x06	; 6
     1654:	41 e0       	ldi	r20, 0x01	; 1
     1656:	0e 94 9c 07 	call	0xf38	; 0xf38 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_orange, DIO_u8_LOW);
-    165a:	82 e0       	ldi	r24, 0x02	; 2
-    165c:	66 e0       	ldi	r22, 0x06	; 6
+    165a:	83 e0       	ldi	r24, 0x03	; 3
+    165c:	67 e0       	ldi	r22, 0x07	; 7
     165e:	40 e0       	ldi	r20, 0x00	; 0
     1660:	0e 94 9c 07 	call	0xf38	; 0xf38 <DIO_voidSetPinValue>
             // Define the step sequence for clockwise rotation
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_blue, DIO_u8_LOW);
-    1664:	82 e0       	ldi	r24, 0x02	; 2
-    1666:	63 e0       	ldi	r22, 0x03	; 3
+    1664:	83 e0       	ldi	r24, 0x03	; 3
+    1666:	64 e0       	ldi	r22, 0x04	; 4
     1668:	40 e0       	ldi	r20, 0x00	; 0
     166a:	0e 94 9c 07 	call	0xf38	; 0xf38 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_pink, DIO_u8_LOW);
-    166e:	82 e0       	ldi	r24, 0x02	; 2
-    1670:	64 e0       	ldi	r22, 0x04	; 4
+    166e:	83 e0       	ldi	r24, 0x03	; 3
+    1670:	65 e0       	ldi	r22, 0x05	; 5
     1672:	40 e0       	ldi	r20, 0x00	; 0
     1674:	0e 94 9c 07 	call	0xf38	; 0xf38 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_yellow, DIO_u8_LOW);
-    1678:	82 e0       	ldi	r24, 0x02	; 2
-    167a:	65 e0       	ldi	r22, 0x05	; 5
+    1678:	83 e0       	ldi	r24, 0x03	; 3
+    167a:	66 e0       	ldi	r22, 0x06	; 6
     167c:	40 e0       	ldi	r20, 0x00	; 0
     167e:	0e 94 9c 07 	call	0xf38	; 0xf38 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_orange, DIO_u8_HIGH);
-    1682:	82 e0       	ldi	r24, 0x02	; 2
-    1684:	66 e0       	ldi	r22, 0x06	; 6
+    1682:	83 e0       	ldi	r24, 0x03	; 3
+    1684:	67 e0       	ldi	r22, 0x07	; 7
     1686:	41 e0       	ldi	r20, 0x01	; 1
     1688:	0e 94 9c 07 	call	0xf38	; 0xf38 <DIO_voidSetPinValue>
     168c:	80 e0       	ldi	r24, 0x00	; 0
@@ -3462,86 +3462,86 @@ _delay_loop_2(uint16_t __count)
         {
             // Define the step sequence for counterclockwise rotation
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_blue, DIO_u8_LOW);
-    179a:	82 e0       	ldi	r24, 0x02	; 2
-    179c:	63 e0       	ldi	r22, 0x03	; 3
+    179a:	83 e0       	ldi	r24, 0x03	; 3
+    179c:	64 e0       	ldi	r22, 0x04	; 4
     179e:	40 e0       	ldi	r20, 0x00	; 0
     17a0:	0e 94 9c 07 	call	0xf38	; 0xf38 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_pink, DIO_u8_LOW);
-    17a4:	82 e0       	ldi	r24, 0x02	; 2
-    17a6:	64 e0       	ldi	r22, 0x04	; 4
+    17a4:	83 e0       	ldi	r24, 0x03	; 3
+    17a6:	65 e0       	ldi	r22, 0x05	; 5
     17a8:	40 e0       	ldi	r20, 0x00	; 0
     17aa:	0e 94 9c 07 	call	0xf38	; 0xf38 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_yellow, DIO_u8_LOW);
-    17ae:	82 e0       	ldi	r24, 0x02	; 2
-    17b0:	65 e0       	ldi	r22, 0x05	; 5
+    17ae:	83 e0       	ldi	r24, 0x03	; 3
+    17b0:	66 e0       	ldi	r22, 0x06	; 6
     17b2:	40 e0       	ldi	r20, 0x00	; 0
     17b4:	0e 94 9c 07 	call	0xf38	; 0xf38 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_orange, DIO_u8_HIGH);
-    17b8:	82 e0       	ldi	r24, 0x02	; 2
-    17ba:	66 e0       	ldi	r22, 0x06	; 6
+    17b8:	83 e0       	ldi	r24, 0x03	; 3
+    17ba:	67 e0       	ldi	r22, 0x07	; 7
     17bc:	41 e0       	ldi	r20, 0x01	; 1
     17be:	0e 94 9c 07 	call	0xf38	; 0xf38 <DIO_voidSetPinValue>
             // Define the step sequence for counterclockwise rotation
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_blue, DIO_u8_LOW);
-    17c2:	82 e0       	ldi	r24, 0x02	; 2
-    17c4:	63 e0       	ldi	r22, 0x03	; 3
+    17c2:	83 e0       	ldi	r24, 0x03	; 3
+    17c4:	64 e0       	ldi	r22, 0x04	; 4
     17c6:	40 e0       	ldi	r20, 0x00	; 0
     17c8:	0e 94 9c 07 	call	0xf38	; 0xf38 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_pink, DIO_u8_LOW);
-    17cc:	82 e0       	ldi	r24, 0x02	; 2
-    17ce:	64 e0       	ldi	r22, 0x04	; 4
+    17cc:	83 e0       	ldi	r24, 0x03	; 3
+    17ce:	65 e0       	ldi	r22, 0x05	; 5
     17d0:	40 e0       	ldi	r20, 0x00	; 0
     17d2:	0e 94 9c 07 	call	0xf38	; 0xf38 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_yellow, DIO_u8_HIGH);
-    17d6:	82 e0       	ldi	r24, 0x02	; 2
-    17d8:	65 e0       	ldi	r22, 0x05	; 5
+    17d6:	83 e0       	ldi	r24, 0x03	; 3
+    17d8:	66 e0       	ldi	r22, 0x06	; 6
     17da:	41 e0       	ldi	r20, 0x01	; 1
     17dc:	0e 94 9c 07 	call	0xf38	; 0xf38 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_orange, DIO_u8_LOW);
-    17e0:	82 e0       	ldi	r24, 0x02	; 2
-    17e2:	66 e0       	ldi	r22, 0x06	; 6
+    17e0:	83 e0       	ldi	r24, 0x03	; 3
+    17e2:	67 e0       	ldi	r22, 0x07	; 7
     17e4:	40 e0       	ldi	r20, 0x00	; 0
     17e6:	0e 94 9c 07 	call	0xf38	; 0xf38 <DIO_voidSetPinValue>
             // Define the step sequence for counterclockwise rotation
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_blue, DIO_u8_LOW);
-    17ea:	82 e0       	ldi	r24, 0x02	; 2
-    17ec:	63 e0       	ldi	r22, 0x03	; 3
+    17ea:	83 e0       	ldi	r24, 0x03	; 3
+    17ec:	64 e0       	ldi	r22, 0x04	; 4
     17ee:	40 e0       	ldi	r20, 0x00	; 0
     17f0:	0e 94 9c 07 	call	0xf38	; 0xf38 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_pink, DIO_u8_HIGH);
-    17f4:	82 e0       	ldi	r24, 0x02	; 2
-    17f6:	64 e0       	ldi	r22, 0x04	; 4
+    17f4:	83 e0       	ldi	r24, 0x03	; 3
+    17f6:	65 e0       	ldi	r22, 0x05	; 5
     17f8:	41 e0       	ldi	r20, 0x01	; 1
     17fa:	0e 94 9c 07 	call	0xf38	; 0xf38 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_yellow, DIO_u8_LOW);
-    17fe:	82 e0       	ldi	r24, 0x02	; 2
-    1800:	65 e0       	ldi	r22, 0x05	; 5
+    17fe:	83 e0       	ldi	r24, 0x03	; 3
+    1800:	66 e0       	ldi	r22, 0x06	; 6
     1802:	40 e0       	ldi	r20, 0x00	; 0
     1804:	0e 94 9c 07 	call	0xf38	; 0xf38 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_orange, DIO_u8_LOW);
-    1808:	82 e0       	ldi	r24, 0x02	; 2
-    180a:	66 e0       	ldi	r22, 0x06	; 6
+    1808:	83 e0       	ldi	r24, 0x03	; 3
+    180a:	67 e0       	ldi	r22, 0x07	; 7
     180c:	40 e0       	ldi	r20, 0x00	; 0
     180e:	0e 94 9c 07 	call	0xf38	; 0xf38 <DIO_voidSetPinValue>
             // Define the step sequence for counterclockwise rotation
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_blue, DIO_u8_HIGH);
-    1812:	82 e0       	ldi	r24, 0x02	; 2
-    1814:	63 e0       	ldi	r22, 0x03	; 3
+    1812:	83 e0       	ldi	r24, 0x03	; 3
+    1814:	64 e0       	ldi	r22, 0x04	; 4
     1816:	41 e0       	ldi	r20, 0x01	; 1
     1818:	0e 94 9c 07 	call	0xf38	; 0xf38 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_pink, DIO_u8_LOW);
-    181c:	82 e0       	ldi	r24, 0x02	; 2
-    181e:	64 e0       	ldi	r22, 0x04	; 4
+    181c:	83 e0       	ldi	r24, 0x03	; 3
+    181e:	65 e0       	ldi	r22, 0x05	; 5
     1820:	40 e0       	ldi	r20, 0x00	; 0
     1822:	0e 94 9c 07 	call	0xf38	; 0xf38 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_yellow, DIO_u8_LOW);
-    1826:	82 e0       	ldi	r24, 0x02	; 2
-    1828:	65 e0       	ldi	r22, 0x05	; 5
+    1826:	83 e0       	ldi	r24, 0x03	; 3
+    1828:	66 e0       	ldi	r22, 0x06	; 6
     182a:	40 e0       	ldi	r20, 0x00	; 0
     182c:	0e 94 9c 07 	call	0xf38	; 0xf38 <DIO_voidSetPinValue>
             DIO_voidSetPinValue(stepper_motor_port, stepper_motor_orange, DIO_u8_LOW);
-    1830:	82 e0       	ldi	r24, 0x02	; 2
-    1832:	66 e0       	ldi	r22, 0x06	; 6
+    1830:	83 e0       	ldi	r24, 0x03	; 3
+    1832:	67 e0       	ldi	r22, 0x07	; 7
     1834:	40 e0       	ldi	r20, 0x00	; 0
     1836:	0e 94 9c 07 	call	0xf38	; 0xf38 <DIO_voidSetPinValue>
     183a:	80 e0       	ldi	r24, 0x00	; 0
@@ -3729,25 +3729,25 @@ void motor_rotate_cw()
     1950:	de b7       	in	r29, 0x3e	; 62
     // Set the directions
     DIO_voidSetPinDirection(motor_port, motor_u8_pin1, DIO_u8_OUTPUT);
-    1952:	81 e0       	ldi	r24, 0x01	; 1
-    1954:	60 e0       	ldi	r22, 0x00	; 0
+    1952:	82 e0       	ldi	r24, 0x02	; 2
+    1954:	63 e0       	ldi	r22, 0x03	; 3
     1956:	41 e0       	ldi	r20, 0x01	; 1
     1958:	0e 94 72 06 	call	0xce4	; 0xce4 <DIO_voidSetPinDirection>
     DIO_voidSetPinDirection(motor_port, motor_u8_pin2, DIO_u8_OUTPUT);
-    195c:	81 e0       	ldi	r24, 0x01	; 1
-    195e:	61 e0       	ldi	r22, 0x01	; 1
+    195c:	82 e0       	ldi	r24, 0x02	; 2
+    195e:	64 e0       	ldi	r22, 0x04	; 4
     1960:	41 e0       	ldi	r20, 0x01	; 1
     1962:	0e 94 72 06 	call	0xce4	; 0xce4 <DIO_voidSetPinDirection>
 
     // Set one pin high and the other low to rotate the motor clockwise (CW)
     DIO_voidSetPinValue(motor_port, motor_u8_pin1, DIO_u8_HIGH);
-    1966:	81 e0       	ldi	r24, 0x01	; 1
-    1968:	60 e0       	ldi	r22, 0x00	; 0
+    1966:	82 e0       	ldi	r24, 0x02	; 2
+    1968:	63 e0       	ldi	r22, 0x03	; 3
     196a:	41 e0       	ldi	r20, 0x01	; 1
     196c:	0e 94 9c 07 	call	0xf38	; 0xf38 <DIO_voidSetPinValue>
     DIO_voidSetPinValue(motor_port, motor_u8_pin2, DIO_u8_LOW);
-    1970:	81 e0       	ldi	r24, 0x01	; 1
-    1972:	61 e0       	ldi	r22, 0x01	; 1
+    1970:	82 e0       	ldi	r24, 0x02	; 2
+    1972:	64 e0       	ldi	r22, 0x04	; 4
     1974:	40 e0       	ldi	r20, 0x00	; 0
     1976:	0e 94 9c 07 	call	0xf38	; 0xf38 <DIO_voidSetPinValue>
 }
@@ -3765,25 +3765,25 @@ void motor_rotate_ccw()
     1986:	de b7       	in	r29, 0x3e	; 62
     // Set the directions
     DIO_voidSetPinDirection(motor_port, motor_u8_pin1, DIO_u8_OUTPUT);
-    1988:	81 e0       	ldi	r24, 0x01	; 1
-    198a:	60 e0       	ldi	r22, 0x00	; 0
+    1988:	82 e0       	ldi	r24, 0x02	; 2
+    198a:	63 e0       	ldi	r22, 0x03	; 3
     198c:	41 e0       	ldi	r20, 0x01	; 1
     198e:	0e 94 72 06 	call	0xce4	; 0xce4 <DIO_voidSetPinDirection>
     DIO_voidSetPinDirection(motor_port, motor_u8_pin2, DIO_u8_OUTPUT);
-    1992:	81 e0       	ldi	r24, 0x01	; 1
-    1994:	61 e0       	ldi	r22, 0x01	; 1
+    1992:	82 e0       	ldi	r24, 0x02	; 2
+    1994:	64 e0       	ldi	r22, 0x04	; 4
     1996:	41 e0       	ldi	r20, 0x01	; 1
     1998:	0e 94 72 06 	call	0xce4	; 0xce4 <DIO_voidSetPinDirection>
 
     // Set one pin high and the other low to rotate the motor counterclockwise (CCW)
     DIO_voidSetPinValue(motor_port, motor_u8_pin1, DIO_u8_LOW);
-    199c:	81 e0       	ldi	r24, 0x01	; 1
-    199e:	60 e0       	ldi	r22, 0x00	; 0
+    199c:	82 e0       	ldi	r24, 0x02	; 2
+    199e:	63 e0       	ldi	r22, 0x03	; 3
     19a0:	40 e0       	ldi	r20, 0x00	; 0
     19a2:	0e 94 9c 07 	call	0xf38	; 0xf38 <DIO_voidSetPinValue>
     DIO_voidSetPinValue(motor_port, motor_u8_pin2, DIO_u8_HIGH);
-    19a6:	81 e0       	ldi	r24, 0x01	; 1
-    19a8:	61 e0       	ldi	r22, 0x01	; 1
+    19a6:	82 e0       	ldi	r24, 0x02	; 2
+    19a8:	64 e0       	ldi	r22, 0x04	; 4
     19aa:	41 e0       	ldi	r20, 0x01	; 1
     19ac:	0e 94 9c 07 	call	0xf38	; 0xf38 <DIO_voidSetPinValue>
 }
@@ -3798,13 +3798,13 @@ void stopDCmotor(){
     19ba:	cd b7       	in	r28, 0x3d	; 61
     19bc:	de b7       	in	r29, 0x3e	; 62
 	DIO_voidSetPinValue(motor_port, motor_u8_pin1, DIO_u8_LOW);
-    19be:	81 e0       	ldi	r24, 0x01	; 1
-    19c0:	60 e0       	ldi	r22, 0x00	; 0
+    19be:	82 e0       	ldi	r24, 0x02	; 2
+    19c0:	63 e0       	ldi	r22, 0x03	; 3
     19c2:	40 e0       	ldi	r20, 0x00	; 0
     19c4:	0e 94 9c 07 	call	0xf38	; 0xf38 <DIO_voidSetPinValue>
 	DIO_voidSetPinValue(motor_port, motor_u8_pin2, DIO_u8_LOW);
-    19c8:	81 e0       	ldi	r24, 0x01	; 1
-    19ca:	61 e0       	ldi	r22, 0x01	; 1
+    19c8:	82 e0       	ldi	r24, 0x02	; 2
+    19ca:	64 e0       	ldi	r22, 0x04	; 4
     19cc:	40 e0       	ldi	r20, 0x00	; 0
     19ce:	0e 94 9c 07 	call	0xf38	; 0xf38 <DIO_voidSetPinValue>
 }
@@ -4413,8 +4413,8 @@ void LCD_voidSendCmnd(u8 Copy_u8Cmnd)
     1d68:	0e 94 9c 07 	call	0xf38	; 0xf38 <DIO_voidSetPinValue>
 
 	/*Write Command*/
-	DIO_u8SetPortValue(DIO_u8_PORTD, Copy_u8Cmnd);
-    1d6c:	83 e0       	ldi	r24, 0x03	; 3
+	DIO_u8SetPortValue(LCD_u8_DATA_PORT, Copy_u8Cmnd);
+    1d6c:	81 e0       	ldi	r24, 0x01	; 1
     1d6e:	69 8d       	ldd	r22, Y+25	; 0x19
     1d70:	0e 94 1f 0a 	call	0x143e	; 0x143e <DIO_u8SetPortValue>
 
@@ -4711,8 +4711,8 @@ void LCD_voidSendChar(u8 Copy_u8Char)
     1f3c:	0e 94 9c 07 	call	0xf38	; 0xf38 <DIO_voidSetPinValue>
 
 	/*Write Command*/
-	DIO_u8SetPortValue(DIO_u8_PORTD, Copy_u8Char);
-    1f40:	83 e0       	ldi	r24, 0x03	; 3
+	DIO_u8SetPortValue(LCD_u8_DATA_PORT, Copy_u8Char);
+    1f40:	81 e0       	ldi	r24, 0x01	; 1
     1f42:	69 8d       	ldd	r22, Y+25	; 0x19
     1f44:	0e 94 1f 0a 	call	0x143e	; 0x143e <DIO_u8SetPortValue>
 

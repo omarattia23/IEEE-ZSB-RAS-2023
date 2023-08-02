@@ -30,7 +30,7 @@ void LCD_voidSendCmnd(u8 Copy_u8Cmnd)
 	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN1, DIO_u8_LOW);
 
 	/*Write Command*/
-	DIO_u8SetPortValue(DIO_u8_PORTD, Copy_u8Cmnd);
+	DIO_u8SetPortValue(LCD_u8_DATA_PORT, Copy_u8Cmnd);
 
 	/*E = 1*/
 	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN2, DIO_u8_HIGH);
@@ -48,7 +48,7 @@ void LCD_voidSendCmnd(u8 Copy_u8Cmnd)
 	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN1, DIO_u8_LOW);
 
 	/*Write Command*/
-	DIO_u8SetPortValue(DIO_u8_PORTD, Copy_u8Cmnd);
+	DIO_u8SetPortValue(LCD_u8_DATA_PORT, Copy_u8Cmnd);
 
 	/*E = 1*/
 	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN2, DIO_u8_HIGH);
@@ -79,7 +79,7 @@ void LCD_voidSendChar(u8 Copy_u8Char)
 	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN1, DIO_u8_LOW);
 
 	/*Write Command*/
-	DIO_u8SetPortValue(DIO_u8_PORTD, Copy_u8Char);
+	DIO_u8SetPortValue(LCD_u8_DATA_PORT, Copy_u8Char);
 
 	/*E = 1*/
 	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN2, DIO_u8_HIGH);
@@ -96,7 +96,7 @@ void LCD_voidSendChar(u8 Copy_u8Char)
 	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN1, DIO_u8_LOW);
 
 	/*Write Command*/
-	DIO_u8SetPortValue(DIO_u8_PORTD, Copy_u8Char);
+	DIO_u8SetPortValue(LCD_u8_DATA_PORT, Copy_u8Char);
 
 	/*E = 1*/
 	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN2, DIO_u8_HIGH);

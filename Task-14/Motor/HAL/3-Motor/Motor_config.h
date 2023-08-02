@@ -6,7 +6,7 @@
 /**********************************************************/
 #ifndef Motor_CONFIG_H
 #define Motor_CONFIG_H
-#define motor_port  DIO_u8_PORTB
-#define motor_u8_pin1 DIO_u8_PIN0        
-#define motor_u8_pin2 DIO_u8_PIN1        
+#define motor_port  DIO_u8_PORTC
+#define motor_u8_pin1 DIO_u8_PIN3        
+#define motor_u8_pin2 DIO_u8_PIN4        
 #endif
