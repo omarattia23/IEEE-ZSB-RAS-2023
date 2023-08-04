@@ -33,7 +33,7 @@ int main()
     LCD_voidClearScreen();
 
     // Display the sentence in the middle of the LCD
-    LCD_String_Position(0, startingPosition, sentence, &count);
+    LCD_String_Position(0, startingPosition, sentence);
     LCD_u8GoToXY(LCD_u8_LINE2, 3);
     /***********************************************************************/
     while (1)

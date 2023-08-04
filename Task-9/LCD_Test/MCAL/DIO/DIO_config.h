@@ -21,19 +21,19 @@
 #define DIO_u8_PA7_INTIAL_DIRECTION                   DIO_u8_INTIAL_INPUT
 
 /* PORTB */
-#define DIO_u8_PB0_INTIAL_DIRECTION                   DIO_u8_INTIAL_INPUT
-#define DIO_u8_PB1_INTIAL_DIRECTION                   DIO_u8_INTIAL_INPUT
-#define DIO_u8_PB2_INTIAL_DIRECTION                   DIO_u8_INTIAL_INPUT
-#define DIO_u8_PB3_INTIAL_DIRECTION                   DIO_u8_INTIAL_INPUT
-#define DIO_u8_PB4_INTIAL_DIRECTION                   DIO_u8_INTIAL_INPUT
-#define DIO_u8_PB5_INTIAL_DIRECTION                   DIO_u8_INTIAL_INPUT
-#define DIO_u8_PB6_INTIAL_DIRECTION                   DIO_u8_INTIAL_INPUT
-#define DIO_u8_PB7_INTIAL_DIRECTION                   DIO_u8_INTIAL_INPUT
+#define DIO_u8_PB0_INTIAL_DIRECTION                   DIO_u8_INTIAL_OUTPUT
+#define DIO_u8_PB1_INTIAL_DIRECTION                   DIO_u8_INTIAL_OUTPUT
+#define DIO_u8_PB2_INTIAL_DIRECTION                   DIO_u8_INTIAL_OUTPUT
+#define DIO_u8_PB3_INTIAL_DIRECTION                   DIO_u8_INTIAL_OUTPUT
+#define DIO_u8_PB4_INTIAL_DIRECTION                   DIO_u8_INTIAL_OUTPUT
+#define DIO_u8_PB5_INTIAL_DIRECTION                   DIO_u8_INTIAL_OUTPUT
+#define DIO_u8_PB6_INTIAL_DIRECTION                   DIO_u8_INTIAL_OUTPUT
+#define DIO_u8_PB7_INTIAL_DIRECTION                   DIO_u8_INTIAL_OUTPUT
 
 /* PORTC */
-#define DIO_u8_PC0_INTIAL_DIRECTION                   DIO_u8_INTIAL_INPUT
-#define DIO_u8_PC1_INTIAL_DIRECTION                   DIO_u8_INTIAL_INPUT
-#define DIO_u8_PC2_INTIAL_DIRECTION                   DIO_u8_INTIAL_INPUT
+#define DIO_u8_PC0_INTIAL_DIRECTION                   DIO_u8_INTIAL_OUTPUT
+#define DIO_u8_PC1_INTIAL_DIRECTION                   DIO_u8_INTIAL_OUTPUT
+#define DIO_u8_PC2_INTIAL_DIRECTION                   DIO_u8_INTIAL_OUTPUT
 #define DIO_u8_PC3_INTIAL_DIRECTION                   DIO_u8_INTIAL_INPUT
 #define DIO_u8_PC4_INTIAL_DIRECTION                   DIO_u8_INTIAL_INPUT
 #define DIO_u8_PC5_INTIAL_DIRECTION                   DIO_u8_INTIAL_INPUT
@@ -67,19 +67,19 @@
 #define DIO_u8_PA7_INTIAL_VALUE                   DIO_u8_INPUT_FLOATING
 
 /* PORTB */
-#define DIO_u8_PB0_INTIAL_VALUE                   DIO_u8_INPUT_FLOATING
-#define DIO_u8_PB1_INTIAL_VALUE                   DIO_u8_INPUT_FLOATING
-#define DIO_u8_PB2_INTIAL_VALUE                   DIO_u8_INPUT_FLOATING
-#define DIO_u8_PB3_INTIAL_VALUE                   DIO_u8_INPUT_FLOATING
-#define DIO_u8_PB4_INTIAL_VALUE                   DIO_u8_INPUT_FLOATING
-#define DIO_u8_PB5_INTIAL_VALUE                   DIO_u8_INPUT_FLOATING
-#define DIO_u8_PB6_INTIAL_VALUE                   DIO_u8_INPUT_FLOATING
-#define DIO_u8_PB7_INTIAL_VALUE                   DIO_u8_INPUT_FLOATING
+#define DIO_u8_PB0_INTIAL_VALUE                   DIO_u8_OUTPUT_LOW
+#define DIO_u8_PB1_INTIAL_VALUE                   DIO_u8_OUTPUT_LOW
+#define DIO_u8_PB2_INTIAL_VALUE                   DIO_u8_OUTPUT_LOW
+#define DIO_u8_PB3_INTIAL_VALUE                   DIO_u8_OUTPUT_LOW
+#define DIO_u8_PB4_INTIAL_VALUE                   DIO_u8_OUTPUT_LOW
+#define DIO_u8_PB5_INTIAL_VALUE                   DIO_u8_OUTPUT_LOW
+#define DIO_u8_PB6_INTIAL_VALUE                   DIO_u8_OUTPUT_LOW
+#define DIO_u8_PB7_INTIAL_VALUE                   DIO_u8_OUTPUT_LOW
 
 /* PORTC */
-#define DIO_u8_PC0_INTIAL_VALUE                   DIO_u8_INPUT_FLOATING
-#define DIO_u8_PC1_INTIAL_VALUE                   DIO_u8_INPUT_FLOATING
-#define DIO_u8_PC2_INTIAL_VALUE                   DIO_u8_INPUT_FLOATING
+#define DIO_u8_PC0_INTIAL_VALUE                   DIO_u8_OUTPUT_LOW
+#define DIO_u8_PC1_INTIAL_VALUE                   DIO_u8_OUTPUT_LOW
+#define DIO_u8_PC2_INTIAL_VALUE                   DIO_u8_OUTPUT_LOW
 #define DIO_u8_PC3_INTIAL_VALUE                   DIO_u8_INPUT_FLOATING
 #define DIO_u8_PC4_INTIAL_VALUE                   DIO_u8_INPUT_FLOATING
 #define DIO_u8_PC5_INTIAL_VALUE                   DIO_u8_INPUT_FLOATING

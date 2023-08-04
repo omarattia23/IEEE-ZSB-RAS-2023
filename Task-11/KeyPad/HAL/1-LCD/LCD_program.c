@@ -30,7 +30,7 @@ void LCD_voidSendCmnd(u8 Copy_u8Cmnd)
 	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN1, DIO_u8_LOW);
 
 	/*Write Command*/
-	DIO_u8SetPortValue(DIO_u8_PORTD, Copy_u8Cmnd);
+	DIO_u8SetPortValue(LCD_u8_DATA_PORT, Copy_u8Cmnd);
 
 	/*E = 1*/
 	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN2, DIO_u8_HIGH);
@@ -48,7 +48,7 @@ void LCD_voidSendCmnd(u8 Copy_u8Cmnd)
 	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN1, DIO_u8_LOW);
 
 	/*Write Command*/
-	DIO_u8SetPortValue(DIO_u8_PORTD, Copy_u8Cmnd);
+	DIO_u8SetPortValue(LCD_u8_DATA_PORT, Copy_u8Cmnd);
 
 	/*E = 1*/
 	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN2, DIO_u8_HIGH);
@@ -79,7 +79,7 @@ void LCD_voidSendChar(u8 Copy_u8Char)
 	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN1, DIO_u8_LOW);
 
 	/*Write Command*/
-	DIO_u8SetPortValue(DIO_u8_PORTD, Copy_u8Char);
+	DIO_u8SetPortValue(LCD_u8_DATA_PORT, Copy_u8Char);
 
 	/*E = 1*/
 	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN2, DIO_u8_HIGH);
@@ -96,7 +96,7 @@ void LCD_voidSendChar(u8 Copy_u8Char)
 	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN1, DIO_u8_LOW);
 
 	/*Write Command*/
-	DIO_u8SetPortValue(DIO_u8_PORTD, Copy_u8Char);
+	DIO_u8SetPortValue(LCD_u8_DATA_PORT, Copy_u8Char);
 
 	/*E = 1*/
 	DIO_voidSetPinValue(LCD_u8_CONTROL_PORT, DIO_u8_PIN2, DIO_u8_HIGH);
@@ -140,7 +140,6 @@ void LCD_voideInit(void)
 	LCD_voidSendCmnd(0b00000110); // set mood for 8 bits
 
 #endif
-
 }
 
 u8 LCD_u8GoToXY(u8 COPY_u8LineNum, u8 Copy_u8location)
@@ -168,8 +167,9 @@ u8 LCD_u8GoToXY(u8 COPY_u8LineNum, u8 Copy_u8location)
 }
 void LCD_voidClearScreen()
 {
-	LCD_voidSendChar(0x01);
+	LCD_voidSendCmnd(0x01);
 	_delay_ms(2);
+	LCD_voidSendCmnd(0x80);
 }
 void LCD_voidSendString(const char *str)
 {
@@ -180,41 +180,64 @@ void LCD_voidSendString(const char *str)
 		i++;
 	}
 }
-void LCD_String_Position(char line, char pos, char *str, u8 *count)
+void LCD_String_Position(char line, char pos, char *str)
 {
-	u8 i = 0;
-	u8 counter = 1;
-	if (line == 0 && pos < 16) // The first line has only 16 characters
-		LCD_voidSendCmnd((pos & 0x0F) | 0x80);
+    // Ensure the line and position values are within valid ranges
+    if (line >= 0 && line <= 1 && pos >= 0 && pos <= 15)
+    {
+        // Calculate the starting DDRAM address for the specified line and position
+        u8 line_offset = (line == 0) ? 0x00 : 0x40;
+        u8 ddr_addr = (pos & 0x0F) | line_offset | 0x80;
 
-	else if (line == 1 && pos < 16)
-		LCD_voidSendCmnd((pos & 0x0F) | 0xC0);
+        // Set the DDRAM address to move the cursor to the desired position
+        LCD_voidSendCmnd(ddr_addr);
 
-	while (str[i] != '\0')
-	{
-		LCD_voidSendChar(str[i]);
-		i++;
-		if (line == 1 && pos > 2 && i == 11)
-		{
-			LCD_u8GoToXY(1, 0);
-			counter++;
-		}
-		else if (line == 1 && pos > 2 && i == 11)
-		{
-			LCD_voidClearScreen();
-		}
-	}
+        // Internal counter to keep track of characters printed
+        u8 counter = 0;
+		
+        // Print the string until null terminator is encountered or the line is full
+        for (u8 i = 0; str[i] != '\0' && counter < 16; i++)
+        {
+            LCD_voidSendChar(str[i]);
+            counter++; // Increment the internal counter for each character printed
+        }
+
+        // If the string is shorter than 16 characters, pad the remaining characters with spaces
+        while (counter < 16)
+        {
+            LCD_voidSendChar(' ');
+            counter++;
+        }
+
+        // Move to the second line if there are remaining characters to be displayed
+        if (line == 0 && str[counter] != '\0')
+        {
+            LCD_voidSendCmnd(0xC0); // Move the cursor to the beginning of the second line
+            counter = 0;
+
+            // Print the rest of the string on the second line
+            for (u8 i = 16; str[i] != '\0' && counter < 16; i++)
+            {
+                LCD_voidSendChar(str[i]);
+                counter++; // Increment the internal counter for each character printed on the second line
+            }
+        }
+    }
 }
 
-void LCD_voidSendSpecialCharacters(u8 Copy_CharNum, u8 *Copy_u8P_Ptr, u8 Copy_u8LineNum, u8 Copy_u8Location, u8 Copy_u8SpecialCharStartBit){
+
+void LCD_voidSendSpecialCharacters(u8 Copy_CharNum, u8 *Copy_u8P_Ptr, u8 Copy_u8LineNum, u8 Copy_u8Location, u8 Copy_u8SpecialCharStartBit)
+{
 	LCD_voidSendCmnd(Copy_u8SpecialCharStartBit);
-	for(int i = 0; i < 8; i++){
+	for (int i = 0; i < 8; i++)
+	{
 		LCD_voidSendChar(Copy_u8P_Ptr[i]);
 	}
 	LCD_u8GoToXY(Copy_u8LineNum, Copy_u8Location);
 	LCD_voidSendChar(Copy_CharNum);
 
-	if(Copy_u8Location > 15){
+	if (Copy_u8Location > 15)
+	{
 		LCD_voidClearScreen();
 		LCD_u8GoToXY(0, 0);
 		LCD_voidSendChar(Copy_CharNum);
@@ -222,12 +245,11 @@ void LCD_voidSendSpecialCharacters(u8 Copy_CharNum, u8 *Copy_u8P_Ptr, u8 Copy_u8
 }
 void LCD_voidClearSecondLine()
 {
-    LCD_u8GoToXY(LCD_u8_LINE2, 0); // Move cursor to the start of the second line
-    // Send a string of spaces to clear the second line
-    for (int i = 0; i < 16; i++)
-    {
-        LCD_voidSendChar(' ');
-    }
+	LCD_u8GoToXY(LCD_u8_LINE2, 0); // Move cursor to the start of the second line
+	// Send a string of spaces to clear the second line
+	for (int i = 0; i < 16; i++)
+	{
+		LCD_voidSendChar(' ');
+	}
 	LCD_u8GoToXY(LCD_u8_LINE2, 3); // Move cursor to the start of the second line
 }
-

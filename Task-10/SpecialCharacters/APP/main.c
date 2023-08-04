@@ -24,7 +24,7 @@ int main()
 	int startingPosition = (16 - sentenceLength) / 2;
 
 	// Display the sentence in the middle of the LCD
-	LCD_String_Position(0, startingPosition, sentence, &count);
+	LCD_String_Position(0, startingPosition, sentence);
 
 	// Example button states (modify based on your setup)
 	u8 button1_state = DIO_u8_LOW;
