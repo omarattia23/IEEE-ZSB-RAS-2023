@@ -1,5 +1,8 @@
 {
   "files.associations": {
-    "lcd_interface.h": "c"
-  }
+    "lcd_interface.h": "c",
+    "dio_config.h": "c",
+    "adc_interface.h": "c"
+  },
+  "C_Cpp.errorSquiggles": "disabled"
 }

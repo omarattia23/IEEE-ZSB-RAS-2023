@@ -25,8 +25,8 @@
 #define ADCSRA_REG_ADPS0_BIT         0
 #define ADCSRA_REG_ADPS1_BIT         1
 #define ADCSRA_REG_ADPS2_BIT         2
-#define ADCSRA_REG_ADIF_BIT          3
-#define ADCSRA_REG_ADIE_BIT          4
+#define ADCSRA_REG_ADIE_BIT          3
+#define ADCSRA_REG_ADIF_BIT          4
 #define ADCSRA_REG_ADATE_BIT         5
 #define ADCSRA_REG_ADSC_BIT          6
 #define ADCSRA_REG_ADEN_BIT          7

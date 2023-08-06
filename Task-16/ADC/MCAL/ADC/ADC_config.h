@@ -39,5 +39,5 @@ CLK Options
     7- CLK_128MKHz
 */
 #define CLK_options CLK_8MKHz
-
+#define ADC_u32_TimeOut_MaxValue 50000
 #endif

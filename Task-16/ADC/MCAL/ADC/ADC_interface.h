@@ -17,5 +17,7 @@
 #define ADC_u8_Channel7     7
 
 void ADC_VoidInit(void);
-u8 ADC_u8GetDigitalValue(u8 Copy_u8ChannelNum,u16 *Copy_pu16DigitalValue);
+u8 ADC_u8GetDigitalValueSynchNonBlocking(u8 Copy_u8ChannelNum,u16 *Copy_pu16DigitalValue);
+u8 ADC_u8GetDigitalValue_A_Synch(u8 Copy_u8ChannelNum,void(*Copy_pfNotificiation(u16 )));
+u8 ADC_u8GetADC_DigitalValue(u16 *Copy_pu16DigitalValue);
 #endif
