@@ -13,7 +13,7 @@ voltage reference options:
     3-reserved
     4-Internal_Voltage_Ref
 */
-#define Voltage_Ref_ADMUX AVCC
+#define Voltage_Ref_ADMUX Internal_Voltage_Ref
 /*
 Adjecter options:
     1- Right_adj

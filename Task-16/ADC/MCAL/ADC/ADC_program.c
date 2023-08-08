@@ -29,14 +29,14 @@ void ADC_VoidInit(void)
     CLR_BIT(ADC_u8_ADMUX_REG, ADMUX_REG_REFS0_BIT);
 
 #elif Voltage_Ref_ADMUX == AVCC
-    CLR_BIT(ADC_u8_ADMUX_REG, ADC_u8_REFS1_BIT);
-    SET_BIT(ADC_u8_ADMUX_REG, ADC_u8_REFS0_BIT);
+    CLR_BIT(ADC_u8_ADMUX_REG, ADMUX_REG_REFS1_BIT);
+    SET_BIT(ADC_u8_ADMUX_REG, ADMUX_REG_REFS0_BIT);
 #elif Voltage_Ref_ADMUX == reserved
-    SET_BIT(ADC_u8_ADMUX_REG, ADC_u8_REFS1_BIT);
-    CLR_BIT(ADC_u8_ADMUX_REG, ADC_u8_REFS0_BIT);
+    SET_BIT(ADC_u8_ADMUX_REG, ADMUX_REG_REFS1_BIT);
+    CLR_BIT(ADC_u8_ADMUX_REG, ADMUX_REG_REFS0_BIT);
 #elif Voltage_Ref_ADMUX == Internal_Voltage_Ref
-    SET_BIT(ADC_u8_ADMUX_REG, ADC_u8_REFS1_BIT);
-    SET_BIT(ADC_u8_ADMUX_REG, ADC_u8_REFS0_BIT);
+    SET_BIT(ADC_u8_ADMUX_REG, ADMUX_REG_REFS1_BIT);
+    SET_BIT(ADC_u8_ADMUX_REG, ADMUX_REG_REFS0_BIT);
 #endif
 /*************************** Adjecter control ***************************/
 #if Adjecter == Right_adj
@@ -174,7 +174,7 @@ u8 ADC_u8GetADC_DigitalValue(u16 *Copy_pu16DigitalValue)
 }
 
 // Prototype for ADC ISR
-// void __vector_16(void) __atribute__((signal));
+void __vector_16(void) __attribute__((signal));
 void __vector_16(void)
 {
     if (ADC_pfNotification != NULL)

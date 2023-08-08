@@ -24,7 +24,7 @@ int main()
 {
     DIO_voidInit();
     LCD_voideInit();
-    GI_voidEnable();
+//    GI_voidEnable();
     ADC_VoidInit();
     while (1)
     {
