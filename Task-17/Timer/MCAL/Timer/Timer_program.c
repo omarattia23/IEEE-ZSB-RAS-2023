@@ -49,31 +49,25 @@ Timer0_mode:
     /* Set PreScaler Value */
     TIMERS_u8_TCCR0_REG |= Timer0_Prescaler_Value;
 }
+
 u8 Timers_u8Timer0SetCallBack(void (*copy_pf)(void))
 {
-    u8 Local_u8ErrorState = STD_TYPES_OK;
     if (copy_pf != NULL)
     {
         Timers_pfTimer0OVF = copy_pf;
+        return STD_TYPES_OK;
     }
-    else
-    {
-        Local_u8ErrorState = STD_TYPES_NOK;
-    }
-    return Local_u8ErrorState;
+    return STD_TYPES_NOK;
 }
+
 u8 Timers_u8Timer0CTCSetCallBack(void (*copy_pf)(void))
 {
-    u8 Local_u8ErrorState = STD_TYPES_OK;
     if (copy_pf != NULL)
     {
         Timers_pfTimer0CTC = copy_pf;
+        return STD_TYPES_OK;
     }
-    else
-    {
-        Local_u8ErrorState = STD_TYPES_NOK;
-    }
-    return Local_u8ErrorState;
+    return STD_TYPES_NOK;
 }
 /* Prototype for ISR of Timer0 OVF*/
 void __vector_11(void) __attribute__((signal));
@@ -98,20 +92,23 @@ void __vector_11(void)
 void __vector_10(void) __attribute__((signal));
 void __vector_10(void)
 {
-    // static Local_u16_counterCTC = 0;
-    // Local_u16_counterCTC++;
-    // if (Local_u16_counterCTC == 10000)
-    // {
-    //     /* Clear Counter */
-    //     Local_u16_counterCTC = 0;
-    //     /* Call Back Function */
-    //     if (Timers_pfTimer0CTC != NULL)
-    //     {
-    //         Timers_pfTimer0CTC();
-    //     }
-    // }
+#if Compare_Match_Value != 0
+    static Local_u16_counterCTC = 0;
+    Local_u16_counterCTC++;
+    if (Local_u16_counterCTC == 10000)
+    {
+        /* Clear Counter */
+        Local_u16_counterCTC = 0;
+        /* Call Back Function */
+        if (Timers_pfTimer0CTC != NULL)
+        {
+            Timers_pfTimer0CTC();
+        }
+    }
+#else
     if (Timers_pfTimer0CTC != NULL)
     {
         Timers_pfTimer0CTC();
     }
+#endif
 }

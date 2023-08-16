@@ -3,7 +3,8 @@
     "lcd_interface.h": "c",
     "dio_config.h": "c",
     "adc_interface.h": "c",
-    "bit_math.h": "c"
+    "bit_math.h": "c",
+    "dio_interface.h": "c"
   },
   "C_Cpp.errorSquiggles": "disabled"
 }

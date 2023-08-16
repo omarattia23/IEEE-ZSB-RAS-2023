@@ -14,7 +14,7 @@ Timer_mode:
     4- FAST_PWM_mode
 */
 #define Timer0_mode                 CTC_mode 
-#define Timer0_Prescaler_Value      External_clock_on_FallingEdge
+#define Timer0_Prescaler_Value      External_clock_on_RisingEdge
 #define Preload_Value               192
 #define Compare_Match_Value         0
 #endif

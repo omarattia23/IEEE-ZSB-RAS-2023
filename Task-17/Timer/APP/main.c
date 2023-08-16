@@ -25,7 +25,9 @@ int main()
     LCD_voidSendString("Counter: ");
     /* Supper Loop */
     while (1)
-        ;
+    {
+        // other stuff
+    }
     return 0;
 }
 void App_voidToggleLED(void)
@@ -34,20 +36,4 @@ void App_voidToggleLED(void)
     counter++;
     LCD_u8GoToXY(LCD_u8_LINE1, 9);
     LCD_void_SendNum(counter);
-    LCD_u8GoToXY(2,0);
-    LCD_voidSendString("test");
-
-    // static u8 flag = 0;
-    // if (flag == 0)
-    // {
-    //     DIO_voidSetPinDirection(DIO_u8_PORTA, DIO_u8_PIN0, DIO_u8_OUTPUT);
-    //     DIO_voidSetPinValue(DIO_u8_PORTA, DIO_u8_PIN0, DIO_u8_HIGH);
-    //     flag = 1;
-    // }
-    // else
-    // {
-    //     DIO_voidSetPinDirection(DIO_u8_PORTA, DIO_u8_PIN0, DIO_u8_OUTPUT);
-    //     DIO_voidSetPinValue(DIO_u8_PORTA, DIO_u8_PIN0, DIO_u8_LOW);
-    //     flag = 0;
-    // }
 }
