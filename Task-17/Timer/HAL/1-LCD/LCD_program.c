@@ -253,3 +253,12 @@ void LCD_voidClearSecondLine()
 	}
 	LCD_u8GoToXY(LCD_u8_LINE2, 3); // Move cursor to the start of the second line
 }
+void LCD_void_SendNum(u32 Copy_u32_Num) {
+    char str[16];
+
+    // Convert the number to a string
+    itoa(Copy_u32_Num, str, 10);
+
+    // Display the number on the LCD
+    LCD_String_Position(LCD_u8_LINE2, 0, str);
+}

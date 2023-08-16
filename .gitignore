@@ -3,4 +3,4 @@
 *.exe
 /meeting/
 *.workspace
-/Project Backups/
+**/Project Backups/
