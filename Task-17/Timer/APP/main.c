@@ -22,7 +22,6 @@ int main()
     Timers_u8Timer0CTCSetCallBack(&App_voidToggleLED);
     /* Start Timer */
     Timers_voidTimer0Init();
-    //    LCD_void_SendNum(1);
     LCD_voidSendString("Counter: ");
 
     /* Supper Loop */
@@ -38,5 +37,5 @@ void App_voidToggleLED(void)
     counter++;
     LCD_u8GoToXY(LCD_u8_LINE1, 9);
     LCD_void_SendNum(counter);
-    // LCD_voidSendString("test");
+    
 }
