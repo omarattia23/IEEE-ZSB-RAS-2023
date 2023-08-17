@@ -182,49 +182,48 @@ void LCD_voidSendString(const char *str)
 }
 void LCD_String_Position(char line, char pos, char *str)
 {
-    // Ensure the line and position values are within valid ranges
-    if (line >= 0 && line <= 1 && pos >= 0 && pos <= 15)
-    {
-        // Calculate the starting DDRAM address for the specified line and position
-        u8 line_offset = (line == 0) ? 0x00 : 0x40;
-        u8 ddr_addr = (pos & 0x0F) | line_offset | 0x80;
+	// Ensure the line and position values are within valid ranges
+	if (line >= 0 && line <= 1 && pos >= 0 && pos <= 15)
+	{
+		// Calculate the starting DDRAM address for the specified line and position
+		u8 line_offset = (line == 0) ? 0x00 : 0x40;
+		u8 ddr_addr = (pos & 0x0F) | line_offset | 0x80;
 
-        // Set the DDRAM address to move the cursor to the desired position
-        LCD_voidSendCmnd(ddr_addr);
+		// Set the DDRAM address to move the cursor to the desired position
+		LCD_voidSendCmnd(ddr_addr);
 
-        // Internal counter to keep track of characters printed
-        u8 counter = 0;
-		
-        // Print the string until null terminator is encountered or the line is full
-        for (u8 i = 0; str[i] != '\0' && counter < 16; i++)
-        {
-            LCD_voidSendChar(str[i]);
-            counter++; // Increment the internal counter for each character printed
-        }
+		// Internal counter to keep track of characters printed
+		u8 counter = 0;
 
-        // If the string is shorter than 16 characters, pad the remaining characters with spaces
-        while (counter < 16)
-        {
-            LCD_voidSendChar(' ');
-            counter++;
-        }
+		// Print the string until null terminator is encountered or the line is full
+		for (u8 i = 0; str[i] != '\0' && counter < 16; i++)
+		{
+			LCD_voidSendChar(str[i]);
+			counter++; // Increment the internal counter for each character printed
+		}
 
-        // Move to the second line if there are remaining characters to be displayed
-        if (line == 0 && str[counter] != '\0')
-        {
-            LCD_voidSendCmnd(0xC0); // Move the cursor to the beginning of the second line
-            counter = 0;
+		// If the string is shorter than 16 characters, pad the remaining characters with spaces
+		while (counter < 16)
+		{
+			LCD_voidSendChar(' ');
+			counter++;
+		}
 
-            // Print the rest of the string on the second line
-            for (u8 i = 16; str[i] != '\0' && counter < 16; i++)
-            {
-                LCD_voidSendChar(str[i]);
-                counter++; // Increment the internal counter for each character printed on the second line
-            }
-        }
-    }
+		// Move to the second line if there are remaining characters to be displayed
+		if (line == 0 && str[counter] != '\0')
+		{
+			LCD_voidSendCmnd(0xC0); // Move the cursor to the beginning of the second line
+			counter = 0;
+
+			// Print the rest of the string on the second line
+			for (u8 i = 16; str[i] != '\0' && counter < 16; i++)
+			{
+				LCD_voidSendChar(str[i]);
+				counter++; // Increment the internal counter for each character printed on the second line
+			}
+		}
+	}
 }
-
 
 void LCD_voidSendSpecialCharacters(u8 Copy_CharNum, u8 *Copy_u8P_Ptr, u8 Copy_u8LineNum, u8 Copy_u8Location, u8 Copy_u8SpecialCharStartBit)
 {
@@ -253,12 +252,38 @@ void LCD_voidClearSecondLine()
 	}
 	LCD_u8GoToXY(LCD_u8_LINE2, 3); // Move cursor to the start of the second line
 }
-void LCD_void_SendNum(u32 Copy_u32_Num) {
-    char str[16];
+void LCD_void_SendNum(u32 Copy_u32_Num)
+{
+	u8 str[16];
+	u8 str_idx = 0;
 
-    // Convert the number to a string
-    itoa(Copy_u32_Num, str, 10);
+	// Handle the special case of 0 separately
+	if (Copy_u32_Num == 0)
+	{
+		str[str_idx++] = '0';
+	}
+	else
+	{
+		// Convert the number to string in reverse order
+		while (Copy_u32_Num > 0)
+		{
+			u8 digit = Copy_u32_Num % 10;
+			str[str_idx++] = digit + '0'; // Convert digit to ASCII character
+			Copy_u32_Num /= 10;
+		}
+	}
 
-    // Display the number on the LCD
-    LCD_String_Position(LCD_u8_LINE2, 0, str);
+	// Add null terminator to the string
+	str[str_idx] = '\0';
+
+	// Reverse the string to get the correct order
+	for (u8 i = 0, j = str_idx - 1; i < j; i++, j--)
+	{
+		u8 temp = str[i];
+		str[i] = str[j];
+		str[j] = temp;
+	}
+
+	// Display the string on the LCD
+	LCD_voidSendString((const char *)str);
 }
